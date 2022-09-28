@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="assets/fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+        integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="assets/css/tiny-slider.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/glightbox.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+    <title>RuangSeni</title>
+</head>
+
+<body>
+
+    @include('components.navbar')
+
+    @yield('content')
+
+    <div class="site-footer">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="widget">
+                        <h3>Tentang RuangSeni<span class="text-primary">.</span> </h3>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                            there live the blind texts.</p>
+                    </div> <!-- /.widget -->
+                    <div class="widget">
+                        <h3>Connect</h3>
+                        <ul class="list-unstyled social">
+                            <li><a href="#"><span class="icon-instagram"></span></a></li>
+                            <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                            <li><a href="#"><span class="icon-github"></span></a></li>
+                            <li><a href="#"><span class="icon-dribbble"></span></a></li>
+                        </ul>
+                    </div> <!-- /.widget -->
+                </div> <!-- /.col-lg-3 -->
+
+                <div class="col-lg-2 ml-auto">
+                    <div class="widget">
+                        <h3>Links</h3>
+                        <ul class="list-unstyled float-left links">
+                            <li><a href="index.html">Beranda</a></li>
+                            <li><a href="karya.html">Karya</a></li>
+                            <li><a href="event.html">Event</a></li>
+                            <li><a href="leaderboard.html">Leaderboard</a></li>
+                        </ul>
+                    </div> <!-- /.widget -->
+                </div> <!-- /.col-lg-3 -->
+
+            </div> <!-- /.row -->
+
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="mb-0">Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash;
+                        Designed with love by <a href="https://untree.co">Untree.co</a>
+                        <!-- License information: https://untree.co/license/ --> Distributed By <a
+                            href="https:/themewagon.com" target="_blank">ThemeWagon</a>
+                    </p>
+                </div>
+            </div> <!-- /.container -->
+        </div> <!-- /.site-footer -->
+
+        <!-- Preloader -->
+        <div id="overlayer"></div>
+        <div class="loader">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/tiny-slider.js"></script>
+        <script src="assets/js/aos.js"></script>
+        <script src="assets/js/navbar.js"></script>
+        <script src="assets/js/counter.js"></script>
+        <script src="assets/js/rellax.js"></script>
+        <script src="assets/js/flatpickr.js"></script>
+        <script src="assets/js/glightbox.min.js"></script>
+        <script src="assets/js/custom.js"></script>
+</body>
+
+</html>
