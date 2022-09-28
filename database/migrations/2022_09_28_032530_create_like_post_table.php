@@ -15,8 +15,8 @@ class CreateLikePostTable extends Migration
     {
         Schema::create('like_post', function (Blueprint $table) {
             $table->id();
-            $table->integer('post_id');
-            $table->integer('user_id');
+            $table->foreignId('post_id')->nullable()->index('fk_like_post_to_post');
+            $table->foreignId('user_id')->nullable()->index('fk_like_post_to_user');
             $table->timestamps();
         });
     }

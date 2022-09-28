@@ -15,8 +15,8 @@ class CreateEventParticipantsTable extends Migration
     {
         Schema::create('event_participants', function (Blueprint $table) {
             $table->id();
-            $table->integer('event_id');
-            $table->integer('post_id');
+            $table->foreignId('event_id')->nullable()->index('fk_event_participant_to_event');
+            $table->foreignId('post_id')->nullable()->index('fk_event_participant_to_post');
             $table->timestamps();
         });
     }

@@ -15,8 +15,8 @@ class CreateVotePostTable extends Migration
     {
         Schema::create('vote_post', function (Blueprint $table) {
             $table->id();
-            $table->integer('post_id');
-            $table->integer('user_id');
+            $table->foreignId('post_id')->nullable()->index('fk_vote_post_to_post');
+            $table->foreignId('user_id')->nullable()->index('fk_vote_post_to_user');
             $table->timestamps();
         });
     }
