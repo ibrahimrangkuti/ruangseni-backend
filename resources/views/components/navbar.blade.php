@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-6 col-lg-3 text-lg-end">
                     <ul class="js-clone-nav d-none d-lg-inline-block text-end site-menu ">
-                        <li class="cta-button"><a href="login.html">Login</a></li>
+                        <li class="cta-button"><a href="{{ route('login.index') }}">Login</a></li>
                     </ul>
 
                     <a href="#"
