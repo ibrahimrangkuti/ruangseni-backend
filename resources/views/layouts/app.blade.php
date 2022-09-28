@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
 
-    <title>RuangSeni</title>
+    <title>RuangSeni - {{ $title }}</title>
 </head>
 
 <body>

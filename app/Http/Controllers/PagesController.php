@@ -8,21 +8,21 @@ class PagesController extends Controller
 {
     public function home()
     {
-        return view('pages.home');
+        return view('pages.home', ['title' => 'Home']);
     }
 
     public function karya()
     {
-        return view('pages.karya');
+        return view('pages.karya', ['title' => 'Karya']);
     }
 
     public function event()
     {
-        return view('pages.event');
+        return view('pages.event', ['title' => 'Event']);
     }
 
     public function leaderboard()
     {
-        return view('pages.leaderboard');
+        return view('pages.leaderboard', ['title' => 'Leaderboard']);
     }
 }

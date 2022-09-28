@@ -17,10 +17,10 @@
                 </div>
                 <div class="col-lg-6 d-none d-lg-inline-block text-center nav-center-wrap">
                     <ul class="js-clone-nav  text-center site-menu p-0 m-0">
-                        <li class="active"><a href="{{ route('home') }}">Beranda</a></li>
-                        <li><a href="{{ route('karya') }}">Karya</a></li>
-                        <li><a href="{{ route('event') }}">Event</a></li>
-                        <li><a href="{{ route('leaderboard') }}">Leaderboard</a></li>
+                        <li class="{{ $title === "Home" ? 'active' : '' }}"><a href="{{ route('home') }}">Beranda</a></li>
+                        <li class="{{ $title === "Karya" ? 'active' : '' }}"><a href="{{ route('karya') }}">Karya</a></li>
+                        <li class="{{ $title === "Event" ? 'active' : '' }}"><a href="{{ route('event') }}">Event</a></li>
+                        <li class="{{ $title === "Leaderboard" ? 'active' : '' }}"><a href="{{ route('leaderboard') }}">Leaderboard</a></li>
 
                     </ul>
                 </div>
