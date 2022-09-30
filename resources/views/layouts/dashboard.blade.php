@@ -14,14 +14,14 @@
 
 
   <!-- CSS Libraries -->
-  <link rel="stylesheet" href="{{ asset('node_modules/jqvmap/dist/jqvmap.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('node_modules/weathericons/css/weather-icons.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('node_modules/weathericons/css/weather-icons-wind.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('node_modules/summernote/dist/summernote-bs4.css') }}">
+  <link rel="stylesheet" href="{{ asset('dashboard/node_modules/jqvmap/dist/jqvmap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('dashboard/node_modules/weathericons/css/weather-icons.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('dashboard/node_modules/weathericons/css/weather-icons-wind.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('dashboard/node_modules/summernote/dist/summernote-bs4.css') }}">
 
   <!-- Template CSS -->
-  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+  <link rel="stylesheet" href="{{ asset('dashboard/assets/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('dashboard/assets/css/components.css') }}">
 </head>
 
 <body>
@@ -37,7 +37,7 @@
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown"
               class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-              <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
+              <img alt="image" src="{{ asset('dashboard/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
               <div class="d-sm-none d-lg-inline-block">Hi, Ibrahim Rangkuti</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
@@ -100,22 +100,22 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="{{ asset('assets/js/stisla.js') }}"></script>
+  <script src="{{ asset('dashboard/assets/js/stisla.js') }}"></script>
 
   <!-- JS Libraies -->
-  <script src="{{ asset('node_modules/simpleweather/jquery.simpleWeather.min.js') }}"></script>
-  <script src="{{ asset('node_modules/chart.js/dist/Chart.min.js') }}"></script>
-  <script src="{{ asset('node_modules/jqvmap/dist/jquery.vmap.min.js') }}"></script>
-  <script src="{{ asset('node_modules/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
-  <script src="{{ asset('node_modules/summernote/dist/summernote-bs4.js') }}"></script>
-  <script src="{{ asset('node_modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+  <script src="{{ asset('dashboard/node_modules/simpleweather/jquery.simpleWeather.min.js') }}"></script>
+  <script src="{{ asset('dashboard/node_modules/chart.js/dist/Chart.min.js') }}"></script>
+  <script src="{{ asset('dashboard/node_modules/jqvmap/dist/jquery.vmap.min.js') }}"></script>
+  <script src="{{ asset('dashboard/node_modules/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+  <script src="{{ asset('dashboard/node_modules/summernote/dist/summernote-bs4.js') }}"></script>
+  <script src="{{ asset('dashboard/node_modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
 
   <!-- Template JS File -->
-  <script src="{{ asset('assets/js/scripts.js') }}"></script>
-  <script src="{{ asset('assets/js/custom.js') }}"></script>
+  <script src="{{ asset('dashboard/assets/js/scripts.js') }}"></script>
+  <script src="{{ asset('dashboard/assets/js/custom.js') }}"></script>
 
   <!-- Page Specific JS File -->
-  <script src="{{ asset('assets/js/page/index-0.js') }}"></script>
+  <script src="{{ asset('dashboard/assets/js/page/index-0.js') }}"></script>
 </body>
 
 </html>
