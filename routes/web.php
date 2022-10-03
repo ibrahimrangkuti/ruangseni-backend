@@ -14,5 +14,34 @@ Route::get('event', [PagesController::class, 'event'])->name('event');
 Route::get('leaderboard', [PagesController::class, 'leaderboard'])->name('leaderboard');
 
 Route::prefix('user/')->name('user.')->group(function() {
-    // Route::get('dashboard', )
+    Route::get('dashboard', function() {
+        return view('user.post.index');
+    });
+
+    Route::get('tambah', function() {
+        return view('user.post.create');
+    });
+
+    Route::get('edit', function() {
+        return view('user.post.edit');
+    });
+
+});
+
+// Route::prefix('user/')->name('user.')->group(function() {
+//     Route::get('tambah', function() {
+//         return view('user.post.create');
+//     });
+// });
+
+// Route::prefix('user/')->name('user.')->group(function() {
+//     Route::get('edit', function() {
+//         return view('user.post.edit');
+//     });
+// });
+
+Route::prefix('admin/')->name('user.')->group(function() {
+    Route::get('dashboard', function() {
+        return view('admin.index');
+    });
 });

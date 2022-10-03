@@ -7,21 +7,22 @@
     <title>RuangSeni</title>
 
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="dashboard/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('dashboard/assets/css/bootstrap.min.css/') }}">
+    {{-- <link rel="stylesheet" href="dashboard/assets/css/bootstrap.min.css"> --}}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css') }}">
 
 
 
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="dashboard/node_modules/jqvmap/dist/jqvmap.min.css">
-    <link rel="stylesheet" href="dashboard/node_modules/weathericons/css/weather-icons.min.css">
-    <link rel="stylesheet" href="dashboard/node_modules/weathericons/css/weather-icons-wind.min.css">
-    <link rel="stylesheet" href="dashboard/node_modules/summernote/dist/summernote-bs4.css">
+    <link rel="stylesheet" href="{{ asset('dashboard/node_modules/jqvmap/dist/jqvmap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard/node_modules/weathericons/css/weather-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard/node_modules/weathericons/css/weather-icons-wind.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard/node_modules/summernote/dist/summernote-bs4.css') }}">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="dashboard/assets/css/style.css">
-    <link rel="stylesheet" href="dashboard/assets/css/components.css">
+    <link rel="stylesheet" href="{{ asset('dashboard/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard/assets/css/components.css') }}">
 </head>
 
 <body>
@@ -38,7 +39,7 @@
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="dashboard/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+                            <img alt="image" src="{{ asset('dashboard/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
                             <div class="d-sm-none d-lg-inline-block">Hi, Ibrahim Rangkuti</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -56,17 +57,16 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html">RuangSeni</a>
+                        <a href="">RuangSeni</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
                         <a href="index.html">RS</a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
-                        <li><a class="nav-link" href="../index.html"><i class="fas fa-tachometer-alt"></i>
+                        <li><a class="nav-link" href=""><i class="fas fa-tachometer-alt"></i>
                                 <span>Dashboard</span></a>
-                        <li><a class="nav-link" href="index.html"><i class="fas fa-user"></i> <span>Data
-                                    User</span></a>
+                        <li><a class="nav-link" href=""><i class="fas fa-user"></i> <span>Tambah Postingan</span></a>
                         <li><a class="nav-link" href="../post/index.html"><i class="fas fa-th"></i> <span>Data
                                     Postingan</span></a>
                         <li><a class="nav-link" href="blank.html"><i class="fas fa-th"></i> <span>Data
@@ -107,22 +107,22 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="dashboard/assets/js/stisla.js"></script>
+    <script src="{{ asset('dashboard/assets/js/stisla.js') }}"></script>
 
     <!-- JS Libraies -->
-    <script src="dashboard/node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
-    <script src="dashboard/node_modules/chart.js/dist/Chart.min.js"></script>
-    <script src="dashboard/node_modules/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="dashboard/node_modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="dashboard/node_modules/summernote/dist/summernote-bs4.js"></script>
-    <script src="dashboard/node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+    <script src="{{ asset('dashboard/node_modules/simpleweather/jquery.simpleWeather.min.js') }}"></script>
+    <script src="{{ asset('dashboard/node_modules/chart.js/dist/Chart.min.js') }}"></script>
+    <script src="{{ asset('dashboard/node_modules/jqvmap/dist/jquery.vmap.min.js') }}"></script>
+    <script src="{{ asset('dashboard/node_modules/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+    <script src="{{ asset('dashboard/node_modules/summernote/dist/summernote-bs4.js') }}"></script>
+    <script src="{{ asset('dashboard/node_modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
 
     <!-- Template JS File -->
-    <script src="dashboard/assets/js/scripts.js"></script>
-    <script src="dashboard/assets/js/custom.js"></script>
+    <script src="{{ asset('dashboard/assets/js/scripts.js') }}"></script>
+    <script src="{{ asset('dashboard/assets/js/custom.js') }}"></script>
 
     <!-- Page Specific JS File -->
-    <script src="dashboard/assets/js/page/index-0.js"></script>
+    <script src="{{ asset('dashboard/assets/js/page/index-0.js') }}"></script>
 </body>
 
 </html>
