@@ -13,11 +13,11 @@ Route::get('karya', [PagesController::class, 'karya'])->name('karya');
 Route::get('event', [PagesController::class, 'event'])->name('event');
 Route::get('leaderboard', [PagesController::class, 'leaderboard'])->name('leaderboard');
 
-<<<<<<< HEAD
 Route::prefix('user/')->name('user.')->group(function() {
     Route::get('dashboard', function() {
         return view('user.post.index');
-
+    });
+    
     Route::get('tambah', function() {
         return view('user.post.create');
     });
@@ -45,8 +45,7 @@ Route::prefix('admin/')->name('user.')->group(function() {
         return view('admin.index');
     });
 });
-=======
+
 Route::prefix('user')->name('user.')->group(function() {
     Route::get('/', [UserPagesController::class, 'dashboard'])->name('dashboard');
 });
->>>>>>> 9880ecebd72aaaa79435748346e5c72bf446dbe6
