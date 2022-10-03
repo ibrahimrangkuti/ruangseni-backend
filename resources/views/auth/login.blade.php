@@ -13,11 +13,11 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="admin/node_modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="{{ asset('dashboard/node_modules/bootstrap-social/bootstrap-social.css') }}">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="admin/assets/css/style.css">
-    <link rel="stylesheet" href="admin/assets/css/components.css">
+    <link rel="stylesheet" href="{{ asset('dashboard/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard/assets/css/components.css') }}">
 </head>
 
 <body>
@@ -87,13 +87,13 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="admin/assets/js/stisla.js"></script>
+    <script src="{{ asset('dashboard/assets/js/stisla.js') }}"></script>
 
     <!-- JS Libraies -->
 
     <!-- Template JS File -->
-    <script src="admin/assets/js/scripts.js"></script>
-    <script src="admin/assets/js/custom.js"></script>
+    <script src="{{ asset('dashboard/assets/js/scripts.js') }}"></script>
+    <script src="{{ asset('dashboard/assets/js/custom.js') }}"></script>
 
     <!-- Page Specific JS File -->
 </body>
