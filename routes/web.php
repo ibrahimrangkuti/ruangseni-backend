@@ -12,7 +12,6 @@ Route::post('login', [LoginController::class, 'process'])->name('login.process')
 
 Route::get('logout', function() {
     Auth::logout();
-
     return redirect(route('login.index'));
 })->name('logout');
 

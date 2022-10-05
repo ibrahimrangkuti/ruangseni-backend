@@ -22,6 +22,8 @@ class LoginController extends Controller
             }
         } else if(Auth::attempt(['nis' => $request->email, 'password' => $request->password])) {
             return redirect(route('user.dashboard'));
+        } else {
+            return redirect(route('login.index'));
         }
     }
 }
