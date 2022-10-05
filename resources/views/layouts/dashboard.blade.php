@@ -6,7 +6,6 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>RuangSeni</title>
 
-<<<<<<< HEAD
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('dashboard/assets/css/bootstrap.min.css/') }}">
     {{-- <link rel="stylesheet" href="dashboard/assets/css/bootstrap.min.css"> --}}
@@ -77,7 +76,7 @@
                         </li>
                         </li>
                     </ul>
-=======
+
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('dashboard/assets/css/bootstrap.min.css') }}">
 
@@ -120,7 +119,7 @@
               <a href="#" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
->>>>>>> 9880ecebd72aaaa79435748346e5c72bf446dbe6
+
             </div>
           </li>
         </ul>
@@ -161,9 +160,8 @@
       </div>
     </footer>
   </div>
-  </div>
 
-<<<<<<< HEAD
+  </div>
     <!-- General JS Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -217,7 +215,6 @@
 
   <!-- Page Specific JS File -->
   <script src="{{ asset('dashboard/assets/js/page/index-0.js') }}"></script>
->>>>>>> 9880ecebd72aaaa79435748346e5c72bf446dbe6
 </body>
 
 </html>
