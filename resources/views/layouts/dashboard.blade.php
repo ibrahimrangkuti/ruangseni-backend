@@ -6,7 +6,6 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>RuangSeni</title>
 
-<<<<<<< HEAD
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('dashboard/assets/css/bootstrap.min.css/') }}">
     {{-- <link rel="stylesheet" href="dashboard/assets/css/bootstrap.min.css"> --}}
@@ -78,8 +77,6 @@
                         </li>
                     </ul>
 
-=======
->>>>>>> 68553694cb10c18a308acaa13f6d7737617a68b8
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('dashboard/assets/css/bootstrap.min.css') }}">
 
