@@ -21,13 +21,13 @@ Route::get('karya', [PagesController::class, 'karya'])->name('karya');
 Route::get('event', [PagesController::class, 'event'])->name('event');
 Route::get('leaderboard', [PagesController::class, 'leaderboard'])->name('leaderboard');
 
-Route::prefix('user')->name('user.')->group(function() {
+Route::prefix('user')->middleware('role:siswa')->name('user.')->group(function() {
     Route::get('/', [UserPagesController::class, 'dashboard'])->name('dashboard');
     Route::prefix('post')->name('post.')->group(function() {
         Route::get('/', [UserPostController::class])->name('index');
     });
 });
 
-Route::prefix('admin')->name('admin.')->group(function() {
+Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function() {
     Route::get('/', [AdminPagesController::class, 'dashboard'])->name('dashboard');
 });
