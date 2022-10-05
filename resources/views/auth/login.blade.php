@@ -38,7 +38,8 @@
                             </div>
 
                             <div class="card-body">
-                                <form method="POST" action="#" class="needs-validation" novalidate="">
+                                <form method="POST" action="{{ route('login.process') }}" class="needs-validation" novalidate="">
+                                    @csrf
                                     <div class="form-group">
                                         <label for="email">Email / NIS</label>
                                         <input id="email" type="text" class="form-control" name="email" tabindex="1"

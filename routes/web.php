@@ -8,6 +8,13 @@ use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 
 // Auth
 Route::get('login', [LoginController::class, 'index'])->name('login.index');
+Route::post('login', [LoginController::class, 'process'])->name('login.process');
+
+Route::get('logout', function() {
+    Auth::logout();
+
+    return redirect(route('login.index'));
+})->name('logout');
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('karya', [PagesController::class, 'karya'])->name('karya');
