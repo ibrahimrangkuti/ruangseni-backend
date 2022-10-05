@@ -6,6 +6,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>RuangSeni</title>
 
+<<<<<<< HEAD
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('dashboard/assets/css/bootstrap.min.css/') }}">
     {{-- <link rel="stylesheet" href="dashboard/assets/css/bootstrap.min.css"> --}}
@@ -77,6 +78,8 @@
                         </li>
                     </ul>
 
+=======
+>>>>>>> 68553694cb10c18a308acaa13f6d7737617a68b8
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('dashboard/assets/css/bootstrap.min.css') }}">
 
@@ -109,41 +112,25 @@
           <li class="dropdown"><a href="#" data-toggle="dropdown"
               class="nav-link dropdown-toggle nav-link-lg nav-link-user">
               <img alt="image" src="{{ asset('dashboard/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
-              <div class="d-sm-none d-lg-inline-block">Hi, Ibrahim Rangkuti</div>
+              <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::user()->name }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="features-profile.html" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profil
               </a>
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item has-icon text-danger">
+              <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 68553694cb10c18a308acaa13f6d7737617a68b8
             </div>
           </li>
         </ul>
       </nav>
-      <div class="main-sidebar sidebar-style-2">
-        <aside id="sidebar-wrapper">
-          <div class="sidebar-brand">
-            <a href="index.html">RuangSeni</a>
-          </div>
-          <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">RS</a>
-          </div>
-          <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
-            <li><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
-            <li><a class="nav-link" href="blank.html"><i class="fas fa-user"></i> <span>Data User</span></a>
-            <li><a class="nav-link" href="data-postingan.html"><i class="fas fa-th"></i> <span>Data Postingan</span></a>
-            <li><a class="nav-link" href="blank.html"><i class="fas fa-th"></i> <span>Data Kategori</span></a>
-            <li><a class="nav-link" href="blank.html"><i class="fas fa-calendar-alt"></i> <span>Data Event</span></a>
-            </li>
-            </li>
-          </ul>
-      </div>
-      </aside>
+      @include('components.sidebar')
     </div>
 
     <!-- Main Content -->
@@ -161,6 +148,7 @@
     </footer>
   </div>
 
+<<<<<<< HEAD
   </div>
     <!-- General JS Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -189,6 +177,8 @@
     <!-- Page Specific JS File -->
     <script src="{{ asset('dashboard/assets/js/page/index-0.js') }}"></script>
 =======
+=======
+>>>>>>> 68553694cb10c18a308acaa13f6d7737617a68b8
   <!-- General JS Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
