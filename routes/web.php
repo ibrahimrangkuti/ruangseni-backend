@@ -1,11 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\User\PagesController as UserPagesController;
 use App\Http\Controllers\User\PostController as UserPostController;
 use App\Http\Controllers\Admin\PagesController as AdminPagesController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
 
 // Auth
 Route::get('login', [LoginController::class, 'index'])->name('login.index');
@@ -30,4 +32,8 @@ Route::prefix('user')->middleware('role:siswa')->name('user.')->group(function()
 
 Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function() {
     Route::get('/', [AdminPagesController::class, 'dashboard'])->name('dashboard');
+    Route::prefix('post')->name('post.')->group(function() {
+        Route::get('/', [AdminPostController::class, 'index'])->name('index');
+    });
+
 });
