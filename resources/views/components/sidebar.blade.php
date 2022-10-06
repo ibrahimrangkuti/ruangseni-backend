@@ -8,7 +8,11 @@
       </div>
       <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
-        <li><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+        @if (Auth::user()->role == 'admin')
+            <li><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+        @else
+            <li><a class="nav-link" href="{{ route('user.dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+        @endif
         @if (Auth::user()->role == 'admin')
             <li><a class="nav-link" href=""><i class="fas fa-user"></i> <span>Data User</span></a>
             <li><a class="nav-link" href="{{ route('admin.post.index') }}"><i class="fas fa-th"></i> <span>Data Postingan</span></a>

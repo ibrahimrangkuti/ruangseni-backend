@@ -26,7 +26,15 @@
                 </div>
                 <div class="col-6 col-lg-3 text-lg-end">
                     <ul class="js-clone-nav d-none d-lg-inline-block text-end site-menu ">
+                        @if (Auth::check())
+                            @if (Auth::user()->role == 'siswa')
+                                <li class="cta-button"><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
+                            @else
+                                <li class="cta-button"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                            @endif
+                        @else
                         <li class="cta-button"><a href="{{ route('login.index') }}">Login</a></li>
+                        @endif
                     </ul>
 
                     <a href="#"
