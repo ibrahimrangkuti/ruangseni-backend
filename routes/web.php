@@ -8,6 +8,7 @@ use App\Http\Controllers\User\PagesController as UserPagesController;
 use App\Http\Controllers\User\PostController as UserPostController;
 use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 // Auth
 Route::get('login', [LoginController::class, 'index'])->name('login.index');
@@ -35,5 +36,7 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
     Route::prefix('post')->name('post.')->group(function() {
         Route::get('/', [AdminPostController::class, 'index'])->name('index');
     });
-
+    Route::prefix('user')->name('user.')->group(function() {
+        Route::get('/', [AdminUserController::class, 'index'])->name('index');
+    });
 });

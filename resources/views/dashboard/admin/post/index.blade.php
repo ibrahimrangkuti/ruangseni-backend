@@ -13,7 +13,7 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>NO.</th>
+                                    <th>No.</th>
                                     <th>Gambar</th>
                                     <th>Link</th>
                                     <th>Nama Pembuat</th>

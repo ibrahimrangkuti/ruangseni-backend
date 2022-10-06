@@ -14,7 +14,7 @@
             <li><a class="nav-link" href="{{ route('user.dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
         @endif
         @if (Auth::user()->role == 'admin')
-            <li><a class="nav-link" href=""><i class="fas fa-user"></i> <span>Data User</span></a>
+            <li><a class="nav-link" href="{{ route('admin.user.index') }}"><i class="fas fa-user"></i> <span>Data User</span></a>
             <li><a class="nav-link" href="{{ route('admin.post.index') }}"><i class="fas fa-th"></i> <span>Data Postingan</span></a>
             <li><a class="nav-link" href="blank.html"><i class="fas fa-th"></i> <span>Data Kategori</span></a>
             <li><a class="nav-link" href="blank.html"><i class="fas fa-calendar-alt"></i> <span>Data Event</span></a>
