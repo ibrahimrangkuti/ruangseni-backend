@@ -19,32 +19,26 @@
                                     <th>Email</th>
                                     <th>Nama</th>
                                     <th>Kelas</th>
+                                    <th>Role</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($users as $user)
+                                <?php $no = 1; ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>1234567</td>
-                                    <td>rangkutyibrahim765@gmail.com</td>
-                                    <td>Ibrahim Rangkuti</td>
-                                    <td>11 RPL 1</td>
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $user->nis }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->class }}</td>
+                                    <td>{{ $user->role }}</td>
                                     <td>
                                         <a href="" class="btn btn-warning btn-sm">Edit</a>
                                         <a href="" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>890101112</td>
-                                    <td>farilseptian@gmail.com</td>
-                                    <td>Faril Septian</td>
-                                    <td>11 RPL 1</td>
-                                    <td>
-                                        <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
