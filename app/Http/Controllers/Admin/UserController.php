@@ -13,4 +13,12 @@ class UserController extends Controller
         $users = User::all();
         return view('dashboard.admin.user.index', compact('users'));
     }
+
+    public function delete($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect(route('admin.user.index'));
+    }
 }

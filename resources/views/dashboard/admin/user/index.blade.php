@@ -35,7 +35,7 @@
                                     <td>{{ $user->role }}</td>
                                     <td>
                                         <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('admin.user.delete', $user->id) }}" onclick="return confirm('Yaking ingin menghapus?')" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach
