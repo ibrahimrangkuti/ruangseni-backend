@@ -5,7 +5,9 @@
     <div class="section-header">
         <h1>Data User</h1>
     </div>
-    <a href="" class="btn btn-success mb-3">Import Data</a>
+    {{-- <a href="{{ route('admin.user.import') }}" class="btn btn-primary mb-3">Import Data</a> --}}
+    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#importData">Import Data</button>
+
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -24,8 +26,8 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $no = 1; @endphp
                                 @foreach ($users as $user)
-                                <?php $no = 1; ?>
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $user->nis }}</td>
@@ -47,4 +49,29 @@
         </div>
     </div>
 </section>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="importData">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Import Data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{ route('admin.user.import') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="file" name="file" id="file" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer bg-whitesmoke br">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>
 @endsection

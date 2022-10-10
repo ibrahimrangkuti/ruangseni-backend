@@ -38,6 +38,7 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
     });
     Route::prefix('user')->name('user.')->group(function() {
         Route::get('/', [AdminUserController::class, 'index'])->name('index');
+        Route::post('import', [AdminUserController::class, 'import'])->name('import');
         Route::get('{id}/delete', [AdminUserController::class, 'delete'])->name('delete');
     });
 });
