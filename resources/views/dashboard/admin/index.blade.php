@@ -16,7 +16,7 @@
               <h4>Total User</h4>
             </div>
             <div class="card-body">
-              441
+              {{ $user->count() }}
             </div>
           </div>
         </div>
