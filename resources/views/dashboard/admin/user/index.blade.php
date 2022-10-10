@@ -6,7 +6,10 @@
         <h1>Data User</h1>
     </div>
     {{-- <a href="{{ route('admin.user.import') }}" class="btn btn-primary mb-3">Import Data</a> --}}
-    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#importData">Import Data</button>
+    <div class="mb-3">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#importData">Import Data</button>
+        <a href="{{ route('admin.user.export') }}" class="btn btn-success">Export Data</a>
+    </div>
 
     <div class="row">
         <div class="col-lg-12">
