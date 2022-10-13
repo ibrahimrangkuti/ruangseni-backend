@@ -6,6 +6,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\User\PagesController as UserPagesController;
 use App\Http\Controllers\User\PostController as UserPostController;
+use App\Http\Controllers\User\ProfileController as UserProfileController;
 use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -27,8 +28,10 @@ Route::get('leaderboard', [PagesController::class, 'leaderboard'])->name('leader
 Route::prefix('user')->middleware('role:siswa')->name('user.')->group(function() {
     Route::get('/', [UserPagesController::class, 'dashboard'])->name('dashboard');
     Route::prefix('post')->name('post.')->group(function() {
-        Route::get('/', [UserPostController::class])->name('index');
+        Route::get('/', [UserPostController::class], 'index')->name('index');
     });
+    Route::get('profile', [UserProfileController::class, 'index'])->name('profile');
+    Route::post('profile', [UserProfileController::class, 'update'])->name('profile.update');
 });
 
 Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function() {

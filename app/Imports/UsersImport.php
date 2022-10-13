@@ -3,25 +3,23 @@
 namespace App\Imports;
 
 use App\Models\User;
-use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\ToCollection;
 
-class UsersImport implements ToModel, WithHeadingRow
+class UsersImport implements ToCollection
 {
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
-    public function model(array $row)
+    public function collection(Collection $rows)
     {
-        return new User([
-            'nis' => $row['nis'],
-            'name' => $row['name'],
-            'email' => $row['email'],
-            'password' => bcrypt($row['password']),
-            'class' => $row['class'],
-            'role' => $row['role'],
-        ]);
+        foreach($rows as $row)
+        {
+                User::create([
+                'nis' => $row[0],
+                'name' => $row[1],
+                'email' => $row[2],
+                'password' => bcrypt($row[3]),
+                'class' => $row[4],
+                'role' => $row[5]
+            ]);
+        }
     }
 }
