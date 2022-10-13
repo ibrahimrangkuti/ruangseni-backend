@@ -29,6 +29,13 @@ class UserController extends Controller
         return Excel::download(new UsersExport, 'users.xlsx');
     }
 
+    public function edit($id)
+    {
+        $data = User::find($id);
+
+        return view('dashboard.admin.user.edit', compact('data'));
+    }
+
     public function delete($id)
     {
         $user = User::find($id);

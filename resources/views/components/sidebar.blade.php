@@ -19,7 +19,7 @@
             <li><a class="nav-link" href="blank.html"><i class="fas fa-th"></i> <span>Data Kategori</span></a>
             <li><a class="nav-link" href="blank.html"><i class="fas fa-calendar-alt"></i> <span>Data Event</span></a>
         @else
-            <li><a class="nav-link" href="blank.html"><i class="fas fa-calendar-alt"></i> <span>Data Postingan</span></a>
+            <li><a class="nav-link" href="{{ route('user.post.index') }}"><i class="fas fa-calendar-alt"></i> <span>Data Postingan</span></a>
         @endif
         </li>
         </li>

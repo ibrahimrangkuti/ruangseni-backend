@@ -28,7 +28,8 @@ Route::get('leaderboard', [PagesController::class, 'leaderboard'])->name('leader
 Route::prefix('user')->middleware('role:siswa')->name('user.')->group(function() {
     Route::get('/', [UserPagesController::class, 'dashboard'])->name('dashboard');
     Route::prefix('post')->name('post.')->group(function() {
-        Route::get('/', [UserPostController::class], 'index')->name('index');
+        Route::get('/', [UserPostController::class, 'index'])->name('index');
+        Route::get('create', [UserPostController::class, 'create'])->name('create');
     });
     Route::get('profile', [UserProfileController::class, 'index'])->name('profile');
     Route::post('profile', [UserProfileController::class, 'update'])->name('profile.update');
@@ -43,6 +44,7 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
         Route::get('/', [AdminUserController::class, 'index'])->name('index');
         Route::post('import', [AdminUserController::class, 'import'])->name('import');
         Route::get('export', [AdminUserController::class, 'export'])->name('export');
+        Route::get('{id}/edit', [AdminUserController::class, 'edit'])->name('edit');
         Route::get('{id}/delete', [AdminUserController::class, 'delete'])->name('delete');
     });
 });

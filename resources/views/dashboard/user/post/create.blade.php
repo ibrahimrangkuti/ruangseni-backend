@@ -1,0 +1,32 @@
+@extends('layouts.dashboard')
+
+@section('content')
+<section class="section">
+    <div class="section-header">
+        <h1>Buat Postingan</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="">
+                        <div class="form-group mb-3">
+                            <label for="image" class="form-label">Gambar</label>
+                            <input type="file" name="image" id="image" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="title" class="form-label">Judul</label>
+                            <input type="text" name="title" id="title" class="form-control">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="body" class="form-label">Konten</label>
+                            <textarea name="body" id="body" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@endsection

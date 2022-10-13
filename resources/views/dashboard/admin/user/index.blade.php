@@ -39,7 +39,7 @@
                                     <td>{{ $user->class }}</td>
                                     <td>{{ $user->role === 'siswa' ? 'Siswa' : 'Admin' }}</td>
                                     <td>
-                                        <a href="" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                         <a href="{{ route('admin.user.delete', $user->id) }}" onclick="return confirm('Yaking ingin menghapus?')" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
