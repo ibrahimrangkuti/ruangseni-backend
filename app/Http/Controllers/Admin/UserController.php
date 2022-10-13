@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::where('role', 'Siswa')->get();
         return view('dashboard.admin.user.index', compact('users'));
     }
 
