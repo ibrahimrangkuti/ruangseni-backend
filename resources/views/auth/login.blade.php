@@ -38,12 +38,7 @@
                             </div>
 
                             <div class="card-body">
-                                @if (session('error'))
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                @endif
+                                @include('components.alert')
                                 <form method="POST" action="{{ route('login.process') }}" class="needs-validation" novalidate="">
                                     @csrf
                                     <div class="form-group">
