@@ -30,5 +30,35 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin'),
             'role' => 'admin'
         ]);
+
+        \App\Models\Category::create([
+            'slug' => 'puisi',
+            'name' => 'Puisi',
+            'description' => 'Kategori Puisi'
+        ]);
+
+        \App\Models\Category::create([
+            'slug' => 'video-animasi',
+            'name' => 'Video Animasi',
+            'description' => 'Kategori Video Animasi'
+        ]);
+
+        \App\Models\Category::create([
+            'slug' => 'seni-lukis',
+            'name' => 'Seni Lukis',
+            'description' => 'Kategori Seni Lukis'
+        ]);
+
+        \App\Models\Category::create([
+            'slug' => 'cerpen',
+            'name' => 'Cerpen',
+            'description' => 'Kategori Cerpen'
+        ]);
+
+        \App\Models\Category::create([
+            'slug' => 'Pantun',
+            'name' => 'Pantun',
+            'description' => 'Kategori Pantun'
+        ]);
     }
 }

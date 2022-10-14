@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('class')->nullable();
             $table->enum('role', ['siswa', 'admin'])->default('siswa');
+            $table->boolean('logged_in')->default(false)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

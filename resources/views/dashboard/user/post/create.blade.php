@@ -23,6 +23,14 @@
                             <label for="body" class="form-label">Konten</label>
                             <textarea name="body" id="body" cols="30" rows="10" class="form-control"></textarea>
                         </div>
+                        <div class="form-group mb-3">
+                            <label for="category" class="form-label">Kategori</label>
+                            <select name="category" id="category" class="form-control">
+                                <option value="">Seni Lukis</option>
+                                <option value="">Puisi</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary float-right">Buat Postingan</button>
                     </form>
                 </div>
             </div>
