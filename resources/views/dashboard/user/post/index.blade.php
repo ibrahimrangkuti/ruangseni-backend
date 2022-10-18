@@ -8,6 +8,8 @@
 
     <a href="{{ route('user.post.create') }}" class="btn btn-primary mb-3">Buat Postingan</a>
 
+    @include('components.alert')
+
     <div class="row">
         <div class="col-lg-12">
             <div class="card">

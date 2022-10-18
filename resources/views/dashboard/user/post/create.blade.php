@@ -10,7 +10,8 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="">
+                    <form action="{{ route('user.post.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group mb-3">
                             <label for="image" class="form-label">Gambar</label>
                             <input type="file" name="image" id="image" class="form-control">
@@ -26,8 +27,9 @@
                         <div class="form-group mb-3">
                             <label for="category" class="form-label">Kategori</label>
                             <select name="category" id="category" class="form-control">
-                                <option value="">Seni Lukis</option>
-                                <option value="">Puisi</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary float-right">Buat Postingan</button>

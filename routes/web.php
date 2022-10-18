@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
@@ -16,6 +17,9 @@ Route::get('login', [LoginController::class, 'index'])->name('login.index');
 Route::post('login', [LoginController::class, 'process'])->name('login.process');
 
 Route::get('logout', function() {
+    $user = User::find(Auth::user()->id);
+    $user->logged_in = false;
+    $user->update();
     Auth::logout();
     return redirect(route('login.index'));
 })->name('logout');
@@ -30,6 +34,7 @@ Route::prefix('user')->middleware('role:siswa')->name('user.')->group(function()
     Route::prefix('post')->name('post.')->group(function() {
         Route::get('/', [UserPostController::class, 'index'])->name('index');
         Route::get('create', [UserPostController::class, 'create'])->name('create');
+        Route::post('create', [UserPostController::class, 'store'])->name('store');
     });
     Route::get('profile', [UserProfileController::class, 'index'])->name('profile');
     Route::post('profile', [UserProfileController::class, 'update'])->name('profile.update');

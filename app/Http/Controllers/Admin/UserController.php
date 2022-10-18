@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         Excel::import(new UsersImport, $request->file);
 
-        return redirect(route('admin.user.index'));
+        return redirect(route('admin.user.index'))->with('success', 'Berhasil import data user!');
     }
 
     public function export()

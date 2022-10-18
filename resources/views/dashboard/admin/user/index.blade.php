@@ -15,6 +15,9 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+
+                    @include('components.alert')
+
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
@@ -40,7 +43,7 @@
                                     <td>{{ $user->role === 'siswa' ? 'Siswa' : 'Admin' }}</td>
                                     <td>
                                         <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="{{ route('admin.user.delete', $user->id) }}" onclick="return confirm('Yaking ingin menghapus?')" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('admin.user.delete', $user->id) }}" onclick="return confirm('Yakin ingin menghapus?')" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach
