@@ -9,7 +9,8 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="">
+                <form action="{{ route('admin.user.update', $data['id']) }}" method="POST">
+                    @csrf
                     <div class="card-body">
                         <div class="row mb-4">
                             <div class="col-lg-3">

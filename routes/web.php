@@ -50,6 +50,7 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
         Route::post('import', [AdminUserController::class, 'import'])->name('import');
         Route::get('export', [AdminUserController::class, 'export'])->name('export');
         Route::get('{id}/edit', [AdminUserController::class, 'edit'])->name('edit');
+        Route::post('{id}/update', [AdminUserController::class, 'update'])->name('update');
         Route::get('{id}/delete', [AdminUserController::class, 'delete'])->name('delete');
     });
 });

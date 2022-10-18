@@ -36,6 +36,24 @@ class UserController extends Controller
         return view('dashboard.admin.user.edit', compact('data'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $request->validate([
+            'nis' => ['numeric'],
+            'name' => ['string'],
+            'email' => ['email'],
+        ]);
+
+        $user->nis = $request->nis;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->update();
+
+        return redirect(route('admin.user.index'))->with('success', 'Berhasil edit data user!');
+    }
+
     public function delete($id)
     {
         $user = User::find($id);
