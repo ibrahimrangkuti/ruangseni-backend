@@ -18,9 +18,28 @@
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th>No.</th>
+                                    <th>Gambar</th>
+                                    <th>Judul</th>
+                                    <th>Isi Konten</th>
+                                    <th>Kategori</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                @php $no = 1; @endphp
+                                @foreach ($posts as $post)
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td>
+                                        <img src="{{ asset($post->img_url) }}" alt="" class="img-thumbnail" width="130">
+                                    </td>
+                                    <td>{{ $post->title }}</td>
+                                    <td>{{ $post->body }}</td>
+                                    <td>{{ $post->category->name }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>

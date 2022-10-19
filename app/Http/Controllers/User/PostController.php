@@ -13,7 +13,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('dashboard.user.post.index');
+        $posts = Post::where('user_id', Auth::user()->id)->get();
+        return view('dashboard.user.post.index', compact('posts'));
     }
 
     public function create()
@@ -42,7 +43,6 @@ class PostController extends Controller
             'body' => $request->body,
             'img_url' => 'images/'. $imageName,
             'is_join_event' => false,
-            'status' => 0
         ];
 
         Post::create($data);
