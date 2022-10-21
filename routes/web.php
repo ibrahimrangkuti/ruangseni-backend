@@ -11,7 +11,7 @@ use App\Http\Controllers\User\ProfileController as UserProfileController;
 use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
-use App\Http\Controllers\Admin\CategoryController as AdminCategoryController; 
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 
 // Auth
 Route::get('login', [LoginController::class, 'index'])->name('login.index');
