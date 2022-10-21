@@ -11,6 +11,7 @@ use App\Http\Controllers\User\ProfileController as UserProfileController;
 use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController; 
 
 // Auth
 Route::get('login', [LoginController::class, 'index'])->name('login.index');
@@ -52,5 +53,8 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
         Route::get('{id}/edit', [AdminUserController::class, 'edit'])->name('edit');
         Route::post('{id}/update', [AdminUserController::class, 'update'])->name('update');
         Route::get('{id}/delete', [AdminUserController::class, 'delete'])->name('delete');
+    });
+    Route::prefix('category')->name('category.')->group(function() {
+        Route::get('/', [AdminCategoryController::class, 'index'])->name('index');
     });
 });
