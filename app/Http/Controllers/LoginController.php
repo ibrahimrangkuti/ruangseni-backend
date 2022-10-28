@@ -33,7 +33,7 @@ class LoginController extends Controller
             $user->update();
             return redirect(route('user.dashboard'));
         } else {
-            return redirect(route('login.index'))->with('error', 'Data akun tidak sesuai!');
+            return redirect(route('login.index'))->with('error', 'Email atau password salah!');
         }
     }
 }
