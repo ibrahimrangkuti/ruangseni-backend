@@ -10,12 +10,11 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover" height="400px">
+                        <table class="table table-striped table-bordered table-hover" height="200px">
                             <thead>
                                 <tr>
                                     <th>No.</th>
                                     <th>Gambar</th>
-                                    <th>Link</th>
                                     <th>Nama Pembuat</th>
                                     <th>Kategori</th>
                                     <th>Judul</th>
@@ -25,48 +24,29 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($posts as $post)
                                 <tr>
-                                    <td>1</td>
-                                    <td>gajah.jpg</td>
-                                    <td><a href="https::google.com">https::google.com</a></td>
-                                    <td>Ibrahim</td>
-                                    <td>Cerpen</td>
-                                    <td><a href="https::google.com">Impian Keabadian</a></td>
-                                    <td>Sudah disetujui</td>
-                                    <td>06-10-22</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td><img src="{{ asset($post->img_url) }}" alt="" class="img-thumbnail" width="130"></td>
+                                    <td>{{ $post->user->name }}</td>
+                                    <td>{{ $post->category->name }}</td>
+                                    <td>{{ $post->title }}</td>
                                     <td>
-                                        <a href="" class="btn btn-success btn-sm">Detail</a>
-                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                        @if($post->status == 0)
+                                        Belum Disetujui
+                                        @elseif($post->status == 1)
+                                        Sudah Disetujui
+                                        @else
+                                        Tidak Disetujui
+                                        @endif
+                                    </td>
+                                    <td>{{ $post->created_at }}</td>
+                                    <td>
+                                        <a href="" class="btn btn-warning btn-sm">Detail</a>
+                                        <a href="" class="btn btn-danger btn-sm">Hapusc</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>harimau.jpg</td>
-                                    <td><a href="https::google.com">https::google.com</a></td>
-                                    <td>Luqman</td>
-                                    <td>Seni Lukis</td>
-                                    <td><a href="https::google.com">Senja</a></td>
-                                    <td>Sudah disetujui</td>
-                                    <td>06-11-22</td>
-                                    <td>
-                                        <a href="" class="btn btn-success btn-sm">Detail</a>
-                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>kucing.jpg</td>
-                                    <td><a href="https::google.com">https::google.com</a></td>
-                                    <td>Akrom</td>
-                                    <td>Puisi</td>
-                                    <td><a href="https::google.com">Aku adalah aku</a></td>
-                                    <td>Belum disetujui</td>
-                                    <td>06-15-22</td>
-                                    <td>
-                                        <a href="" class="btn btn-success btn-sm">Detail</a>
-                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
