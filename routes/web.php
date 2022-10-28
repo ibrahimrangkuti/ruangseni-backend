@@ -39,6 +39,7 @@ Route::prefix('user')->middleware('role:siswa')->name('user.')->group(function()
     });
     Route::get('profile', [UserProfileController::class, 'index'])->name('profile');
     Route::post('profile', [UserProfileController::class, 'update'])->name('profile.update');
+    Route::post('profile/change-password', [UserProfileController::class, 'changePassword'])->name('profile.changePassword');
 });
 
 Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function() {

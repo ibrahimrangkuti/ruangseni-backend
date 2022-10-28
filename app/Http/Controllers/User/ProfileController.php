@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\User;
 use Auth;
+use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -23,5 +24,18 @@ class ProfileController extends Controller
         $user->update();
 
         return redirect(route('user.profile'))->with('success', 'Profil berhasil diubah!');
+    }
+
+    public function changePassword(Request $request)
+    {
+        if(Hash::check($request->old_password, Auth::user()->password)) {
+            $user = User::findOrFail(Auth::user()->id);
+            $user->password = bcrypt($request->new_password);
+            $user->update();
+
+            return redirect(route('user.profile'))->with('success', 'Password berhasil diubah!');
+        }
+
+        return redirect(route('user.profile'))->with('error', 'Password tidak sesuai!');
     }
 }
