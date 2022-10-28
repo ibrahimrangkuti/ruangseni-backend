@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\PagesController as AdminPagesController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Admin\EventController as AdminEventController;
+
 
 // Auth
 Route::get('login', [LoginController::class, 'index'])->name('login.index');
@@ -57,5 +59,8 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
     });
     Route::prefix('category')->name('category.')->group(function() {
         Route::get('/', [AdminCategoryController::class, 'index'])->name('index');
+    });
+    Route::prefix('event')->name('event.')->group(function() {
+        Route::get('/', [AdminEventController::class, 'index'])->name('index');
     });
 });
