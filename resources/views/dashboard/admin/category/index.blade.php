@@ -5,10 +5,12 @@
     <div class="section-header">
         <h1>Data Kategori</h1>
     </div>
+        <a href="{{ route('admin.category.create') }}" class="btn btn-primary mb-3">Tambah Kategori</a>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+                    @include('components.alert')
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover" height="400px">
                             <thead>

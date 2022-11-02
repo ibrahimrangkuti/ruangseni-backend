@@ -59,6 +59,8 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
     });
     Route::prefix('category')->name('category.')->group(function() {
         Route::get('/', [AdminCategoryController::class, 'index'])->name('index');
+        Route::get('create', [AdminCategoryController::class, 'create'])->name('create');
+        Route::post('create', [AdminCategoryController::class, 'store'])->name('store');
     });
     Route::prefix('event')->name('event.')->group(function() {
         Route::get('/', [AdminEventController::class, 'index'])->name('index');
