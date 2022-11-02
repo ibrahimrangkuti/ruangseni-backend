@@ -35,7 +35,30 @@ class CategoryController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect(route('admin.category.index'))->with('success', 'Kategori berhasil ditambahkan');
+        return redirect(route('admin.category.index'))->with('success', 'Kategori berhasil ditambah');
+    }
+
+    public function edit($id)
+    {
+        $data = Category::findOrFail($id)->first();
+
+        return view('dashboard.admin.category.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $categories = Category::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required'
+        ]);
+
+        $categories->name = $request->name;
+        $categories->description = $request->description;
+        $categories->update();
+
+        return redirect(route('admin.category.index'))->with('success', 'Kategori berhasil diedit');
     }
 
     public function delete($id)
@@ -43,6 +66,6 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect(route('admin.category.index'));
+        return redirect(route('admin.category.index'))->with('success', 'Kategori berhasil dihapus');
     }
 }
