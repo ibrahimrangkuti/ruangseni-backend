@@ -40,7 +40,7 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-        $data = Category::findOrFail($id)->first();
+        $data = Category::findOrFail($id);
 
         return view('dashboard.admin.category.edit', compact('data'));
     }
