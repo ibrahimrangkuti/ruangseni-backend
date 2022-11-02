@@ -59,7 +59,6 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
     });
     Route::prefix('category')->name('category.')->group(function() {
         Route::get('/', [AdminCategoryController::class, 'index'])->name('index');
-        Route::get('delete/{id}', [AdminCategoryController::class, 'delete'])->name('delete');
     });
     Route::prefix('event')->name('event.')->group(function() {
         Route::get('/', [AdminEventController::class, 'index'])->name('index');
