@@ -26,12 +26,24 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>1</td>
+                                    <td><img src="{{ asset('images/download.jpg') }}" alt="" class="img-fluid"></td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis velit et repellendus eaque? Qui tempore possimus expedita fuga sed. Id.</td>
+                                    <td>22-2-2022</td>
+                                    <td>26-2-2022</td>
+                                    <td>
+                                        <a href="" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><img src="{{ asset('images/download.jpg') }}" alt="" class="img-fluid"></td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis velit et repellendus eaque? Qui tempore possimus expedita fuga sed. Id.</td>
+                                    <td>22-2-2022</td>
+                                    <td>26-2-2022</td>
                                     <td>
                                         <a href="" class="btn btn-warning btn-sm">Edit</a>
                                         <a href="" class="btn btn-danger btn-sm">Hapus</a>
