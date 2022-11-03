@@ -46,7 +46,7 @@
               <h4>Total Kategori</h4>
             </div>
             <div class="card-body">
-              6
+              {{ $category->count() }}
             </div>
           </div>
         </div>
