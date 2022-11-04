@@ -25,30 +25,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($events as $event)
                                 <tr>
-                                    <td>1</td>
-                                    <td><img src="{{ asset('images/download.jpg') }}" alt="" class="img-fluid"></td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis velit et repellendus eaque? Qui tempore possimus expedita fuga sed. Id.</td>
-                                    <td>22-2-2022</td>
-                                    <td>26-2-2022</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td><img src="{{ url('/data_file/'.$event->thumbnail) }}" alt="" class="img-fluid"></td>
+                                    <td>{{ $event->title }}</td>
+                                    <td>{{ $event->description }}</td>
+                                    <td>{{ $event->start_date }}</td>
+                                    <td>{{ $event->end_date }}</td>
                                     <td>
                                         <a href="" class="btn btn-warning btn-sm">Edit</a>
                                         <a href="" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="{{ asset('images/download.jpg') }}" alt="" class="img-fluid"></td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis velit et repellendus eaque? Qui tempore possimus expedita fuga sed. Id.</td>
-                                    <td>22-2-2022</td>
-                                    <td>26-2-2022</td>
-                                    <td>
-                                        <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
