@@ -8,10 +8,10 @@ use App\Http\Controllers\Controller;
 
 class EventController extends Controller
 {
-    public function index() 
+    public function index()
     {
         $events = Event::all();
-        
+
         return view('dashboard.admin.event.index', compact('events'));
     }
 
@@ -22,7 +22,14 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'thumbnail' => 'required|file|image|mimes:jpeg,jpg,png',
+            'start_date' => 'required',
+            'end_date' => 'required'
+        ]);
+
     }
 
     public function edit($id)
