@@ -9,7 +9,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.event.create') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="title" class="form-label">Judul</label>
@@ -22,10 +22,10 @@
                                 <label for="formFile" class="form-label">Thumbnail</label>
                                 <input class="form-control p-2" type="file" id="formFile" name="thumbnail">
                             </div>
-                            <label for="title" class="form-label">Tanggal Mulai</label>
-                            <input type="date" class="form-control mb-3" id="title" aria-describedby="emailHelp" name="title">
-                            <label for="title" class="form-label">Tanggal Akhir</label>
-                            <input type="date" class="form-control mb-3" id="title" aria-describedby="emailHelp" name="title">
+                            <label for="start_date" class="form-label">Tanggal Mulai</label>
+                            <input type="date" class="form-control mb-3" id="start_date" aria-describedby="emailHelp" name="start_date">
+                            <label for="end_date" class="form-label">Tanggal Akhir</label>
+                            <input type="date" class="form-control mb-3" id="end_date" aria-describedby="emailHelp" name="end_date">
                             <button class="btn btn-success" type="submit">Tambah Event</button>
                         </div>
                     </form>
