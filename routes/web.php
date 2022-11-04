@@ -67,5 +67,6 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
     });
     Route::prefix('event')->name('event.')->group(function() {
         Route::get('/', [AdminEventController::class, 'index'])->name('index');
+        Route::get('create', [AdminEventController::class, 'create'])->name('create');
     });
 });

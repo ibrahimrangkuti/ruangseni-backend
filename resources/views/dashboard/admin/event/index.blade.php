@@ -5,7 +5,7 @@
     <div class="section-header">
         <h1>Data Event</h1>
     </div>
-    <a href="" class="btn btn-primary mb-3">Tambah Kategori</a>
+    <a href="{{ route('admin.event.create') }}" class="btn btn-primary mb-3">Tambah Event</a>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">

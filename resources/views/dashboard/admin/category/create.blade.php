@@ -3,13 +3,13 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h1>Data Kategori</h1>
+        <h1>Tambah Data Kategori</h1>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.category.create') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Nama</label>
