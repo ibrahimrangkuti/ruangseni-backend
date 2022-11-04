@@ -9,15 +9,25 @@
       <ul class="sidebar-menu">
         <li class="menu-header">Dashboard</li>
         @if (Auth::user()->role == 'admin')
-            <li><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+            <li class="{{ (request()->segment(2) == 'dashboard') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                  <i class="fas fa-tachometer-alt"></i> 
+                  <span>Dashboard</span>
+                </a>
+            </li>
         @else
-            <li><a class="nav-link" href="{{ route('user.dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+            <li class="{{ (request()->segment(2) == 'dashboard') ? 'active' : '' }}">
+              <a class="nav-link" href="{{ route('user.dashboard') }}">
+                <i class="fas fa-tachometer-alt"></i> 
+                <span>Dashboard</span>
+              </a>
+            </li>
         @endif
         @if (Auth::user()->role == 'admin')
-            <li><a class="nav-link" href="{{ route('admin.user.index') }}"><i class="fas fa-user"></i> <span>Data User</span></a>
-            <li><a class="nav-link" href="{{ route('admin.post.index') }}"><i class="fas fa-th"></i> <span>Data Postingan</span></a>
-            <li><a class="nav-link" href="{{ route('admin.category.index') }}"><i class="fas fa-th"></i> <span>Data Kategori</span></a>
-            <li><a class="nav-link" href="{{ route('admin.event.index') }}"><i class="fas fa-calendar-alt"></i> <span>Data Event</span></a>
+            <li class="{{ (request()->segment(2) == 'user') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.user.index') }}"><i class="fas fa-user"></i> <span>Data User</span></a>
+            <li class="{{ (request()->segment(2) == 'post') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.post.index') }}"><i class="fas fa-th"></i> <span>Data Postingan</span></a>
+            <li class="{{ (request()->segment(2) == 'category') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.category.index') }}"><i class="fas fa-th"></i> <span>Data Kategori</span></a>
+            <li class="{{ (request()->segment(2) == 'event') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.event.index') }}"><i class="fas fa-calendar-alt"></i> <span>Data Event</span></a>
         @else
             <li><a class="nav-link" href="{{ route('user.post.index') }}"><i class="fas fa-calendar-alt"></i> <span>Data Postingan</span></a>
         @endif
