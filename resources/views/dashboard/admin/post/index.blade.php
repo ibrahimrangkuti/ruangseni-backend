@@ -27,7 +27,7 @@
                                 @foreach ($posts as $post)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><img src="{{ asset($post->img_url) }}" alt="" class="img-thumbnail" width="130"></td>
+                                    <td><img src="{{ asset($post->img_url) }}" alt="" class="img-fluid rounded" width="130"></td>
                                     <td>{{ $post->user->name }}</td>
                                     <td>{{ $post->category->name }}</td>
                                     <td>{{ $post->title }}</td>
@@ -43,7 +43,7 @@
                                     <td>{{ $post->created_at }}</td>
                                     <td>
                                         <a href="" class="btn btn-warning btn-sm">Detail</a>
-                                        <a href="" class="btn btn-danger btn-sm">Hapusc</a>
+                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach

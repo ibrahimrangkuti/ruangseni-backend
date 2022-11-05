@@ -29,7 +29,7 @@
             <li class="{{ (request()->segment(2) == 'category') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.category.index') }}"><i class="fas fa-th"></i> <span>Data Kategori</span></a>
             <li class="{{ (request()->segment(2) == 'event') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.event.index') }}"><i class="fas fa-calendar-alt"></i> <span>Data Event</span></a>
         @else
-            <li><a class="nav-link" href="{{ route('user.post.index') }}"><i class="fas fa-calendar-alt"></i> <span>Data Postingan</span></a>
+            <li class="{{ (request()->segment(2) == 'post') ? 'active' : '' }}"><a class="nav-link" href="{{ route('user.post.index') }}"><i class="fas fa-calendar-alt"></i> <span>Data Postingan</span></a>
         @endif
         </li>
         </li>

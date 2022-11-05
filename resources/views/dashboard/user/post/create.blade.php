@@ -14,7 +14,7 @@
                         @csrf
                         <div class="form-group mb-3">
                             <label for="image" class="form-label">Gambar</label>
-                            <input type="file" name="image" id="image" class="form-control">
+                            <input type="file" name="image" id="image" class="form-control p-2">
                         </div>
                         <div class="form-group mb-3">
                             <label for="title" class="form-label">Judul</label>

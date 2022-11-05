@@ -6,6 +6,7 @@ use App\Models\Event;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class EventController extends Controller
 {
@@ -67,6 +68,12 @@ class EventController extends Controller
         ]);
 
         if($request->hasFile('thumbnail')) {
+            // untuk menghapus gambar lama
+                if($request->oldThumbnail) {
+                    File::delete(public_path("thumbnail/".$events->thumbnail));
+                }
+            // end
+            
             $request->validate([
                 'thumbnail' => 'required|file|image|mimes:jpeg,jpg,png',
             ]);

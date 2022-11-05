@@ -28,11 +28,7 @@
                                 @foreach ($events as $event)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-<<<<<<< HEAD
-                                    <td><img src="{{ url('/data_file/'.$event->thumbnail) }}" alt="" class="img-fluid" width="160px"></td>
-=======
-                                    <td><img src="{{ url('/thumbnail/'.$event->thumbnail) }}" alt="" class="img-fluid"></td>
->>>>>>> 3b1c2de75c1fccf907905574553d9dcf36162c71
+                                    <td><img src="{{ url('/thumbnail/'.$event->thumbnail) }}" alt="" class="img-fluid rounded"></td>
                                     <td>{{ $event->title }}</td>
                                     <td>{{ $event->description }}</td>
                                     <td>{{ $event->start_date }}</td>

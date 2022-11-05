@@ -31,6 +31,27 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin'
         ]);
 
+        \App\Models\User::create([
+            'name' => 'luqman',
+            'email' => 'luqman@gmail.com',
+            'password' => bcrypt('luqman'),
+            'role' => 'siswa'
+        ]);
+        
+        \App\Models\User::create([
+            'name' => 'Akrom',
+            'email' => 'akrom@gmail.com',
+            'password' => bcrypt('akrom'),
+            'role' => 'siswa'
+        ]);
+
+        \App\Models\User::create([
+            'name' => 'faril',
+            'email' => 'faril@gmail.com',
+            'password' => bcrypt('faril'),
+            'role' => 'siswa'
+        ]);
+
         \App\Models\Category::create([
             'slug' => 'puisi',
             'name' => 'Puisi',
