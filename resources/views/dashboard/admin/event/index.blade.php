@@ -35,7 +35,7 @@
                                     <td>{{ $event->end_date }}</td>
                                     <td>
                                         <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('admin.event.delete', $event->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach
