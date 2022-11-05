@@ -90,7 +90,8 @@ class EventController extends Controller
     public function delete($id)
     {
         $events = Event::findOrFail($id);
-        $events->delete();
+        unlink("thumbnail/".$events->thumbnail);
+        Event::where("id", $events->id)->delete();
 
         return redirect(route('admin.event.index'))->with('success', 'Event berhasil dihapus');
     }
