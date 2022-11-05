@@ -57,7 +57,34 @@ class EventController extends Controller
 
     public function update(Request $request, $id)
     {
+        $events = Event::findOrFail($id);
 
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date'
+        ]);
+
+        if($request->hasFile('thumbnail')) {
+            $request->validate([
+                'thumbnail' => 'required|file|image|mimes:jpeg,jpg,png',
+            ]);
+
+            $file = $request->file('thumbnail');
+            $nama_file = time()."_".$file->getClientOriginalName();
+            $tujuan_upload = 'thumbnail';
+            $file->move($tujuan_upload, $nama_file);
+            $events->thumbnail = $nama_file;
+        }
+
+        $events->title = $request->title;
+        $events->description = $request->description;
+        $events->start_date = $request->start_date;
+        $events->end_date = $request->end_date;
+        $events->save();
+
+        return redirect(route('admin.event.index'))->with('success', 'Event berhasil diedit');
     }
 
     public function delete($id)

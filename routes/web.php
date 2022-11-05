@@ -70,6 +70,7 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
         Route::get('create', [AdminEventController::class, 'create'])->name('create');
         Route::post('create', [AdminEventController::class, 'store'])->name('store');
         Route::get('{id}/edit', [AdminEventController::class, 'edit'])->name('edit');
+        Route::post('{id}/update', [AdminEventController::class, 'update'])->name('update');
         Route::get('{id}/delete', [AdminEventController::class, 'delete'])->name('delete');
     });
 });
