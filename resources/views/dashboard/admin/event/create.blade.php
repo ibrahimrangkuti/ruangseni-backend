@@ -27,7 +27,7 @@
                             <label for="end_date" class="form-label">Tanggal Akhir</label>
                             <input type="date" class="form-control mb-3" id="end_date" aria-describedby="emailHelp" name="end_date">
                             <div class="d-flex justify-content-end pt-3">
-                                <button class="btn btn-success " type="submit">Tambah Event</button>
+                                <button class="btn btn-success" type="submit">Tambah Event</button>
                             </div>
                         </div>
                     </form>
