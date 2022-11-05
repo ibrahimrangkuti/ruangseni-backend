@@ -33,7 +33,7 @@ class EventController extends Controller
 
         $file = $request->file('thumbnail');
         $nama_file = time()."_".$file->getClientOriginalName();
-        $tujuan_upload = 'data_file';
+        $tujuan_upload = 'thumbnail';
         $file->move($tujuan_upload, $nama_file);
 
         Event::create([
