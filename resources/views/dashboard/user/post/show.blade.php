@@ -15,8 +15,8 @@
                     <h3>{{ $post->title }}</h3>
                     <h6 class="mt-2">{{ $post->body }}</h3>
                     <p>{{ $post->created_at->diffForHumans() }}</p>
-                    <a href="{{ route('admin.post.approve', $post->id) }}" class="btn btn-success">Setuju</a>
-                    <a href="{{ route('admin.post.disapprove', $post->id) }}" class="btn btn-danger">Tidak setuju</a>
+                    <a href="{{ route('user.post.edit', $post->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('user.post.delete', $post->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                 </div>    
             </div>    
         </div>    
