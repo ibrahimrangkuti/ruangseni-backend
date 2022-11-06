@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
@@ -48,5 +49,66 @@ class PostController extends Controller
         Post::create($data);
 
         return redirect(route('user.post.index'))->with('success', 'Berhasil membuat postingan!');
+    }
+
+    public function show($id)
+    {
+
+    }
+
+    public function edit($id) 
+    {
+        $post = Post::findOrFail($id);
+        $categories = Category::all();
+
+        return view('dashboard.user.post.edit', compact('post', 'categories'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $post = Post::findOrFail($id);
+
+        $request->validate([
+            'title' => 'required|min:6',
+            'body' => 'required|min:8',
+            'category' => 'required'
+        ]);
+
+        if($request->hasFile('image')) {
+            // untuk menghapus gambar lama
+                if($request->oldImage) {
+                    File::delete(public_path($post->img_url));
+                }
+            // end
+            
+            $request->validate([
+                'image' => 'required|file|image|mimes:jpeg,jpg,png',
+            ]);
+
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $post->img_url = 'images/'.$imageName;
+        }
+
+        $data = [
+            'user_id' => Auth::user()->id,
+            'category_id' => $request->category,
+            'slug' => Str::slug($request->title),
+            'title' => $request->title,
+            'body' => $request->body,
+            'is_join_event' => false,
+        ];
+
+        $post->update($data);   
+
+        return redirect(route('user.post.index'))->with('success', 'Postingan berhasil diedit');
+    }
+
+    public function delete($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
+        
+        return redirect(route('user.post.index'))->with('success', 'Postingan berhasil dihapus');
     }
 }

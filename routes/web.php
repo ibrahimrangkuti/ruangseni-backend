@@ -38,6 +38,9 @@ Route::prefix('user')->middleware('role:siswa')->name('user.')->group(function()
         Route::get('/', [UserPostController::class, 'index'])->name('index');
         Route::get('create', [UserPostController::class, 'create'])->name('create');
         Route::post('create', [UserPostController::class, 'store'])->name('store');
+        Route::get('{id}/edit', [UserPostController::class, 'edit'])->name('edit');
+        Route::post('{id}/update', [UserPostController::class, 'update'])->name('update');
+        Route::get('{id}/delete', [UserPostController::class, 'delete'])->name('delete');
     });
     Route::get('profile', [UserProfileController::class, 'index'])->name('profile');
     Route::post('profile', [UserProfileController::class, 'update'])->name('profile.update');

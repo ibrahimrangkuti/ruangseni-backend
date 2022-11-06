@@ -32,15 +32,15 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>
-                                        <img src="{{ asset($post->img_url) }}" alt="" class="img-fluid rounded" width="130">
+                                        <img src="{{ asset($post->img_url) }}" alt="" class="img-fluid rounded" width="120">
                                     </td>
                                     <td>{{ $post->title }}</td>
                                     <td>{{ $post->body }}</td>
                                     <td>{{ $post->category->name }}</td>
                                     <td>
                                         <a href="" class="btn btn-primary btn-sm">Detail</a>
-                                        <a href="" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('user.post.edit', $post->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{ route('user.post.delete', $post->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach
