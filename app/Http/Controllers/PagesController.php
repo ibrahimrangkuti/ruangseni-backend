@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -13,7 +14,9 @@ class PagesController extends Controller
 
     public function karya()
     {
-        return view('pages.karya', ['title' => 'Karya']);
+        $posts = Post::all();
+
+        return view('pages.karya', ['title' => 'Karya'], compact('posts'));
     }
 
     public function event()

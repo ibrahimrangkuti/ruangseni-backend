@@ -32,7 +32,7 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>
-                                        <img src="{{ asset($post->img_url) }}" alt="" class="img-thumbnail" width="130">
+                                        <img src="{{ asset($post->img_url) }}" alt="" class="img-fluid rounded" width="130">
                                     </td>
                                     <td>{{ $post->title }}</td>
                                     <td>{{ $post->body }}</td>

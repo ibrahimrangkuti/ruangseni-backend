@@ -1,8 +1,4 @@
 @extends('layouts.dashboard')
-
-@section('content')
-@extends('layouts.dashboard')
-
 @section('content')
 <section class="section">
     <div class="section-header">
@@ -25,6 +21,4 @@
         </div>
       </div>
 </section>
-@endsection
-
 @endsection

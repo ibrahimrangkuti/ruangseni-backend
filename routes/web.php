@@ -48,6 +48,9 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
     Route::get('/dashboard', [AdminPagesController::class, 'dashboard'])->name('dashboard');
     Route::prefix('post')->name('post.')->group(function() {
         Route::get('/', [AdminPostController::class, 'index'])->name('index');
+        Route::get('{id}/show', [AdminPostController::class, 'show'])->name('show');
+        Route::get('{id}/approve', [AdminPostController::class, 'approve'])->name('approve');
+        Route::get('{id}/disapprove', [AdminPostController::class, 'disapprove'])->name('disapprove');
     });
     Route::prefix('user')->name('user.')->group(function() {
         Route::get('/', [AdminUserController::class, 'index'])->name('index');

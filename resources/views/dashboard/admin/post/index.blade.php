@@ -9,6 +9,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+                    @include('components.alert')
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover" height="200px">
                             <thead>
@@ -32,17 +33,25 @@
                                     <td>{{ $post->category->name }}</td>
                                     <td>{{ $post->title }}</td>
                                     <td>
-                                        @if($post->status == 0)
-                                        Belum Disetujui
+                                        <div class="@if($post->status == 0)
+                                            text-warning
                                         @elseif($post->status == 1)
-                                        Sudah Disetujui
+                                            text-success
                                         @else
-                                        Tidak Disetujui
-                                        @endif
+                                            text-danger
+                                        @endif">
+                                            @if($post->status == 0)
+                                            Belum Disetujui
+                                            @elseif($post->status == 1)
+                                            Sudah Disetujui
+                                            @else
+                                            Tidak Disetujui
+                                            @endif
+                                        </d>
                                     </td>
                                     <td>{{ $post->created_at }}</td>
                                     <td>
-                                        <a href="" class="btn btn-warning btn-sm">Detail</a>
+                                        <a href="{{ route('admin.post.show', $post->id) }}" class="btn btn-warning btn-sm">Detail</a>
                                         <a href="" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
