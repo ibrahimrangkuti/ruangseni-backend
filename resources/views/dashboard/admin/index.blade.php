@@ -61,7 +61,7 @@
               <h4>Total Event</h4>
             </div>
             <div class="card-body">
-              12
+              {{ $event->count() }}
             </div>
           </div>
         </div>
