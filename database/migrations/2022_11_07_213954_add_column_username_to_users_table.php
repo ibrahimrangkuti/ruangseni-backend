@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnAvatarToUsersTable extends Migration
+class AddColumnUsernameToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddColumnAvatarToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->after('id', function ($table) {
-                $table->string('avatar')->default('avatar-1.png')->nullable();
+            $table->after('avatar', function ($table) {
+                $table->string('username')->unique()->nullable();
             });
         });
     }
@@ -28,7 +28,7 @@ class AddColumnAvatarToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('avatar');
+            $table->dropColumn('username');
         });
     }
 }
