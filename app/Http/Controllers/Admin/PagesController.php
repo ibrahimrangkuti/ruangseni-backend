@@ -12,7 +12,7 @@ class PagesController extends Controller
 {
     public function dashboard()
     {
-        $user = User::all();
+        $user = User::where('role', 'Siswa')->get();
         $category = Category::all();
         $event = Event::all();
         return view('dashboard.admin.index', compact('user', 'category', 'event'));
