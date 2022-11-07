@@ -14,13 +14,20 @@
                 <div class="card-body">
                     <form action="{{ route('user.profile.update') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="id" value="{{ $data['id'] }}">
                         <div class="row mb-4">
                             <div class="col-lg-3">
                                 <label for="nis" class="form-label">NIS</label>
                             </div>
                             <div class="col-lg-9">
                                 <input type="text" name="nis" id="nis" class="form-control" value="{{ $data['nis'] }}" disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-lg-3">
+                                <label for="username"class="form-label">USERNAME</label>
+                            </div>
+                            <div class="col-lg-9">
+                                <input type="text" name="username" id="username" class="form-control" value="{{ $data['username'] }}">
                             </div>
                         </div>
                         <div class="row mb-4">

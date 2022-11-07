@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Auth;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +19,10 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-        $user = User::find($request->id);
+        $request->validate(['email', ['email', 'unique']]);
+
+        $user = User::find(Auth::user()->id);
+        $user->username = Str::lower($request->username);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->update();
