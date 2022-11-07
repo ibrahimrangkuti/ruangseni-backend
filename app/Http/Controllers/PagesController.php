@@ -20,6 +20,13 @@ class PagesController extends Controller
         return view('pages.karya', ['title' => 'Karya'], compact('posts'));
     }
 
+    public function detail_karya($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+
+        dd($post);
+    }
+
     public function event()
     {
         return view('pages.event', ['title' => 'Event']);
@@ -33,7 +40,7 @@ class PagesController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        
+
         return view('pages.show', ['title' => 'Karya'], compact('post'));
     }
 }

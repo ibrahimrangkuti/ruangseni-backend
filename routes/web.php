@@ -29,6 +29,7 @@ Route::get('logout', function() {
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('karya', [PagesController::class, 'karya'])->name('karya');
+Route::get('karya/{slug}', [PagesController::class, 'detail_karya'])->name('karya.detail');
 Route::get('event', [PagesController::class, 'event'])->name('event');
 Route::get('leaderboard', [PagesController::class, 'leaderboard'])->name('leaderboard');
 Route::get('{id}/show', [PagesController::class, 'show'])->name('show');
