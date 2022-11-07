@@ -14,6 +14,7 @@
                 <p class="mb-4" data-aos="fade-up">A small river named Duden flows by their place and supplies it
                     with the necessary regelialia. It is a paradisematic country, in which roasted parts of
                     sentences fly into your mouth.</p>
+
             </div>
         </div>
     </div>
@@ -28,7 +29,9 @@
             <div class="col-lg-3">
                 <div class="card">
                     <div class="card-body">
-                        <img src="{{ asset($post->img_url) }}" alt="Image" class="img-fluid">
+                        <a href="{{ route('karya.detail', $post->slug) }}">
+                            <img src="{{ asset($post->img_url) }}" alt="Image" class="img-fluid">
+                        </a>
                         <div class="media-entry">
                             <div>
                                 <a href="{{ route('karya.detail', $post->slug) }}">
