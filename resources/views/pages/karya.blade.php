@@ -30,12 +30,18 @@
         <div class="row align-items-stretch">
 
             @foreach($posts as $post)
-            <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="media-entry">
-                    <a href="{{ route('karya.detail', $post->slug) }}">
-                        <img src="{{ $post->img_url }}" alt="Image" class="img-fluid">
-                    </a>
-                    <div class="bg-white m-body">
+                    <div>
+                        <a href="{{ route('karya.detail', $post->slug) }}">
+                            <img src="{{ $post->img_url }}" alt="Image" class="img-fluid">
+                        </a>
+                        <div class="mt-3">
+                            <i class="far fa-heart" style="font-size: 18px"></i>
+                            1.234
+                        </div>
+                    </div>
+                    <div class="bg-white mt-3">
                         <span class="date">{{ $post->created_at->format('M, d-Y') }}</span>
                         <h3><a href="{{ route('karya.detail', $post->slug) }}">{{ $post->title }}</a></h3>
                         <p>{{ Str::limit($post->body, 100) }}</p>
