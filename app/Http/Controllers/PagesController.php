@@ -41,8 +41,9 @@ class PagesController extends Controller
     public function profile($username)
     {
         $user = User::where('username', $username)->first();
+        $posts = Post::where('user_id', $user->id)->get();
 
-        return view('pages.profile', ['title' => $user->name . ' | ' . 'Profile']);
+        return view('pages.profile', ['title' => $user->name . ' | ' . 'Profile'], compact('user', 'posts'));
     }
 
     public function show($id)

@@ -4,7 +4,7 @@
 <div class="hero overlay">
 
     <div class="img-bg rellax">
-        <img src="assets/images/hero_4.jpg" alt="Image" class="img-fluid">
+        <img src="{{ asset('assets/images/hero_4.jpg') }}" alt="Image" class="img-fluid">
     </div>
     <div class="container">
         <div class="row align-items-center justify-content-start">
