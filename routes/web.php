@@ -37,6 +37,7 @@ Route::get('profile/{username}', [PagesController::class, 'profile'])->name('pro
 // Route::get('{id}/like', [PagesController::class, 'like'])->name('like');
 
 Route::prefix('user')->middleware('role:siswa')->name('user.')->group(function() {
+    Route::get('/', [UserPagesController::class, 'dashboard'])->name('dashboard');
     Route::get('/dashboard', [UserPagesController::class, 'dashboard'])->name('dashboard');
     Route::prefix('post')->name('post.')->group(function() {
         Route::get('/', [UserPostController::class, 'index'])->name('index');
@@ -53,6 +54,7 @@ Route::prefix('user')->middleware('role:siswa')->name('user.')->group(function()
 });
 
 Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function() {
+    Route::get('/', [AdminPagesController::class, 'dashboard'])->name('dashboard');
     Route::get('/dashboard', [AdminPagesController::class, 'dashboard'])->name('dashboard');
     Route::prefix('post')->name('post.')->group(function() {
         Route::get('/', [AdminPostController::class, 'index'])->name('index');
