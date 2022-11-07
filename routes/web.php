@@ -29,11 +29,11 @@ Route::get('logout', function() {
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('karya', [PagesController::class, 'karya'])->name('karya');
-Route::get('karya/{slug}', [PagesController::class, 'detail_karya'])->name('karya.detail');
+Route::get('karya/{slug}', [PagesController::class, 'detail_karya'])->name('karya.detail'); // Menampilkan postingan berdasarkan slug
 Route::get('event', [PagesController::class, 'event'])->name('event');
 Route::get('leaderboard', [PagesController::class, 'leaderboard'])->name('leaderboard');
-Route::get('{id}/show', [PagesController::class, 'show'])->name('show');
-Route::get('{id}/like', [PagesController::class, 'like'])->name('like');
+// Route::get('{id}/show', [PagesController::class, 'show'])->name('show');
+// Route::get('{id}/like', [PagesController::class, 'like'])->name('like');
 
 Route::prefix('user')->middleware('role:siswa')->name('user.')->group(function() {
     Route::get('/dashboard', [UserPagesController::class, 'dashboard'])->name('dashboard');

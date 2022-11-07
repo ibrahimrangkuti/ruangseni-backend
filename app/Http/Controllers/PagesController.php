@@ -24,7 +24,7 @@ class PagesController extends Controller
     {
         $post = Post::where('slug', $slug)->first();
 
-        dd($post);
+        return view('pages.detail_karya', ['title' => $post->title], compact('post'));
     }
 
     public function event()
