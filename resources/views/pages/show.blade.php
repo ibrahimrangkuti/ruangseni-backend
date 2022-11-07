@@ -23,28 +23,19 @@
 
 <div class="section">
     <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <h1>Postingan oleh : {{ $post->user->name }}</h1>
-                <h3>Kelas : {{ $post->user->class }}</h3>
-                <img src="{{ asset($post->img_url) }}" alt="" class="img-fluid rounded mt-5">
-                <p class="mt-3">Kategori : {{ $post->category->name }}</p>
-                <h3>{{ $post->title }}</h3>
-                <h6 class="mt-2 mb-3">{{ $post->body }}</h3>
-                <a href="{{ route('like', $post->id) }}" class="btn btn-primary mb-3 "><i class="far fa-heart"></i> {{ $like->count() }}</a>
-                <p>{{ $post->created_at->diffForHumans() }}</p>
-                <a href="{{ route('karya') }}">Kembali</a>
-            </div>    
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="{{ asset($post->img_url) }}" alt="" width="100%">
+            </div>
+            <div class="col-lg-8 mt-5">
+                <h1 class="text-primary mb-3">{{ $post->title }}</h1>
+                <div class="mb-3">
+                    <a href="">{{ $post->user->name }}</a> | <span>{{ $post->user->class }}</span>
+                </div>
+                <p>{{ $post->body }}</p>
+                <hr class="mt-5">
+            </div>
         </div>
     </div>
 </div>
-<script>
-    function likePost(id, el) {
-        fetch('/like/' + id)
-            .then(response => response.json())
-            .then(data => {
-                el.innerText = (data.status == 'LIKE') ? 'unlike' : 'like'
-            });
-    }
-</script>
 @endsection
