@@ -30,11 +30,21 @@
                 <img src="{{ asset($post->img_url) }}" alt="" class="img-fluid rounded mt-5">
                 <p class="mt-3">Kategori : {{ $post->category->name }}</p>
                 <h3>{{ $post->title }}</h3>
-                <h6 class="mt-2">{{ $post->body }}</h3>
+                <h6 class="mt-2 mb-3">{{ $post->body }}</h3>
+                <a href="{{ route('like', $post->id) }}" class="btn btn-primary mb-3 "><i class="far fa-heart"></i> {{ $like->count() }}</a>
                 <p>{{ $post->created_at->diffForHumans() }}</p>
                 <a href="{{ route('karya') }}">Kembali</a>
             </div>    
         </div>
     </div>
 </div>
+<script>
+    function likePost(id, el) {
+        fetch('/like/' + id)
+            .then(response => response.json())
+            .then(data => {
+                el.innerText = (data.status == 'LIKE') ? 'unlike' : 'like'
+            });
+    }
+</script>
 @endsection

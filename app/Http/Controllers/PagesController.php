@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Like;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -32,7 +33,7 @@ class PagesController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-
+        
         return view('pages.show', ['title' => 'Karya'], compact('post'));
     }
 }
