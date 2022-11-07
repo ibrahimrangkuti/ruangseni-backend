@@ -21,9 +21,9 @@ class PostController extends Controller
         return view('dashboard.admin.post.show', compact('post'));
     }
 
-    public function approve($id)
+    public function approve($slug)
     {
-        Post::findOrFail($id)->update(['status' => '1']);
+        Post::where('slug', $slug)->update(['status' => '1']);
 
         return redirect(route('admin.post.index'))->with('success', 'Postingan disetujui');
     }

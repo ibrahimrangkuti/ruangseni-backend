@@ -15,11 +15,14 @@
                     <h3>{{ $post->title }}</h3>
                     <h6 class="mt-2">{{ $post->body }}</h3>
                     <p>{{ $post->created_at->diffForHumans() }}</p>
-                    <a href="{{ route('admin.post.approve', $post->id) }}" class="btn btn-success">Setuju</a>
-                    <a href="{{ route('admin.post.disapprove', $post->id) }}" class="btn btn-danger">Tidak setuju</a>
-                </div>    
-            </div>    
-        </div>    
-    </div>    
+
+                    @if($post->status != 1)
+                    <a href="{{ route('admin.post.approve', $post->slug) }}" class="btn btn-success">Setuju</a>
+                    <a href="{{ route('admin.post.disapprove', $post->slug) }}" class="btn btn-danger">Tidak setuju</a>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

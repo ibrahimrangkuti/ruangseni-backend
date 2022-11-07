@@ -59,8 +59,8 @@ Route::prefix('admin')->middleware('role:admin')->name('admin.')->group(function
     Route::prefix('post')->name('post.')->group(function() {
         Route::get('/', [AdminPostController::class, 'index'])->name('index');
         Route::get('{id}/show', [AdminPostController::class, 'show'])->name('show');
-        Route::get('{id}/approve', [AdminPostController::class, 'approve'])->name('approve');
-        Route::get('{id}/disapprove', [AdminPostController::class, 'disapprove'])->name('disapprove');
+        Route::get('{slug}/approve', [AdminPostController::class, 'approve'])->name('approve');
+        Route::get('{slug}/disapprove', [AdminPostController::class, 'disapprove'])->name('disapprove');
         Route::get('{id}/delete', [AdminPostController::class, 'delete'])->name('delete');
     });
     Route::prefix('user')->name('user.')->group(function() {
