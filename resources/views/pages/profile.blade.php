@@ -24,6 +24,7 @@
 
 <div class="section">
     <div class="container">
+        <h2 class="mb-5">{{ $totalPost }} Postingan</h1>
         <div class="row">
             @foreach ($posts as $post)
             <div class="col-lg-3">

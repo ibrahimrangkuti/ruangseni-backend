@@ -43,8 +43,9 @@ class PagesController extends Controller
     {
         $user = User::where('username', $username)->first();
         $posts = Post::where('user_id', $user->id)->orWhere('status', 1)->get();
+        $totalPost = Post::where('user_id', $user->id)->orWhere('status', 1)->count();
 
-        return view('pages.profile', ['title' => $user->name . ' | ' . 'Profile'], compact('user', 'posts'));
+        return view('pages.profile', ['title' => $user->name . ' | ' . 'Profile'], compact('user', 'posts', 'totalPost'));
     }
 
     public function category($slug)
