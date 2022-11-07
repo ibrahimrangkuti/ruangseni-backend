@@ -32,7 +32,7 @@
             @foreach($posts as $post)
             <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="media-entry">
-                    <a href="detail-karya.html">
+                    <a href="{{ route('karya.detail', $post->slug) }}">
                         <img src="{{ $post->img_url }}" alt="Image" class="img-fluid">
                     </a>
                     <div class="bg-white m-body">
