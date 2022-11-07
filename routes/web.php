@@ -33,6 +33,8 @@ Route::get('karya/{slug}', [PagesController::class, 'detail_karya'])->name('kary
 Route::get('event', [PagesController::class, 'event'])->name('event');
 Route::get('leaderboard', [PagesController::class, 'leaderboard'])->name('leaderboard');
 Route::get('profile/{username}', [PagesController::class, 'profile'])->name('profile');
+
+Route::get('category/{slug}', [PagesController::class, 'category'])->name('category');
 // Route::get('{id}/show', [PagesController::class, 'show'])->name('show');
 // Route::get('{id}/like', [PagesController::class, 'like'])->name('like');
 

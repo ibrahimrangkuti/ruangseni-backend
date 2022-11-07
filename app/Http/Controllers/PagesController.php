@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Like;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -44,6 +45,14 @@ class PagesController extends Controller
         $posts = Post::where('user_id', $user->id)->orWhere('status', 1)->get();
 
         return view('pages.profile', ['title' => $user->name . ' | ' . 'Profile'], compact('user', 'posts'));
+    }
+
+    public function category($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+        $posts = Post::where('category_id', $category->id)->get();;
+
+        return view('pages.category', ['title' => 'Kategori' . ' ' . $category->name], compact('category', 'posts'));
     }
 
     public function show($id)
