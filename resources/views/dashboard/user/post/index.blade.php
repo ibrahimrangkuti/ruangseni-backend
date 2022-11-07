@@ -32,13 +32,13 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>
-                                        <img src="{{ asset($post->img_url) }}" alt="" class="img-fluid rounded" width="120">
+                                        <img src="{{ asset($post->img_url) }}" alt="" class="img-fluid rounded" width="240">
                                     </td>
-                                    <td>{{ $post->title }}</td>
-                                    <td>{{ $post->body }}</td>
+                                    <td><a href="{{ route('karya.detail', $post->slug) }}">{{ $post->title }}</a></td>
+                                    <td><a href="{{ route('karya.detail', $post->slug) }}">{{ Str::limit($post->body, 100) }}</a></td>
                                     <td>{{ $post->category->name }}</td>
                                     <td>
-                                        <a href="{{ route('user.post.show', $post->id) }}" class="btn btn-primary btn-sm">Detail</a>
+                                        <a href="{{ route('karya.detail', $post->slug) }}" class="btn btn-primary btn-sm">Detail</a>
                                         <a href="{{ route('user.post.edit', $post->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                         <a href="{{ route('user.post.delete', $post->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
