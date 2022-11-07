@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Models\Like;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -35,6 +36,13 @@ class PagesController extends Controller
     public function leaderboard()
     {
         return view('pages.leaderboard', ['title' => 'Leaderboard']);
+    }
+
+    public function profile($username)
+    {
+        $user = User::where('username', $username)->first();
+
+        return view('pages.profile', ['title' => $user->name . ' | ' . 'Profile']);
     }
 
     public function show($id)
