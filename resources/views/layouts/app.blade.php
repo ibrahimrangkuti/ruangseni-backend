@@ -75,6 +75,19 @@
                     </div> <!-- /.widget -->
                 </div> <!-- /.col-lg-3 -->
 
+                <div class="col-lg-2 ml-auto">
+                    <div class="widget">
+                        <h3>Category</h3>
+                        <ul class="list-unstyled float-left links">
+                            <li><a href="{{ route('category', 'puisi') }}">Puisi</a></li>
+                            <li><a href="{{ route('category', 'video-animasi') }}">Video Animasi</a></li>
+                            <li><a href="{{ route('category', 'seni-lukis') }}">Seni Lukis</a></li>
+                            <li><a href="{{ route('category', 'cerpen') }}">Cerpen</a></li>
+                            <li><a href="{{ route('category', 'pantun') }}">Pantun</a></li>
+                        </ul>
+                    </div> <!-- /.widget -->
+                </div> <!-- /.col-lg-3 -->
+
             </div> <!-- /.row -->
 
             <div class="row mt-5">
