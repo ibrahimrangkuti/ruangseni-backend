@@ -34,4 +34,12 @@ class PostController extends Controller
 
         return redirect(route('admin.post.index'))->with('success', 'Postingan tidak disetujui');
     }
+
+    public function delete($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect(route('admin.post.index'))->with('success', 'Postingan berhasil dihapus');
+    }
 }

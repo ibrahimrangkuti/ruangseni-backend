@@ -171,8 +171,8 @@
                     <div class="bg-white m-body">
                         <span class="date">{{ $post->created_at->diffForHumans() }}</span>
                         <h3><a href="index.html">{{ $post->title }}</a></h3>
-                        <p>{{ $post->body }}</p>
-                        <a href="single.html" class="more d-flex align-items-center float-start">
+                        {{-- <p>{{ $post->body->limit($post->body, 200) }}</p> --}}
+                        <a href="{{ route('show', $post->id) }}" class="more d-flex align-items-center float-start">
                             <span class="label">Read More</span>
                             <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
                         </a>

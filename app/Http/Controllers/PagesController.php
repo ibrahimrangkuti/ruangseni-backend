@@ -28,4 +28,11 @@ class PagesController extends Controller
     {
         return view('pages.leaderboard', ['title' => 'Leaderboard']);
     }
+
+    public function show($id)
+    {
+        $post = Post::findOrFail($id);
+
+        return view('pages.show', ['title' => 'Karya'], compact('post'));
+    }
 }

@@ -32,10 +32,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @php $no = 1; @endphp
                                 @foreach ($users as $user)
                                 <tr>
-                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $user->nis }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->name }}</td>
@@ -43,7 +42,7 @@
                                     <td>{{ $user->role === 'siswa' ? 'Siswa' : 'Admin' }}</td>
                                     <td>
                                         <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="{{ route('admin.user.delete', $user->id) }}" onclick="return confirm('Yakin ingin menghapus?')" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('admin.user.delete', $user->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach

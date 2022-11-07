@@ -52,7 +52,7 @@
                                     <td>{{ $post->created_at }}</td>
                                     <td>
                                         <a href="{{ route('admin.post.show', $post->id) }}" class="btn btn-warning btn-sm">Detail</a>
-                                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('admin.post.delete', $post->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach

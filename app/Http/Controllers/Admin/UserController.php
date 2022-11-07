@@ -27,7 +27,7 @@ class UserController extends Controller
     public function export()
     {
 
-        return  Excel::download(new UsersExport, 'users.xlsx');
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 
     public function edit($id)
@@ -57,9 +57,9 @@ class UserController extends Controller
 
     public function delete($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect(route('admin.user.index'));
+        return redirect(route('admin.user.index'))->with('success', 'User berhasil dihapus');
     }
 }

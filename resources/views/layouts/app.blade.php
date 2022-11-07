@@ -18,18 +18,18 @@
         href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="assets/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/flaticon/font/flaticon.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
         integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="assets/css/tiny-slider.css">
-    <link rel="stylesheet" href="assets/css/aos.css">
-    <link rel="stylesheet" href="assets/css/flatpickr.min.css">
-    <link rel="stylesheet" href="assets/css/glightbox.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/tiny-slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/flatpickr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/glightbox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
 
     <title>RuangSeni - {{ $title }}</title>
@@ -97,15 +97,15 @@
         </div>
 
 
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/tiny-slider.js"></script>
-        <script src="assets/js/aos.js"></script>
-        <script src="assets/js/navbar.js"></script>
-        <script src="assets/js/counter.js"></script>
-        <script src="assets/js/rellax.js"></script>
-        <script src="assets/js/flatpickr.js"></script>
-        <script src="assets/js/glightbox.min.js"></script>
-        <script src="assets/js/custom.js"></script>
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/tiny-slider.js') }}"></script>
+        <script src="{{ asset('assets/js/aos.js') }}"></script>
+        <script src="{{ asset('assets/js/navbar.js') }}"></script>
+        <script src="{{ asset('assets/js/counter.js') }}"></script>
+        <script src="{{ asset('assets/js/rellax.js') }}"></script>
+        <script src="{{ asset('assets/js/flatpickr.js') }}"></script>
+        <script src="{{ asset('assets/js/glightbox.min.js') }}"></script>
+        <script src="{{ asset('assets/js/custom.js') }}"></script>
 </body>
 
 </html>

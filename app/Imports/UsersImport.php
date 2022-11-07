@@ -10,8 +10,7 @@ class UsersImport implements ToCollection
 {
     public function collection(Collection $rows)
     {
-        foreach($rows as $row)
-        {
+        foreach($rows as $row){
                 User::create([
                 'nis' => $row[0],
                 'name' => $row[1],
