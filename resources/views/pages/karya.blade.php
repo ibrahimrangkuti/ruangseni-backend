@@ -38,7 +38,7 @@
                         </a>
                         <div class="mt-3">
                             <i class="far fa-heart" style="font-size: 18px"></i>
-                            1.234
+                            <span>1.234</span>
                         </div>
                     </div>
                     <div class="bg-white mt-3">

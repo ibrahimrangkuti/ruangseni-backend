@@ -27,13 +27,17 @@
             <div class="col-lg-4">
                 <img src="{{ asset($post->img_url) }}" alt="" width="100%">
             </div>
-            <div class="col-lg-8 mt-5">
+            <div class="col-lg-8 mt-3">
                 <h1 class="text-primary mb-3">{{ $post->title }}</h1>
                 <div class="mb-3">
                     <a href="">{{ $post->user->name }}</a> | <span>{{ $post->user->class }}</span>
                 </div>
                 <p>{{ $post->body }}</p>
                 <hr class="mt-5">
+                <div class="mt-3">
+                    <i class="far fa-heart" style="font-size: 18px"></i>
+                    <span>1.234</span>
+                </div>
             </div>
         </div>
     </div>
