@@ -16,6 +16,7 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->longText('thumbnail');
+            $table->foreignId('category_id')->nullable()->index('fk_post_to_category');
             $table->string('slug');
             $table->string('title');
             $table->longText('description');
