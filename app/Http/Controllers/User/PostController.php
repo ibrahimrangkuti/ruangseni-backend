@@ -109,7 +109,8 @@ class PostController extends Controller
     public function delete($id)
     {
         $post = Post::findOrFail($id);
-        $post->delete();
+        unlink($post->img_url);
+        Post::where("id", $post->id)->delete();
         
         return redirect(route('user.post.index'))->with('success', 'Postingan berhasil dihapus');
     }
