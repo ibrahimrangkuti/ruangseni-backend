@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Post;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Category;
@@ -15,6 +16,7 @@ class PagesController extends Controller
         $user = User::where('role', 'Siswa')->get();
         $category = Category::all();
         $event = Event::all();
-        return view('dashboard.admin.index', compact('user', 'category', 'event'));
+        $post = Post::all();
+        return view('dashboard.admin.index', compact('user', 'category', 'event', 'post'));
     }
 }
