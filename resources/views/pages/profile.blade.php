@@ -24,6 +24,11 @@
 
 <div class="section">
     <div class="container">
+        @if (Auth::check())
+        @if (Auth::user()->username === $user->username)
+            <a href="" class="btn btn-primary mb-5">Buat Postingan</a>
+        @endif
+        @endif
         <h2 class="mb-5">{{ $totalPost }} Postingan</h1>
         <div class="row">
             @foreach ($posts as $post)
