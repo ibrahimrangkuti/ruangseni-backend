@@ -15,7 +15,7 @@
               <h4>Total Postingan</h4>
             </div>
             <div class="card-body">
-              42
+              {{ $post->count() }}
             </div>
           </div>
         </div>
