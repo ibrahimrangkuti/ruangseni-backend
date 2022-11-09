@@ -35,8 +35,13 @@
                 <p>{{ $post->body }}</p>
                 <hr class="mt-5">
                 <div class="mt-3">
-                    <i class="far fa-heart" style="font-size: 18px"></i>
-                    <span>1.234</span>
+                    <form action="{{ route('post.like', $post->id) }}" method="POST">
+                        @csrf
+                        <button type="submit" style="border: none; background: transparent">
+                            <i class="far fa-heart" style="font-size: 18px"></i>
+                            <span>{{ $totalLike }}</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -26,4 +26,9 @@ class Post extends Model
     {
         return $this->belongsTo(Event::class);
     }
+
+    public function like_post()
+    {
+        return $this0>hasMany(LikePost::class);
+    }
 }
