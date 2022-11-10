@@ -14,9 +14,6 @@
                 <h1 class="heading" data-aos="fade-up">Tunjukkan Kreatifitas mu Pada Dunia!</h1>
                 <p class="mb-5" data-aos="fade-up">Lorem Ipsum is simply dummy text of the printing and typesetting
                     industry.</p>
-
-                <p class="my-4" data-aos="fade-up" data-aos-delay="300"><a href="#" class="btn btn-primary">Gabung
-                        Sekarang</a></p>
             </div>
 
 
