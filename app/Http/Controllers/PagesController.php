@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Like;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\LikePost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
@@ -25,8 +26,9 @@ class PagesController extends Controller
     public function detail_karya($slug)
     {
         $post = Post::where('slug', $slug)->first();
+        $totalLike = LikePost::where('post_id', $post->id)->count();
 
-        return view('pages.detail_karya', ['title' => $post->title], compact('post'));
+        return view('pages.detail_karya', ['title' => $post->title], compact('post', 'totalLike'));
     }
 
     public function event()
@@ -61,5 +63,24 @@ class PagesController extends Controller
         $post = Post::findOrFail($id);
 
         return view('pages.show', ['title' => 'Karya'], compact('post'));
+    }
+
+    public function likePost($id)
+    {
+        $check = LikePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->count();
+
+        if(Auth::check()) {
+            if(!$check) {
+                LikePost::create([
+                    'post_id' => $id,
+                    'user_id' => Auth::user()->id
+                ]);
+                return back();
+            } else {
+                return back();
+            }
+        }
+
+        return back();
     }
 }

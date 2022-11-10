@@ -31,7 +31,7 @@
 
             @foreach($posts as $post)
             @if ($post->status == 1)
-                
+
             <div class="col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="media-entry">
                     <div>
@@ -40,7 +40,7 @@
                         </a>
                         <div class="mt-3">
                             <i class="far fa-heart" style="font-size: 18px"></i>
-                            <span>1.234</span>
+                            <span>{{ $post->like_post->count() }}</span>
                         </div>
                     </div>
                     <div class="bg-white mt-3">

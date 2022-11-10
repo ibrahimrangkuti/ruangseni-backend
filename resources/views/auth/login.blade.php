@@ -18,6 +18,15 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('dashboard/assets/css/components.css') }}">
+    <style>
+        body {
+            background: url({{ asset('assets/images/hero_4.jpg') }});
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -70,7 +79,7 @@
 
                             </div>
                         </div>
-                        <div class="simple-footer">
+                        <div class="simple-footer text-white">
                             Copyright &copy; Stisla 2018
                         </div>
                     </div>
