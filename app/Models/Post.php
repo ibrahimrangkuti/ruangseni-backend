@@ -29,6 +29,6 @@ class Post extends Model
 
     public function like_post()
     {
-        return $this0>hasMany(LikePost::class);
+        return $this->hasMany(LikePost::class);
     }
 }

@@ -40,7 +40,7 @@
                         </a>
                         <div class="mt-3">
                             <i class="far fa-heart" style="font-size: 18px"></i>
-                            <span>1.234</span>
+                            <span>{{ $post->like_post->count() }}</span>
                         </div>
                     </div>
                     <div class="bg-white mt-3">
