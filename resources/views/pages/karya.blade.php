@@ -33,7 +33,11 @@
             @if ($post->status == 1)
             @php
             $likePost = new \App\Models\LikePost;
-            $checkLike = $likePost->where(['post_id' => $post->id, 'user_id' => Auth::user()->id])->count();
+            if(Auth::check()) {
+                $checkLike = $likePost->where(['post_id' => $post->id, 'user_id' => Auth::user()->id])->count();
+            } else {
+                $checkLike = false;
+            }
             @endphp
 
             <div class="col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">

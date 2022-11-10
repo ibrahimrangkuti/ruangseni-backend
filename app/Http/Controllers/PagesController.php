@@ -72,9 +72,9 @@ class PagesController extends Controller
 
     public function likePost($id)
     {
-        $check = LikePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->first();
 
         if(Auth::check()) {
+            $check = LikePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->first();
             if(!$check) {
                 LikePost::create([
                     'post_id' => $id,
