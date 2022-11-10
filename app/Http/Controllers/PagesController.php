@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Event;
 use App\Models\Category;
 use App\Models\LikePost;
 use Illuminate\Http\Request;
@@ -38,7 +39,16 @@ class PagesController extends Controller
 
     public function event()
     {
-        return view('pages.event', ['title' => 'Event']);
+        $events = Event::all();
+
+        return view('pages.event', ['title' => 'Event'], compact('events'));
+    }
+
+    public function detail_event($slug)
+    {
+        $event = Event::where('slug', $slug)->first();
+
+        return view('pages.detail_event', ['title' => 'Detail Event | ' . $event->title ], compact('event'));
     }
 
     public function leaderboard()

@@ -31,6 +31,7 @@ Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('karya', [PagesController::class, 'karya'])->name('karya');
 Route::get('karya/{slug}', [PagesController::class, 'detail_karya'])->name('karya.detail'); // Menampilkan postingan berdasarkan slug
 Route::get('event', [PagesController::class, 'event'])->name('event');
+Route::get('event/{slug}', [PagesController::class, 'detail_event'])->name('event.detail');
 Route::get('leaderboard', [PagesController::class, 'leaderboard'])->name('leaderboard');
 
 Route::get('profile/{username}', [PagesController::class, 'profile'])->name('profile');
