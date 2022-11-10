@@ -70,6 +70,17 @@ class PagesController extends Controller
         return view('pages.show', ['title' => 'Karya'], compact('post'));
     }
 
+    public function create_post($username)
+    {
+        if(Auth::user()->username !== $username) {
+            return back();
+        }
+
+        $user = User::where('username', $username)->first();
+
+        return view('pages.create_post', ['title' => 'Create Post'], compact('user'));
+    }
+
     public function likePost($id)
     {
 
