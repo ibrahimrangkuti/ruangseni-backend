@@ -67,7 +67,7 @@ class PagesController extends Controller
 
     public function likePost($id)
     {
-        $check = LikePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->count();
+        $check = LikePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->first();
 
         if(Auth::check()) {
             if(!$check) {
@@ -77,6 +77,7 @@ class PagesController extends Controller
                 ]);
                 return back();
             } else {
+                $check->delete();
                 return back();
             }
         }
