@@ -39,8 +39,13 @@
                             <img src="{{ $post->img_url }}" alt="Image" class="img-fluid">
                         </a>
                         <div class="mt-3">
-                            <i class="far fa-heart" style="font-size: 18px"></i>
-                            <span>{{ $post->like_post->count() }}</span>
+                            <form action="{{ route('post.like', $post->id) }}" method="POST">
+                                @csrf
+                                <button style="border: none; background: transparent;">
+                                    <i class="far fa-heart" style="font-size: 18px"></i>
+                                    <span>{{ $post->like_post->count() }}</span>
+                                </button>
+                            </form>
                         </div>
                     </div>
                     <div class="bg-white mt-3">
