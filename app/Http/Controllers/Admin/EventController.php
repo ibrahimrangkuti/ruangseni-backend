@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Event;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,7 +20,8 @@ class EventController extends Controller
 
     public function create()
     {
-        return view('dashboard.admin.event.create');
+        $categories = Category::all();
+        return view('dashboard.admin.event.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -29,7 +31,8 @@ class EventController extends Controller
             'description' => 'required',
             'thumbnail' => 'required|file|image|mimes:jpeg,jpg,png',
             'start_date' => 'required|date',
-            'end_date' => 'required|date'
+            'end_date' => 'required|date',
+            'category' => 'required'
         ]);
 
         $file = $request->file('thumbnail');
@@ -43,7 +46,8 @@ class EventController extends Controller
             'description' => $request->description,
             'thumbnail' => $nama_file,
             'start_date' => $request->start_date,
-            'end_date' => $request->end_date
+            'end_date' => $request->end_date,
+            'category_id' => $request->category
         ]);
 
         return redirect(route('admin.event.index'))->with('success', 'Event berhasil ditambah');
