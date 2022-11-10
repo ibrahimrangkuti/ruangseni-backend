@@ -37,8 +37,8 @@
                 <div class="mt-3">
                     <form action="{{ route('post.like', $post->id) }}" method="POST">
                         @csrf
-                        <button type="submit" style="border: none; background: transparent">
-                            <i class="far fa-heart" style="font-size: 18px"></i>
+                        <button type="submit" class="{{ $checkLike ? 'text-primary' : 'text-black' }}" style="border: none; background: transparent">
+                            <i class="{{ $checkLike ? 'fas' : 'far' }} fa-heart" style="font-size: 18px"></i>
                             <span>{{ $totalLike }}</span>
                         </button>
                     </form>
