@@ -31,14 +31,6 @@
 
             @foreach($posts as $post)
             @if ($post->status == 1)
-            @php
-            $likePost = new \App\Models\LikePost;
-            if(Auth::check()) {
-                $checkLike = $likePost->where(['post_id' => $post->id, 'user_id' => Auth::user()->id])->count();
-            } else {
-                $checkLike = false;
-            }
-            @endphp
 
             <div class="col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="media-entry">
@@ -46,15 +38,7 @@
                         <a href="{{ route('karya.detail', $post->slug) }}">
                             <img src="{{ $post->img_url }}" alt="Image" class="img-fluid">
                         </a>
-                        <div class="mt-3">
-                            <form action="{{ route('post.like', $post->id) }}" method="POST">
-                                @csrf
-                                <button class="{{ $checkLike ? 'text-primary' : 'text-black' }}" style="border: none; background: transparent;">
-                                    <i class="{{ $checkLike ? 'fas' : 'far' }} fa-heart" style="font-size: 18px"></i>
-                                    <span>{{ $post->like_post->count() }}</span>
-                                </button>
-                            </form>
-                        </div>
+                        @include('components.like_button')
                     </div>
                     <div class="bg-white mt-3">
                         <span class="date">{{ $post->created_at->format('M, d-Y') }}</span>

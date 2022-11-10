@@ -42,10 +42,7 @@
                             <div>
                                 <a href="{{ route('karya.detail', $post->slug) }}">
                                 </a>
-                                <div class="mt-3">
-                                    <i class="far fa-heart" style="font-size: 18px"></i>
-                                    <span>1.234</span>
-                                </div>
+                                @include('components.like_button')
                             </div>
                         </div>
                     </div>

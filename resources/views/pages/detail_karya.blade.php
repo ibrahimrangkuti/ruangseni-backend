@@ -34,15 +34,7 @@
                 </div>
                 <p>{{ $post->body }}</p>
                 <hr class="mt-5">
-                <div class="mt-3">
-                    <form action="{{ route('post.like', $post->id) }}" method="POST">
-                        @csrf
-                        <button type="submit" class="{{ $checkLike ? 'text-primary' : 'text-black' }}" style="border: none; background: transparent">
-                            <i class="{{ $checkLike ? 'fas' : 'far' }} fa-heart" style="font-size: 18px"></i>
-                            <span>{{ $totalLike }}</span>
-                        </button>
-                    </form>
-                </div>
+                @include('components.like_button')
             </div>
         </div>
     </div>
