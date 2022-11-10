@@ -31,6 +31,10 @@
 
             @foreach($posts as $post)
             @if ($post->status == 1)
+            @php
+            $likePost = new \App\Models\LikePost;
+            $checkLike = $likePost->where(['post_id' => $post->id, 'user_id' => Auth::user()->id])->count();
+            @endphp
 
             <div class="col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="media-entry">
@@ -41,8 +45,8 @@
                         <div class="mt-3">
                             <form action="{{ route('post.like', $post->id) }}" method="POST">
                                 @csrf
-                                <button style="border: none; background: transparent;">
-                                    <i class="far fa-heart" style="font-size: 18px"></i>
+                                <button class="{{ $checkLike ? 'text-primary' : 'text-black' }}" style="border: none; background: transparent;">
+                                    <i class="{{ $checkLike ? 'fas' : 'far' }} fa-heart" style="font-size: 18px"></i>
                                     <span>{{ $post->like_post->count() }}</span>
                                 </button>
                             </form>
