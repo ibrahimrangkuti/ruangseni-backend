@@ -26,6 +26,14 @@
                             <input type="date" class="form-control mb-3" id="start_date" aria-describedby="emailHelp" name="start_date">
                             <label for="end_date" class="form-label">Tanggal Akhir</label>
                             <input type="date" class="form-control mb-3" id="end_date" aria-describedby="emailHelp" name="end_date">
+                            <div class="form-group mb-3">
+                                <label for="category" class="form-label">Kategori</label>
+                                <select name="category" id="category" class="form-control">
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="d-flex justify-content-end pt-3">
                                 <button class="btn btn-success" type="submit">Tambah Event</button>
                             </div>
