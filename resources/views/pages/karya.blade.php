@@ -40,7 +40,7 @@
                 <div class="media-entry">
                     <div>
                         <a href="{{ route('karya.detail', $post->slug) }}">
-                            <img src="{{ $post->img_url }}" alt="Image" class="img-fluid">
+                            <img src="{{ $post->img_url }}" alt="Image" class="img-fluid rounded">
                         </a>
                         <div class="mt-3">
                             <form action="{{ route('post.like', $post->id) }}" method="POST">
