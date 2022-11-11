@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Event;
 use App\Models\Category;
 use App\Models\LikePost;
 use Illuminate\Http\Request;
@@ -38,7 +39,16 @@ class PagesController extends Controller
 
     public function event()
     {
-        return view('pages.event', ['title' => 'Event']);
+        $events = Event::all();
+
+        return view('pages.event', ['title' => 'Event'], compact('events'));
+    }
+
+    public function detail_event($slug)
+    {
+        $event = Event::where('slug', $slug)->first();
+
+        return view('pages.detail_event', ['title' => 'Detail Event | ' . $event->title ], compact('event'));
     }
 
     public function leaderboard()
@@ -70,11 +80,22 @@ class PagesController extends Controller
         return view('pages.show', ['title' => 'Karya'], compact('post'));
     }
 
+    public function create_post($username)
+    {
+        if(Auth::user()->username !== $username) {
+            return back();
+        }
+
+        $user = User::where('username', $username)->first();
+
+        return view('pages.create_post', ['title' => 'Create Post'], compact('user'));
+    }
+
     public function likePost($id)
     {
-        $check = LikePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->first();
 
         if(Auth::check()) {
+            $check = LikePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->first();
             if(!$check) {
                 LikePost::create([
                     'post_id' => $id,

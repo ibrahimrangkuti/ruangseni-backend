@@ -21,7 +21,9 @@
                         <li class="{{ $title === "Karya" ? 'active' : '' }}"><a href="{{ route('karya') }}">Karya</a></li>
                         <li class="{{ $title === "Event" ? 'active' : '' }}"><a href="{{ route('event') }}">Event</a></li>
                         <li class="{{ $title === "Leaderboard" ? 'active' : '' }}"><a href="{{ route('leaderboard') }}">Leaderboard</a></li>
-
+                        @if (Auth::check())
+                        <li><a href="{{ route('profile', Auth::user()->username) }}">My Profile</a></li>
+                        @endif
                     </ul>
                 </div>
                 <div class="col-6 col-lg-3 text-lg-end">

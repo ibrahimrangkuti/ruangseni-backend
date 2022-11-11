@@ -32,6 +32,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/glightbox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+    <style>
+        .form-control {
+            border-radius: 6px;
+        }
+    </style>
+
 
     <title>RuangSeni - {{ $title }}</title>
 </head>

@@ -29,7 +29,7 @@
                                 @foreach ($events as $event)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><img src="{{ url('/thumbnail/'.$event->thumbnail) }}" alt="" class="img-fluid rounded"></td>
+                                    <td><img src="{{ url('/thumbnail/'.$event->thumbnail) }}" alt="" class="img-fluid rounded" width="400"></td>
                                     <td>{{ $event->title }}</td>
                                     <td>{{ $event->description }}</td>
                                     <td>{{ $event->category->name }}</td>

@@ -10,7 +10,7 @@
         <div class="row align-items-center justify-content-start">
             <div class="col-lg-6 mx-auto text-center">
 
-                <h1 class="heading" data-aos="fade-up">Karya</h1>
+                <h1 class="heading" data-aos="fade-up">Event</h1>
                 <p class="mb-4" data-aos="fade-up">A small river named Duden flows by their place and supplies it
                     with the necessary regelialia. It is a paradisematic country, in which roasted parts of
                     sentences fly into your mouth.</p>
@@ -24,17 +24,14 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4">
-                <img src="{{ asset($post->img_url) }}" alt="" width="100%">
+            <div class="col-lg-6">
+                <img src="{{ asset('thumbnail/'. $event->thumbnail) }}" alt="" class="img-fluid">
             </div>
-            <div class="col-lg-8 mt-3">
-                <h1 class="text-primary mb-3">{{ $post->title }}</h1>
-                <div class="mb-3">
-                    <a href="">{{ $post->user->name }}</a> | <span>{{ $post->user->class }}</span>
-                </div>
-                <p>{{ $post->body }}</p>
-                <hr class="mt-5">
-                @include('components.like_button')
+            <div class="col-lg-6 mt-5">
+                <h1 class="text-primary">{{ $event->title }}</h1>
+                <span>{{ $event->start_date }}</span> s.d <span>{{ $event->end_date }}</span>
+                <p class="py-3">{{ $event->description }}</p>
+                <a href="" class="btn btn-primary">Ikuti Event</a>
             </div>
         </div>
     </div>

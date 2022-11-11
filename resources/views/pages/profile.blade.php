@@ -26,7 +26,7 @@
     <div class="container">
         @if (Auth::check())
         @if (Auth::user()->username === $user->username)
-            <a href="" class="btn btn-primary mb-5">Buat Postingan</a>
+            <a href="{{ route('create.post', $user->username) }}" class="btn btn-primary mb-5">Buat Postingan</a>
         @endif
         @endif
         <h2 class="mb-5">{{ $totalPost }} Postingan</h1>
@@ -42,10 +42,7 @@
                             <div>
                                 <a href="{{ route('karya.detail', $post->slug) }}">
                                 </a>
-                                <div class="mt-3">
-                                    <i class="far fa-heart" style="font-size: 18px"></i>
-                                    <span>1.234</span>
-                                </div>
+                                @include('components.like_button')
                             </div>
                         </div>
                     </div>

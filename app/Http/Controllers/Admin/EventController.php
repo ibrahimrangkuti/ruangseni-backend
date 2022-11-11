@@ -77,7 +77,7 @@ class EventController extends Controller
                     File::delete(public_path("thumbnail/".$events->thumbnail));
                 }
             // end
-            
+
             $request->validate([
                 'thumbnail' => 'required|file|image|mimes:jpeg,jpg,png',
             ]);
