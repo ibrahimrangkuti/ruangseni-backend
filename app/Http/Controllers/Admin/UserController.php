@@ -11,9 +11,18 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::where('role', 'Siswa')->get();
+        if ($request->has('search')) {
+            $users = User::where('nis', 'LIKE', '%' .$request->search. '%')
+                ->orWhere('name', 'LIKE', '%' .$request->search. '%')
+                ->orWhere('class', 'LIKE', '%' .$request->search. '%')
+                ->orWhere('role', 'Siswa')
+                ->get();
+        } else {
+            $users = User::where('role', 'Siswa')->get();
+        }
+        
         return view('dashboard.admin.user.index', compact('users'));
     }
 
