@@ -48,19 +48,19 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-
         $request->validate([
-            'nis' => ['numeric', 'max:9'],
-            'name' => ['string'],
-            'email' => ['email'],
+            'nis' => ['required', 'string', 'min:3', 'max:9'],
+            'name' => ['required', 'string', 'min:3', 'max:191'],
+            'email' => ['required', 'email'],
         ]);
 
-        $user->nis = $request->nis;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->class = $request->class;
-        $user->update();
+        $user = User::findOrFail($id);
+        $user->update([
+            'nis' => $request->nis,
+            'name' => $request->name,
+            'email' => $request->email,
+            'class' => $request->class
+        ]);
 
         return redirect(route('admin.user.index'))->with('success', 'Berhasil edit data user!');
     }
