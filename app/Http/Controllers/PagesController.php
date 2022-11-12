@@ -14,7 +14,8 @@ class PagesController extends Controller
 {
     public function home()
     {
-        return view('pages.home', ['title' => 'Home']);
+        $posts = Post::all();
+        return view('pages.home', ['title' => 'Home'], compact('posts'));
     }
 
     public function karya()

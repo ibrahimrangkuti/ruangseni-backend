@@ -76,113 +76,22 @@
 
     </div>
 
-    <div class="destination-slider-wrap">
+    <div class="destination-slider-wrap @if($posts->count() <= 5) container @endif">
         <div class="destination-slider">
+            @foreach($posts as $post)
             <div class="destination">
                 <div class="thumb">
-                    <img src="assets/images/karya-1.jpg" alt="Image" class="img-fluid">
+                    <img src="{{ $post->img_url }}" alt="Image" class="img-fluid">
                     <div class="price">
-                        <a href="" class="text-white"><i class="far fa-heart"></i> 1.234</a>
+                        <a href="" class="text-white"><i class="far fa-heart"></i> {{ $post->like_post->count() }}</a>
                     </div>
                 </div>
                 <div class="mt-4">
-                    <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                    <span class="meta">Ashis Cahya Maulana</span>
+                    <h3><a href="#">{{ Str::limit($post->title, 10) }}</a></h3>
+                    <span class="meta">{{ $post->user->name }}</span>
                 </div>
             </div>
-
-            <div class="destination">
-                <div class="thumb">
-                    <img src="assets/images/karya-2.jpg" alt="Image" class="img-fluid">
-                    <div class="price">
-                        <a href="" class="text-white"><i class="far fa-heart"></i> 587</a>
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                    <span class="meta">Johanes</span>
-                </div>
-            </div>
-
-            <div class="destination">
-                <div class="thumb">
-                    <img src="assets/images/karya-3.jpg" alt="Image" class="img-fluid">
-                    <div class="price">
-                        <a href="" class="text-white"><i class="far fa-heart"></i> 675</a>
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                    <span class="meta">Alvin Raimond</span>
-                </div>
-            </div>
-
-            <div class="destination">
-                <div class="thumb">
-                    <img src="assets/images/karya-4.jpg" alt="Image" class="img-fluid">
-                    <div class="price">
-                        <a href="" class="text-white"><i class="far fa-heart"></i> 456</a>
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                    <span class="meta">Farhan Septian</span>
-                </div>
-            </div>
-
-
-            <div class="destination">
-                <div class="thumb">
-                    <img src="assets/images/karya-5.jpg" alt="Image" class="img-fluid">
-                    <div class="price">
-                        <a href="" class="text-white"><i class="far fa-heart"></i> 867</a>
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                    <span class="meta">Faril Septian</span>
-                </div>
-            </div>
-
-            <div class="destination">
-                <div class="thumb">
-                    <img src="assets/images/karya-6.jpg" alt="Image" class="img-fluid">
-                    <div class="price">
-                        <a href="" class="text-white"><i class="far fa-heart"></i> 143</a>
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                    <span class="meta">Akrom Fadhil</span>
-                </div>
-            </div>
-
-            <div class="destination">
-                <div class="thumb">
-                    <img src="assets/images/karya-7.jpg" alt="Image" class="img-fluid">
-                    <div class="price">
-                        <a href="" class="text-white"><i class="far fa-heart"></i> 978</a>
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                    <span class="meta">Luqman Syahreno</span>
-                </div>
-            </div>
-
-            <div class="destination">
-                <div class="thumb">
-                    <img src="assets/images/karya-8.jpg" alt="Image" class="img-fluid">
-                    <div class="price">
-                        <a href="" class="text-white"><i class="far fa-heart"></i> 465</a>
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                    <span class="meta">Ibrahim Rangkuti</span>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
 
