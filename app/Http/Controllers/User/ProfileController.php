@@ -19,13 +19,28 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
-        $request->validate(['email', ['email', 'unique']]);
+        // $request->validate([
+        //     'email' => 'required|unique:users',
+        //     'username' => 'required|unique:users'
+        // ]);
 
-        $user = User::find(Auth::user()->id);
-        $user->username = Str::lower($request->username);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->update();
+        $request->validate([
+            'name' => ['required', 'string', 'min:3', 'max:191'],
+            'username' => ['required', 'alpha_num', 'min:3', 'max:16'],
+            'email' => ['required', 'email', 'min:3', 'max:191']
+        ]);
+
+        // $user = User::find(Auth::user()->id);
+        // $user->update([
+        //     'name' => $request->name,
+        //     'username' => $request->username,
+        //     'email' => $request->email
+        // ]);
+        Auth::user()->update([
+            'name' => $request->name,
+            'username' => $request->username,
+            'email' => $request->email
+        ]);
 
         return redirect(route('user.profile'))->with('success', 'Profil berhasil diubah!');
     }

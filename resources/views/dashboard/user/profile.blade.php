@@ -19,7 +19,7 @@
                                 <label for="nis" class="form-label">NIS</label>
                             </div>
                             <div class="col-lg-9">
-                                <input type="text" name="nis" id="nis" class="form-control" value="{{ $data['nis'] }}" disabled>
+                                <input type="text" name="nis" id="nis" class="form-control" value="{{ Auth::user()->nis }}" disabled>
                             </div>
                         </div>
                         <div class="row mb-4">
@@ -27,7 +27,12 @@
                                 <label for="username"class="form-label">USERNAME</label>
                             </div>
                             <div class="col-lg-9">
-                                <input type="text" name="username" id="username" class="form-control" value="{{ $data['username'] }}">
+                                <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username', Auth::user()->username) }}">
+                                @error('username')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="row mb-4">
@@ -35,7 +40,12 @@
                                 <label for="name"class="form-label">NAMA</label>
                             </div>
                             <div class="col-lg-9">
-                                <input type="text" name="name" id="name" class="form-control" value="{{ $data['name'] }}">
+                                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', Auth::user()->name) }}">
+                                @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="row mb-4">
@@ -43,7 +53,12 @@
                                 <label for="email" class="form-label">EMAIL</label>
                             </div>
                             <div class="col-lg-9">
-                                <input type="text" name="email" id="email" class="form-control" value="{{ $data['email'] }}">
+                                <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', Auth::user()->email) }}">
+                                @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="row mb-4">
@@ -51,7 +66,7 @@
                                 <label for="class" class="form-label">KELAS</label>
                             </div>
                             <div class="col-lg-9">
-                                <input type="text" name="class" id="class" class="form-control" value="{{ $data['class'] }}" disabled>
+                                <input type="text" name="class" id="class" class="form-control" value="{{ Auth::user()->class }}" disabled>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary float-right">Edit Profil</button>
