@@ -9,11 +9,19 @@
     <a href="{{ route('user.post.create') }}" class="btn btn-primary mb-3">Buat Postingan</a>
 
     @include('components.alert')
-
+    
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+                    <form action="{{ route('user.post.index') }}" method="GET">
+                        <div class="input-group mb-3">
+                            <input type="search" class="form-control" placeholder="Cari postingan" name="search" 
+                            value="{{ request ('search') }}">
+                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                            
+                        </div>
+                    </form>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover">
                             <thead>

@@ -8,9 +8,16 @@ use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::all();
+        if ($request->has('search')) {
+            $posts = Post::where('title', 'LIKE', '%'.$request->search.'%')
+                -> orWhere('body', 'LIKE', '%'.$request->search.'%')
+                -> get();
+        } else {
+            $posts = Post::all();   
+
+        }
         return view('dashboard.admin.post.index', compact('posts'));
     }
 

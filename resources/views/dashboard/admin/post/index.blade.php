@@ -10,6 +10,12 @@
             <div class="card">
                 <div class="card-body">
                     @include('components.alert')
+                    <form action="{{ route('admin.post.index') }}" method="GET">
+                        <div class="input-group mb-3">
+                            <input type="search" class="form-control" placeholder="Cari postingan" name="search" value="{{ request('search') }}">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                          </div>
+                    </form>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover" height="200px">
                             <thead>
