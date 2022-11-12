@@ -22,7 +22,7 @@
                         <li class="{{ $title === "Event" ? 'active' : '' }}"><a href="{{ route('event') }}">Event</a></li>
                         <li class="{{ $title === "Leaderboard" ? 'active' : '' }}"><a href="{{ route('leaderboard') }}">Leaderboard</a></li>
                         @if (Auth::check())
-                        <li><a href="{{ route('profile', Auth::user()->username) }}">My Profile</a></li>
+                        <li class="{{ (request()->segment(1) == 'profile') ? 'active' : '' }}"><a href="{{ route('profile', Auth::user()->username) }}">My Profile</a></li>
                         @endif
                     </ul>
                 </div>

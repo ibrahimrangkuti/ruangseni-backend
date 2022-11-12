@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create([
             'name' => 'Ibrahim',
+            'username' => 'ibrahim',
             'email' => 'ibrahim@gmail.com',
             'password' => bcrypt('ibrahim'),
             'role' => 'siswa'
@@ -40,6 +41,7 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create([
             'name' => 'luqman',
+            'username' => 'luqman',
             'email' => 'luqman@gmail.com',
             'password' => bcrypt('luqman'),
             'role' => 'siswa'
@@ -47,13 +49,15 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create([
             'name' => 'Akrom',
+            'username' => 'akrom',
             'email' => 'akrom@gmail.com',
             'password' => bcrypt('akrom'),
             'role' => 'siswa'
         ]);
 
         \App\Models\User::create([
-            'name' => 'faril',
+            'name' => 'Faril',
+            'username' => 'faril',
             'email' => 'faril@gmail.com',
             'password' => bcrypt('faril'),
             'role' => 'siswa'

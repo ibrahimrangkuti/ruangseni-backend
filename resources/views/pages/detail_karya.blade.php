@@ -25,7 +25,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
-                <img src="{{ asset($post->img_url) }}" alt="" width="100%">
+                <img src="{{ asset($post->img_url) }}" alt="" width="100%" class="rounded">
+                <div class="text-center">
+                    <button type="button" class="btn btn-sm btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Launch preview image
+                    </button>
+                </div>
             </div>
             <div class="col-lg-8 mt-3">
                 <h1 class="text-primary mb-3">{{ $post->title }}</h1>
@@ -37,6 +42,18 @@
                 @include('components.like_button')
             </div>
         </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            <button type="button" class="btn-close position-absolute p-3 btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+            <img src="{{ asset($post->img_url) }}" alt="" width="100%" class="img-fluid rounded">
+        </div>
+        </div>
+      </div>
     </div>
 </div>
 @endsection
