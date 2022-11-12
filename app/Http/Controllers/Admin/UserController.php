@@ -13,16 +13,16 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->has('search')) {
+
+        if ($request->has('search') && $request->search != null) {
             $users = User::where('nis', 'LIKE', '%' .$request->search. '%')
-                ->orWhere('name', 'LIKE', '%' .$request->search. '%')
-                ->orWhere('class', 'LIKE', '%' .$request->search. '%')
-                ->orWhere('role', 'Siswa')
-                ->get();
+            ->orWhere('name', 'LIKE', '%' .$request->search. '%')
+            ->orWhere('class', 'LIKE', '%' .$request->search. '%')
+            ->get();
         } else {
             $users = User::where('role', 'Siswa')->get();
         }
-        
+
         return view('dashboard.admin.user.index', compact('users'));
     }
 
