@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\LikePost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class PagesController extends Controller
 {
@@ -28,13 +29,15 @@ class PagesController extends Controller
     {
         $post = Post::where('slug', $slug)->first();
         $totalLike = LikePost::where('post_id', $post->id)->count();
+        $imageHeight = Image::make($post->img_url)->height();
+
         if(Auth::check()) {
             $checkLike = LikePost::where(['post_id' => $post->id, 'user_id' => Auth::user()->id])->count();
         } else {
             $checkLike = false;
         }
 
-        return view('pages.detail_karya', ['title' => $post->title], compact('post', 'totalLike', 'checkLike'));
+        return view('pages.detail_karya', ['title' => $post->title], compact('post', 'totalLike', 'checkLike', 'imageHeight'));
     }
 
     public function event()
