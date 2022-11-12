@@ -42,7 +42,8 @@
                             </div>
                             <div class="col-lg-9">
                                 <select name="class" id="class" class="form-control">
-                                    <option value="">11 RPL 1</option>
+                                    <option value="11 RPL 1">11 RPL 1</option>
+                                    <option value="11 RPL 2">11 RPL 2</option>
                                 </select>
                             </div>
                         </div>

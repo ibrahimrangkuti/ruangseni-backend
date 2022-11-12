@@ -51,7 +51,7 @@ class UserController extends Controller
         $user = User::find($id);
 
         $request->validate([
-            'nis' => ['numeric'],
+            'nis' => ['numeric', 'max:9'],
             'name' => ['string'],
             'email' => ['email'],
         ]);
@@ -59,6 +59,7 @@ class UserController extends Controller
         $user->nis = $request->nis;
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->class = $request->class;
         $user->update();
 
         return redirect(route('admin.user.index'))->with('success', 'Berhasil edit data user!');
