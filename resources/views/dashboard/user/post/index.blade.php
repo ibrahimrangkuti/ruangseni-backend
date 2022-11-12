@@ -9,17 +9,17 @@
     <a href="{{ route('user.post.create') }}" class="btn btn-primary mb-3">Buat Postingan</a>
 
     @include('components.alert')
-    
+
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
                     <form action="{{ route('user.post.index') }}" method="GET">
                         <div class="input-group mb-3">
-                            <input type="search" class="form-control" placeholder="Cari postingan" name="search" 
+                            <input type="search" class="form-control" placeholder="Cari postingan" name="search"
                             value="{{ request ('search') }}">
                             <button class="btn btn-outline-secondary" type="submit">Search</button>
-                            
+
                         </div>
                     </form>
                     <div class="table-responsive">
@@ -37,6 +37,7 @@
                             <tbody>
                                 @php $no = 1; @endphp
                                 @foreach ($posts as $post)
+                                @if($post->user_id === Auth::user()->id)
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>
@@ -53,6 +54,7 @@
                                         <a href="{{ route('user.post.delete', $post->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
+                                @endif
                                 @endforeach
                             </tbody>
                         </table>

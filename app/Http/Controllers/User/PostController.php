@@ -16,11 +16,11 @@ class PostController extends Controller
     {
         if ($request->has('search')) {
             $posts = Post::where('title', 'LIKE', '%' .$request->search. '%')
-                ->orWhere('body', 'LIKE', '%' .$request->search. '%')
-                ->get();
+                ->orWhere('body', 'LIKE', '%' .$request->search. '%')->get();
+            // $checkPosts = Post::where('title', 'LIKE', '%' . $request->search . '$')->orWhere('body', 'LIKE', '%' . $request->search . '%')->get();
         } else {
             $posts = Post::where('user_id', Auth::user()->id)->get();
-            
+
         }
         return view('dashboard.user.post.index', compact('posts'));
     }
@@ -65,7 +65,7 @@ class PostController extends Controller
         return view('dashboard.user.post.show', compact('post'));
     }
 
-    public function edit($id) 
+    public function edit($id)
     {
         $post = Post::findOrFail($id);
         $categories = Category::all();
@@ -89,7 +89,7 @@ class PostController extends Controller
                     File::delete(public_path($post->img_url));
                 }
             // end
-            
+
             $request->validate([
                 'image' => 'required|file|image|mimes:jpeg,jpg,png',
             ]);
@@ -108,7 +108,7 @@ class PostController extends Controller
             'is_join_event' => false,
         ];
 
-        $post->update($data);   
+        $post->update($data);
 
         return redirect(route('user.post.index'))->with('success', 'Postingan berhasil diedit');
     }
@@ -118,7 +118,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         unlink($post->img_url);
         Post::where("id", $post->id)->delete();
-        
+
         return redirect(route('user.post.index'))->with('success', 'Postingan berhasil dihapus');
     }
 }
