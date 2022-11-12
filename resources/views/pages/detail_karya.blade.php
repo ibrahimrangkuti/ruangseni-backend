@@ -46,11 +46,11 @@
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered" style="width: 30%">
       <div class="modal-content">
         <div class="modal-body">
             <button type="button" class="btn-close position-absolute p-3 btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
-            <img src="{{ asset($post->img_url) }}" alt="" width="100%" class="img-fluid rounded">
+            <img src="{{ asset($post->img_url) }}" alt="" class="img-fluid rounded">
         </div>
         </div>
       </div>

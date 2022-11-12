@@ -28,6 +28,7 @@ class PagesController extends Controller
     {
         $post = Post::where('slug', $slug)->first();
         $totalLike = LikePost::where('post_id', $post->id)->count();
+
         if(Auth::check()) {
             $checkLike = LikePost::where(['post_id' => $post->id, 'user_id' => Auth::user()->id])->count();
         } else {
