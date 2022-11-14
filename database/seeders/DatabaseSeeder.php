@@ -34,7 +34,6 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create([
             'name' => 'Ibrahim',
-            'username' => 'ibrahim',
             'nis' => '123451',
             'email' => 'ibrahim@gmail.com',
             'password' => bcrypt('ibrahim'),
@@ -44,7 +43,6 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create([
             'name' => 'luqman',
-            'username' => 'luqman',
             'nis' => '123452',
             'email' => 'luqman@gmail.com',
             'password' => bcrypt('luqman'),
@@ -54,7 +52,6 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create([
             'name' => 'Akrom',
-            'username' => 'akrom',
             'nis' => '123453',
             'email' => 'akrom@gmail.com',
             'password' => bcrypt('akrom'),
@@ -64,7 +61,6 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create([
             'name' => 'Faril',
-            'username' => 'faril',
             'nis' => '123454',
             'email' => 'faril@gmail.com',
             'password' => bcrypt('faril'),
