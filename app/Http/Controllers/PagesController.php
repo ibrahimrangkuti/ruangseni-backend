@@ -28,6 +28,8 @@ class PagesController extends Controller
     public function detail_karya($slug)
     {
         $post = Post::where('slug', $slug)->first();
+        $post->visitsCounter()->increment();
+        $visitsCount = $post->visits()->count();
         $totalLike = LikePost::where('post_id', $post->id)->count();
 
         if(Auth::check()) {
@@ -36,7 +38,7 @@ class PagesController extends Controller
             $checkLike = false;
         }
 
-        return view('pages.detail_karya', ['title' => $post->title], compact('post', 'totalLike', 'checkLike'));
+        return view('pages.detail_karya', ['title' => $post->title], compact('post', 'totalLike', 'checkLike', 'visitsCount'));
     }
 
     public function event()

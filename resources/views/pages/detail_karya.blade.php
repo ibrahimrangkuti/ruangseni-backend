@@ -39,6 +39,7 @@
                 </div>
                 <p>{{ $post->body }}</p>
                 <hr class="mt-5">
+                <span>{{ $visitsCount }} Views</span>
                 @include('components.like_button')
             </div>
         </div>

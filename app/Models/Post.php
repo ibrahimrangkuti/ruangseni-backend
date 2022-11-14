@@ -31,4 +31,14 @@ class Post extends Model
     {
         return $this->hasMany(LikePost::class);
     }
+
+    public function visitsCounter()
+    {
+        return visits($this);
+    }
+
+    public function visits()
+    {
+        return visits($this)->relation();
+    }
 }
