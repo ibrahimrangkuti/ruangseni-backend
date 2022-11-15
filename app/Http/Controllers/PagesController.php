@@ -14,7 +14,7 @@ class PagesController extends Controller
 {
     public function home()
     {
-        $posts = Post::all();
+        $posts = Post::where('status', '1')->get();
         return view('pages.home', ['title' => 'Home'], compact('posts'));
     }
 
@@ -98,18 +98,21 @@ class PagesController extends Controller
     public function likePost($id)
     {
 
-        if(Auth::check()) {
-            $check = LikePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->first();
-            if(!$check) {
-                LikePost::create([
-                    'post_id' => $id,
-                    'user_id' => Auth::user()->id
-                ]);
-                return back();
-            } else {
-                $check->delete();
-                return back();
-            }
+        if(!Auth::check()) {
+            return redirect(route('login.index'));
+            die;
+        }
+
+        $check = LikePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->first();
+        if(!$check) {
+            LikePost::create([
+                'post_id' => $id,
+                'user_id' => Auth::user()->id
+            ]);
+            return back();
+        } else {
+            $check->delete();
+            return back();
         }
 
         return back();
