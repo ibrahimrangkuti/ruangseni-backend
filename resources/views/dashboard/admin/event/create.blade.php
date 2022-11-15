@@ -31,6 +31,7 @@
                                 <select name="category" id="category" class="form-control">
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        echo('error404')
                                     @endforeach
                                 </select>
                             </div>
