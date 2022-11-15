@@ -39,8 +39,10 @@
                 </div>
                 <p>{{ $post->body }}</p>
                 <hr class="mt-5">
-                <span>{{ $visitsCount }} Views</span>
-                @include('components.like_button')
+                <div class="d-inline-block">
+                    @include('components.like_button')
+                </div>
+                <span class="float-end mt-3">{{ $visitsCount }} Views</span>
             </div>
         </div>
     </div>
