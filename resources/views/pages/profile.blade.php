@@ -53,4 +53,30 @@
     </div>
 </div>
 
+<div class="section">
+    <div class="container">
+        <h2 class="mb-5">{{ $totalPostEvent }} Postingan yang telah mengikuti event</h2>
+            <div class="row">
+                @foreach ($joinEvent as $post)
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="{{ route('karya.detail', $post->slug) }}">
+                                <img src="{{ asset($post->img_url) }}" alt="Image" class="img-fluid">
+                            </a>
+                            <div class="media-entry">
+                                <div>
+                                    <a href="{{ route('karya.detail', $post->slug) }}">
+                                    </a>
+                                    @include('components.like_button')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+    
 @endsection

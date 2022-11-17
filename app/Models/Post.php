@@ -41,4 +41,9 @@ class Post extends Model
     {
         return visits($this)->relation();
     }
+
+    public function event_participants()
+    {
+        return $this->belongsTo(EventParticipant::class);
+    }
 }

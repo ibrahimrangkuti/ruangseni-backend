@@ -25,13 +25,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <img src="{{ asset('thumbnail/'. $event->thumbnail) }}" alt="" class="img-fluid">
+                <img src="{{ asset('thumbnail/'. $event->thumbnail) }}" alt="" class="img-fluid rounded">
             </div>
             <div class="col-lg-6 mt-5">
                 <h1 class="text-primary">{{ $event->title }}</h1>
                 <span>{{ $event->start_date }}</span> s.d <span>{{ $event->end_date }}</span>
                 <p class="py-3">{{ $event->description }}</p>
-                <a href="" class="btn btn-primary">Ikuti Event</a>
+                <a href="{{ route('event.create', $event->slug) }}" class="btn btn-primary">Ikuti Event</a>
             </div>
         </div>
     </div>

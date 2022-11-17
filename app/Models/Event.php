@@ -20,4 +20,9 @@ class Event extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function event_participants()
+    {
+        return $this->belongsTo(EventParticipant::class);
+    }
 }

@@ -75,7 +75,7 @@
             @csrf
             <div class="modal-body">
                 <div class="form-group">
-                    <input type="file" name="file" id="file" class="form-control">
+                    <input type="file" name="file" id="file" class="form-control p-2">
                 </div>
             </div>
             <div class="modal-footer bg-whitesmoke br">

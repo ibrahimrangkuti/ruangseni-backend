@@ -9,11 +9,9 @@
     <div class="container">
         <div class="row align-items-center justify-content-start">
             <div class="col-lg-6 mx-auto text-center">
-                <h1 class="heading" data-aos="fade-up">{{ $user->name }}</h1>
-                <p>{{ $user->class }}</p>
-                <p class="mb-4" data-aos="fade-up">A small river named Duden flows by their place and supplies it
-                    with the necessary regelialia. It is a paradisematic country, in which roasted parts of
-                    sentences fly into your mouth.</p>
+                <h1 class="heading" data-aos="fade-up">{{ $event->title }}</h1>
+                <p></p>
+                <p class="mb-4" data-aos="fade-up">{{ Str::limit($event->description, 200) }} <a href="{{ route('event.detail', $event->slug) }}">Lihat selengkapnya</a></p>
 
             </div>
         </div>
@@ -27,14 +25,14 @@
         <h1 class="text-primary mb-5">Buat Postingan</h1>
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('store.post') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('event.store', $event->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
-                        <label for="image" class="form-label">Gambar</label>
-                        <input type="file" name="image" id="image" class="form-control p-2">
+                        <label for="" class="form-label">Gambar</label>
+                        <input type="file" name="image" id="gambar" class="form-control">
                     </div>
                     <div class="form-group mb-3">
-                        <label for="title" class="form-label">Judul</label>
+                        <label for="" class="form-label">Judul</label>
                         <input type="text" name="title" id="title" class="form-control">
                     </div>
                     <div class="form-group mb-3">
@@ -49,7 +47,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary float-right">Buat Postingan</button>
+                    <button type="submit" class="btn btn-primary float-end mt-3">Submit</button>
                 </form>
             </div>
         </div>

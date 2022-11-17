@@ -37,9 +37,9 @@
                     <div class="bg-white m-body">
                         <span class="date">17/09/22 - 24/09/22</span>
                         <h3><a href="index.html">{{ $event->title }}</a></h3>
-                        <p>{{ $event->description }}</p>
+                        <p>{{ Str::limit($event->description, 100) }}</p>
 
-                        <a href="single.html" class="more d-flex align-items-center float-start">
+                        <a href="{{ route('event.detail', $event->slug) }}" class="more d-flex align-items-center float-start">
                             <span class="label">Lihat Detail</span>
                             <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
                         </a>
