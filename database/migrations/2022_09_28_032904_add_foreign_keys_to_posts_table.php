@@ -16,6 +16,7 @@ class AddForeignKeysToPostsTable extends Migration
         Schema::table('posts', function (Blueprint $table) {
             $table->foreign('user_id', 'fk_post_to_user')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('category_id', 'fk_post_to_category')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('event_id', 'fk_post_to_event')->references('id')->on('events')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -29,6 +30,7 @@ class AddForeignKeysToPostsTable extends Migration
         Schema::table('posts', function (Blueprint $table) {
             $table->dropForeign('fk_post_to_user');
             $table->dropForeign('fk_post_to_category');
+            $table->dropForeign('fk_post_to_event');
         });
     }
 }

@@ -91,6 +91,11 @@ class PagesController extends Controller
 
     public function create_post($username)
     {
+
+        if(!Auth::check()) {
+            return back();
+        }
+
         if(Auth::user()->username !== $username) {
             return back();
         }
@@ -132,12 +137,15 @@ class PagesController extends Controller
 
     public function create_post_event($slug)
     {
+        if(!Auth::check()) {
+            return back();
+        }
         $category = Category::all();
-        $event = Event::firstWhere('slug', $slug);
+        $event = Event::where('slug', $slug)->first();
         return view('pages.create_post_event', ['title' => 'Create Post ' . $event->title], compact('event', 'category'));
-    }   
+    }
 
-    public function store_post_event(Request $request, $id)
+    public function store_post_event(Request $request, $slug)
     {
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg',
@@ -148,7 +156,7 @@ class PagesController extends Controller
 
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('images'), $imageName);
-        
+
         $data = [
             'user_id' => Auth::user()->id,
             'category_id' => $request->category,
@@ -159,13 +167,14 @@ class PagesController extends Controller
             'is_join_event' => true,
         ];
 
-        Post::create($data);
-
-        $post = Post::firstWhere('is_join_event', 1);
+        $post = Post::create($data);
+        $event = Event::where('slug', $slug)->first();
         EventParticipant::create([
-            'event_id' => $id,
-            'post_id' => $post
+            'event_id' => $event->id,
+            'post_id' => $post->id
         ]);
+
+        return redirect(route('event.detail', $event->slug));
     }
 
     public function likePost($id)

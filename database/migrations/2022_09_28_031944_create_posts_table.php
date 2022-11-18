@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->index('fk_post_to_user');
             $table->foreignId('category_id')->nullable()->index('fk_post_to_category');
+            $table->foreignId('event_id')->nullable()->index('fk_post_to_event');
             $table->string('slug');
             $table->string('title');
             $table->longText('body');

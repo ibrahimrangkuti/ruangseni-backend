@@ -32,8 +32,8 @@ Route::get('karya', [PagesController::class, 'karya'])->name('karya');
 Route::get('karya/{slug}', [PagesController::class, 'detail_karya'])->name('karya.detail'); // Menampilkan postingan berdasarkan slug
 Route::get('event', [PagesController::class, 'event'])->name('event');
 Route::get('event/{slug}', [PagesController::class, 'detail_event'])->name('event.detail');
-Route::get('event/create/{slug}', [PagesController::class, 'create_post_event'])->name('event.create');
-Route::post('event/create/{id}', [PagesController::class, 'store_post_event'])->name('event.store');
+Route::get('event/{slug}/create-post', [PagesController::class, 'create_post_event'])->name('event.create');
+Route::post('event/{slug}/create-post', [PagesController::class, 'store_post_event'])->name('event.store');
 
 Route::get('leaderboard', [PagesController::class, 'leaderboard'])->name('leaderboard');
 
