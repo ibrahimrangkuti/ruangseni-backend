@@ -11,7 +11,7 @@ class PagesController extends Controller
 {
     public function dashboard()
     {
-        $post = Post::where('user_id', Auth::user()->id)->get();
+        $post = Post::where('user_id', Auth::user()->id)->count();
         return view('dashboard.user.index', compact('post'));
     }
 }

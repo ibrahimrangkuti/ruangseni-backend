@@ -65,10 +65,10 @@ class PagesController extends Controller
     public function profile($username)
     {
         $user = User::where('username', $username)->first();
-        $posts = Post::where('user_id', $user->id)->orWhere('status', 1)->get();
-        $totalPost = Post::where('user_id', $user->id)->orWhere('status', 1)->count();
-        $joinEvent = Post::where('is_join_event', 1)->get();
-        $totalPostEvent = Post::where('is_join_event', 1)->count();
+        $posts = Post::where('user_id', Auth::user()->id)->get();
+        $totalPost = Post::where('user_id', Auth::user()->id)->count();
+        $joinEvent = Post::where('is_join_event', 1)->where('user_id', $user->id)->get();
+        $totalPostEvent = Post::where('is_join_event', 1)->where('user_id', $user->id)->count();
 
 
         return view('pages.profile', ['title' => $user->name . ' | ' . 'Profile'], compact('user', 'posts', 'totalPost', 'joinEvent', 'totalPostEvent'));
