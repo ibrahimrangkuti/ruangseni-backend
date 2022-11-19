@@ -18,7 +18,6 @@
                                     <th>No.</th>
                                     <th>Thumbnail</th>
                                     <th>Judul</th>
-                                    <th>Deskripsi</th>
                                     <th>Kategori</th>
                                     <th>Waktu Awal</th>
                                     <th>Waktu Akhir</th>
@@ -31,11 +30,11 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td><img src="{{ url('/thumbnail/'.$event->thumbnail) }}" alt="" class="img-fluid rounded" width="400"></td>
                                     <td>{{ $event->title }}</td>
-                                    <td>{{ $event->description }}</td>
                                     <td>{{ $event->category->name }}</td>
                                     <td>{{ $event->start_date }}</td>
                                     <td>{{ $event->end_date }}</td>
                                     <td>
+                                        <a href="{{ route('event.detail', $event->slug) }}" class="btn btn-primary btn-sm">Detail</a>
                                         <a href="{{ route('admin.event.edit', $event->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                         <a href="{{ route('admin.event.delete', $event->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
