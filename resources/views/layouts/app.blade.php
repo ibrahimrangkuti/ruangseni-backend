@@ -48,6 +48,11 @@
             background: #f17945;
             color: #fff;
         }
+
+        .btn-active {
+            background: #f17945;
+            color: #fff;
+        }
     </style>
 
     @livewireStyles

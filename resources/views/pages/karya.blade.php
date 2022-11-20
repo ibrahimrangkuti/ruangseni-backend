@@ -27,7 +27,8 @@
         <div class="container">
 
             @foreach ($categories as $category)
-                <a href="karya?category={{ $category->slug }}" class="btn-kategori me-3">{{ $category->name }}</a>
+                <a href="karya?category={{ $category->slug }}"
+                    class="btn-kategori me-3 {{ request()->get('category') === $category->slug ? 'btn-active' : '' }}">{{ $category->name }}</a>
             @endforeach
 
 
