@@ -26,10 +26,24 @@
     <div class="section">
         <div class="container">
 
-            @foreach ($categories as $category)
-                <a href="karya?category={{ $category->slug }}"
-                    class="btn-kategori me-3 {{ request()->get('category') === $category->slug ? 'btn-active' : '' }}">{{ $category->name }}</a>
-            @endforeach
+            <div class="pilih-kategori">
+                <select name="category" id="category" class="form-control">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->slug }}"
+                            {{ request()->get('category') === $category->slug ? 'selected' : '' }}>{{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div>
+                <a href="{{ route('karya') }}"
+                    class="btn-kategori me-3 {{ !request()->has('category') ? 'btn-active' : '' }}">ALL</a>
+                @foreach ($categories as $category)
+                    <a href="karya?category={{ $category->slug }}"
+                        class="btn-kategori me-3 {{ request()->get('category') === $category->slug ? 'btn-active' : '' }}">{{ $category->name }}</a>
+                @endforeach
+            </div>
 
 
             <div class="row align-items-stretch mt-5">
@@ -73,3 +87,15 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script>
+        $(document).ready(function() {
+            $('#category').on('change', function() {
+                let url = new URLSearchParams(window.location.search).get('category')
+                const value = $('#category').val()
+                window.location.href = 'karya?category=' + value
+            })
+        })
+    </script>
+@endpush
