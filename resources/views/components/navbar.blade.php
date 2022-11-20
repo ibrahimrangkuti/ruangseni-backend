@@ -16,14 +16,19 @@
                     <a href="{{ route('home') }}" class="logo m-0 float-start">RuangSeni</a>
                 </div>
                 <div class="col-lg-6 d-none d-lg-inline-block text-center nav-center-wrap">
-                    <ul class="js-clone-nav  text-center site-menu p-0 m-0">
-                        <li class="{{ $title === "Home" ? 'active' : '' }}"><a href="{{ route('home') }}">Beranda</a></li>
-                        <li class="{{ $title === "Karya" ? 'active' : '' }}"><a href="{{ route('karya') }}">Karya</a></li>
-                        <li class="{{ $title === "Event" ? 'active' : '' }}"><a href="{{ route('event') }}">Event</a></li>
-                        <li class="{{ $title === "Leaderboard" ? 'active' : '' }}"><a href="{{ route('leaderboard') }}">Leaderboard</a></li>
+                    <ul class="js-clone-nav text-center site-menu p-0 m-0">
+                        <li class="{{ $title === 'Home' ? 'active' : '' }}"><a href="{{ route('home') }}">Beranda</a>
+                        </li>
+                        <li class="{{ $title === 'Karya' ? 'active' : '' }}"><a href="{{ route('karya') }}">Karya</a>
+                        </li>
+                        <li class="{{ $title === 'Event' ? 'active' : '' }}"><a href="{{ route('event') }}">Event</a>
+                        </li>
+                        <li class="{{ $title === 'Leaderboard' ? 'active' : '' }}"><a
+                                href="{{ route('leaderboard') }}">Leaderboard</a></li>
                         @if (Auth::check())
                             @if (Auth::user()->role == 'siswa')
-                                <li class="{{ (request()->segment(1) == 'profile') ? 'active' : '' }}"><a href="{{ route('profile', Auth::user()->username) }}">My Profile</a></li>
+                                <li class="{{ request()->segment(1) == 'profile' ? 'active' : '' }}"><a
+                                        href="{{ route('profile', Auth::user()->username) }}">My Profile</a></li>
                             @endif
                         @endif
                     </ul>
@@ -37,7 +42,7 @@
                                 <li class="cta-button"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                             @endif
                         @else
-                        <li class="cta-button"><a href="{{ route('login.index') }}">Login</a></li>
+                            <li class="cta-button"><a href="{{ route('login.index') }}">Login</a></li>
                         @endif
                     </ul>
 

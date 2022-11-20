@@ -20,16 +20,25 @@ class PagesController extends Controller
         return view('pages.home', ['title' => 'Home'], compact('posts'));
     }
 
-    public function karya()
+    public function karya(Request $request)
     {
-        $posts = Post::all();
+        $categories= Category::all();
+        if(!$request->has('category')) {
+            $posts = Post::all();
+        } else {
+            $category = Category::where('slug', $request->category)->first();
+            $posts = Post::where('category_id', $category->id)->get();
+        }
 
-        return view('pages.karya', ['title' => 'Karya'], compact('posts'));
+        return view('pages.karya', ['title' => 'Karya'], compact('posts', 'categories'));
     }
 
     public function detail_karya($slug)
     {
         $post = Post::where('slug', $slug)->first();
+        if(!$post->status) {
+            return back();
+        }
         $post->visitsCounter()->increment();
         $visitsCount = $post->visits()->count();
         $totalLike = LikePost::where('post_id', $post->id)->count();

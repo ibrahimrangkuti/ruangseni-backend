@@ -36,8 +36,22 @@
         .form-control {
             border-radius: 6px;
         }
+
+        .btn-kategori {
+            padding: 16px 60px;
+            color: #f17945;
+            border-radius: 4px;
+            border: 1px solid #f17945;
+        }
+
+        .btn-kategori:hover {
+            background: #f17945;
+            color: #fff;
+        }
     </style>
 
+    @livewireStyles
+    @livewireScripts
 
     <title>RuangSeni - {{ $title }}</title>
 </head>
@@ -99,7 +113,9 @@
             <div class="row mt-5">
                 <div class="col-12 text-center">
                     <p class="mb-0">Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>. All Rights Reserved. &mdash;
                         Designed with love by <a href="https://untree.co">Untree.co</a>
                         <!-- License information: https://untree.co/license/ --> Distributed By <a
                             href="https:/themewagon.com" target="_blank">ThemeWagon</a>
@@ -115,7 +131,6 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-
 
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('assets/js/tiny-slider.js') }}"></script>

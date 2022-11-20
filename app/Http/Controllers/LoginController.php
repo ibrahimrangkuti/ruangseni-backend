@@ -22,11 +22,13 @@ class LoginController extends Controller
             $user = User::find(Auth::id());
             $user->logged_in = true;
             $user->update();
-            if (Auth::user()->role == 'siswa' && Auth::user()->username == null) {
-                return redirect(route('user.profile'));
-            } elseif (Auth::user()->username != null) {
-                return redirect(route('user.dashboard'));
-            } else {
+            if(Auth::user()->role == 'siswa') {
+                if(Auth::user()->username == null) {
+                    return redirect(route('user.profile'));
+                } else {
+                    return redirect(route('user.dashboard'));
+                }
+            } elseif(Auth::user()->role == 'admin') {
                 return redirect(route('admin.dashboard'));
             }
         } else if (Auth::attempt(['nis' => $request->email, 'password' => $request->password])) {
