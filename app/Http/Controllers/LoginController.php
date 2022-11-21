@@ -26,7 +26,7 @@ class LoginController extends Controller
                 if(Auth::user()->username == null) {
                     return redirect(route('user.profile'));
                 } else {
-                    return redirect(route('user.dashboard'));
+                    return redirect(route('profile', Auth::user()->username));
                 }
             } elseif(Auth::user()->role == 'admin') {
                 return redirect(route('admin.dashboard'));
@@ -38,7 +38,7 @@ class LoginController extends Controller
             if (Auth::user()->username == null) {
                 return redirect(route('user.profile'));
             } else {
-                return redirect(route('user.dashboard'));
+                return redirect(route('profile', Auth::user()->username));
             }
         } else {
             return redirect(route('login.index'))->with('error', 'Email atau password salah!');
