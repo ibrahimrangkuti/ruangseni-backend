@@ -50,8 +50,6 @@
         }
     </style>
 
-    @livewireStyles
-    @livewireScripts
 
     <title>RuangSeni - {{ $title }}</title>
 </head>
