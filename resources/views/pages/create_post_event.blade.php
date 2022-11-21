@@ -27,6 +27,7 @@
             <div class="row">
                 <div class="col-12">
                     <form action="{{ route('event.store', $event->slug) }}" method="POST" enctype="multipart/form-data">
+                        {{-- {{ dd($event->category->id) }} --}}
                         @csrf
                         <div class="form-group mb-3">
                             <label for="" class="form-label">Gambar</label>
@@ -42,9 +43,8 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="category" class="form-label">Kategori</label>
-                            <select name="category" id="category" class="form-control" disabled> 
-                                <option value="">{{ $event->category->name }}</option>
-                            </select>
+                            <input type="hidden" name="category_id" id="category_id" value="{{ $event->category->id }}">
+                            <input type="text" class="form-control" value="{{ $event->category->name }}" readonly>
                         </div>
                         <button type="submit" class="btn btn-primary float-end mt-3">Submit</button>
                     </form>
