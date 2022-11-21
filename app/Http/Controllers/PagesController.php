@@ -68,7 +68,8 @@ class PagesController extends Controller
 
     public function leaderboard()
     {
-        return view('pages.leaderboard', ['title' => 'Leaderboard']);
+        $posts = Post::where(['status' => '1'])->orderBy('like_count', 'desc')->take(3)->get();
+        return view('pages.leaderboard', ['title' => 'Leaderboard'], compact('posts'));
     }
 
     public function profile($username)
@@ -195,14 +196,19 @@ class PagesController extends Controller
         }
 
         $check = LikePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->first();
+        $post = Post::where('id', $id)->first();
         if(!$check) {
             LikePost::create([
                 'post_id' => $id,
                 'user_id' => Auth::user()->id
             ]);
+            $post->like_count += 1;
+            $post->update();
             return back();
         } else {
             $check->delete();
+            $post->like_count -= 1;
+            $post->update();
             return back();
         }
 
