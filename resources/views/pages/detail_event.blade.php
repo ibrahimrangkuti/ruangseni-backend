@@ -28,8 +28,14 @@
                 <div class="col-lg-6 mt-5">
                     <h1 class="text-primary">{{ $event->title }}</h1>
                     <span>{{ $event->start_date }}</span> s.d <span>{{ $event->end_date }}</span>
-                    <p class="py-3">{{ $event->description }}</p>
-                    <a href="{{ route('event.create', $event->slug) }}" class="btn btn-primary">Ikuti Event</a>
+                    <p class="py-3">{!! $event->description !!}</p>
+                    @if (Auth::check())
+                        @if (Auth::user()->role == 'siswa')
+                        <a href="{{ route('event.create', $event->slug) }}" class="btn btn-primary">Ikuti Event</a>
+                        @endif
+                    @else
+                    <a href="{{ route('login.index') }}" class="btn btn-primary">Ikuti Event</a>
+                    @endif
                 </div>
             </div>
         </div>

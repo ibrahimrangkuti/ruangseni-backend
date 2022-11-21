@@ -13,7 +13,7 @@
                     <img src="{{ asset($post->img_url) }}" alt="" class="img-fluid rounded">
                     <p class="mt-3">Kategori : {{ $post->category->name }}</p>
                     <h3>{{ $post->title }}</h3>
-                    <h6 class="mt-2">{{ $post->body }}</h3>
+                    <h6 class="mt-2">{!! $post->body !!}</h3>
                     <p>{{ $post->created_at->diffForHumans() }}</p>
 
                     @if($post->status != 1)
