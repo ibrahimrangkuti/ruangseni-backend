@@ -29,7 +29,7 @@
                             Launch preview image
                         </button>
                     </div>
-                </div>K
+                </div>
                 <div class="col-lg-8 mt-3">
                     <h1 class="text-primary mb-3">{{ $post->title }}</h1>
                     <div class="mb-3">

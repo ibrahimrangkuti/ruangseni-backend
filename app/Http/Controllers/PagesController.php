@@ -16,8 +16,9 @@ class PagesController extends Controller
 {
     public function home()
     {
+        $events = Event::all();
         $posts = Post::where('status', '1')->get();
-        return view('pages.home', ['title' => 'Home'], compact('posts'));
+        return view('pages.home', ['title' => 'Home'], compact('posts', 'events'));
     }
 
     public function karya(Request $request)

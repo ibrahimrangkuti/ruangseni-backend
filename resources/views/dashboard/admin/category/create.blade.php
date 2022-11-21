@@ -15,8 +15,8 @@
                             <label for="name" class="form-label">Nama</label>
                             <input type="text" class="form-control mb-3" id="name" aria-describedby="emailHelp" name="name">
                             <label for="description" class="form-label">Deskripsi</label>
-                            <input type="text" class="form-control mb-3" id="description" aria-describedby="emailHelp" name="description">
-                            <button class="btn btn-success" type="submit">Tambah Kategori</button>
+                            <textarea name="description" id="description" class="form-control ckeditor" cols="30" rows="10"></textarea>
+                            <button class="btn btn-success mt-3 float-right" type="submit">Tambah Kategori</button>
                         </div>
                     </form>
                 </div>

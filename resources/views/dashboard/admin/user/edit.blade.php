@@ -17,7 +17,7 @@
                                 <label for="nis" class="form-label">NIS</label>
                             </div>
                             <div class="col-lg-9">
-                                <input type="text" name="nis" id="nis" class="form-control @error('nis') is-invalid @enderror" value="{{ old('nis', $data['nis']) }}">
+                                <input type="text" name="nis" id="nis" class="form-control @error('nis') is-invalid @enderror" value="{{ old('nis', $data['nis']) }}" readonly>
                                 @error('nis')
                                 <div class="invalid-feedback">
                                     {{ $message }}

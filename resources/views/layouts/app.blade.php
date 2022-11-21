@@ -86,25 +86,16 @@
                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                             there live the blind texts.</p>
                     </div> <!-- /.widget -->
-                    <div class="widget">
-                        <h3>Connect</h3>
-                        <ul class="list-unstyled social">
-                            <li><a href="#"><span class="icon-instagram"></span></a></li>
-                            <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                            <li><a href="#"><span class="icon-github"></span></a></li>
-                            <li><a href="#"><span class="icon-dribbble"></span></a></li>
-                        </ul>
-                    </div> <!-- /.widget -->
                 </div> <!-- /.col-lg-3 -->
 
                 <div class="col-lg-2 ml-auto">
                     <div class="widget">
                         <h3>Links</h3>
                         <ul class="list-unstyled float-left links">
-                            <li><a href="index.html">Beranda</a></li>
-                            <li><a href="karya.html">Karya</a></li>
-                            <li><a href="event.html">Event</a></li>
-                            <li><a href="leaderboard.html">Leaderboard</a></li>
+                            <li><a href="{{ route('home') }}">Beranda</a></li>
+                            <li><a href="{{ route('karya') }}">Karya</a></li>
+                            <li><a href="{{ route('event') }}">Event</a></li>
+                            <li><a href="{{ route('leaderboard') }}">Leaderboard</a></li>
                         </ul>
                     </div> <!-- /.widget -->
                 </div> <!-- /.col-lg-3 -->
@@ -129,10 +120,7 @@
                     <p class="mb-0">Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script>. All Rights Reserved. &mdash;
-                        Designed with love by <a href="https://untree.co">Untree.co</a>
-                        <!-- License information: https://untree.co/license/ --> Distributed By <a
-                            href="https:/themewagon.com" target="_blank">ThemeWagon</a>
+                        </script>. All Rights Reserved.
                     </p>
                 </div>
             </div> <!-- /.container -->

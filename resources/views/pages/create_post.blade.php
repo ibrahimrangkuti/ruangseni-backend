@@ -11,10 +11,6 @@
                 <div class="col-lg-6 mx-auto text-center">
                     <h1 class="heading" data-aos="fade-up">{{ $user->name }}</h1>
                     <p>{{ $user->class }}</p>
-                    <p class="mb-4" data-aos="fade-up">A small river named Duden flows by their place and supplies it
-                        with the necessary regelialia. It is a paradisematic country, in which roasted parts of
-                        sentences fly into your mouth.</p>
-
                 </div>
             </div>
         </div>

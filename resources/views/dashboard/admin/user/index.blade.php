@@ -49,7 +49,7 @@
                                     <td>{{ $user->role === 'siswa' ? 'Siswa' : 'Admin' }}</td>
                                     <td>
                                         <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="{{ route('admin.user.delete', $user->id) }}" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('admin.user.delete', $user->id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin Hapus')">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach

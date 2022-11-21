@@ -11,9 +11,7 @@
                 <div class="col-lg-6 mx-auto text-center">
 
                     <h1 class="heading" data-aos="fade-up">Event</h1>
-                    <p class="mb-4" data-aos="fade-up">A small river named Duden flows by their place and supplies it
-                        with the necessary regelialia. It is a paradisematic country, in which roasted parts of
-                        sentences fly into your mouth.</p>
+                    <p class="mb-4" data-aos="fade-up">Yuk ikuti event ini, kembangkan kreatifitasmu dan jadilah yang terbaik.</p>
                 </div>
             </div>
         </div>

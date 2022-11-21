@@ -11,9 +11,7 @@
                 <div class="col-lg-6 mx-auto text-center">
 
                     <h1 class="heading" data-aos="fade-up">Karya</h1>
-                    <p class="mb-4" data-aos="fade-up">A small river named Duden flows by their place and supplies it
-                        with the necessary regelialia. It is a paradisematic country, in which roasted parts of
-                        sentences fly into your mouth.</p>
+                    <p class="mb-4" data-aos="fade-up">Tetaplah kreatif, teruslah aktif. Hidup indah dengan berkarya.</p>
                 </div>
             </div>
         </div>
@@ -38,10 +36,10 @@
 
             <div>
                 <a href="{{ route('karya') }}"
-                    class="btn-kategori me-3 {{ !request()->has('category') ? 'btn-active' : '' }}">ALL</a>
+                    class="btn-kategori me-1 {{ !request()->has('category') ? 'btn-active' : '' }}">ALL</a>
                 @foreach ($categories as $category)
                     <a href="karya?category={{ $category->slug }}"
-                        class="btn-kategori me-3 {{ request()->get('category') === $category->slug ? 'btn-active' : '' }}">{{ $category->name }}</a>
+                        class="btn-kategori me-1 {{ request()->get('category') === $category->slug ? 'btn-active' : '' }}">{{ $category->name }}</a>
                 @endforeach
             </div>
 

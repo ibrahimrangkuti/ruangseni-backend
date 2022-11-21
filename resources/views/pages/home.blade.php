@@ -10,10 +10,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-start">
                 <div class="col-lg-5">
-
                     <h1 class="heading" data-aos="fade-up">Tunjukkan Kreatifitas mu Pada Dunia!</h1>
-                    <p class="mb-5" data-aos="fade-up">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry.</p>
                 </div>
 
 
@@ -56,9 +53,6 @@
             <div class="row align-items-center justify-content-between  mb-5">
                 <div class="col-lg-5" data-aos="fade-up">
                     <h2 class="heading mb-3">Karya Siswa</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                        a large language ocean.</p>
                 </div>
                 <div class="col-lg-5 text-md-end" data-aos="fade-up" data-aos-delay="100">
                     <div id="destination-controls">
@@ -109,15 +103,16 @@
                 </div>
             </div>
             <div class="row align-items-stretch">
+                @foreach ($events as $event)
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="media-entry">
                         <a href="#">
-                            <img src="assets/images/gal_1.jpg" alt="Image" class="img-fluid">
+                            <img src="{{ asset('thumbnail/'. $event->thumbnail) }}" alt="Image" class="img-fluid">
                         </a>
                         <div class="bg-white m-body">
                             <span class="date">May 14, 2020</span>
-                            <h3><a href="#">Far far away, behind the word mountains</a></h3>
-                            <p>Vokalia and Consonantia, there live the blind texts. Separated they live.</p>
+                            <h3><a href="#">{{ $event->title }}</a></h3>
+                            <p>{{ Str::limit($event->description, 100) }}</p>
 
                             <a href="single.html" class="more d-flex align-items-center float-start">
                                 <span class="label">Read More</span>
@@ -126,6 +121,7 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="media-entry">
                         <a href="#">
@@ -210,8 +206,7 @@
                         </div>
                         <p>
                         <div class="quote">&ldquo;</div>
-                        &ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                        there live the blind texts.</p>
+                        &ldquo;Segala sesuatu memiliki kesudahan, yang sudah berakhir biarlah berlalu dan yakinlah semua akan baik-baik saja.&rdquo;</p>
                     </blockquote>
                 </div>
 
@@ -224,8 +219,7 @@
                         </div>
                         <p>
                         <div class="quote">&ldquo;</div>
-                        &ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the
-                        skyline of her hometown Bookmarksgrove.</p>
+                        &ldquo;Setiap detik sangatlah berharga karena waktu mengetahui banyak hal, termasuk rahasia hati.".&rdquo;</p>
 
                     </blockquote>
                 </div>
@@ -239,9 +233,7 @@
                         </div>
                         <p>
                         <div class="quote">&ldquo;</div>
-                        &ldquo;A small river named Duden flows by their place and supplies it with the necessary
-                        regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your
-                        mouth.&rdquo;</p>
+                        &ldquo;Bukan bahagia yang menjadikan kita bersyukur, tetapi dengan bersyukurlah yang akan menjadikan hidup kita bahagia.&rdquo;</p>
                     </blockquote>
                 </div>
 
@@ -249,14 +241,12 @@
                     <blockquote class="block-testimonial">
                         <div class="author">
                             <img src="assets/images/person_1.jpg" alt="Free template by TemplateUX">
-                            <h3>Haikal Arrahman</h3>
-                            <p class="position mb-5">11 RPL 2</p>
+                            <h3>Akrom Fadhil</h3>
+                            <p class="position mb-5">11 RPL 1</p>
                         </div>
                         <p>
                         <div class="quote">&ldquo;</div>
-                        &ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                        there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                        Semantics, a large language ocean.&rdquo;</p>
+                        &ldquo;Matahari akan tenggelam sore ini, namun esok pagi ia akan terbit lagi. Hari ini mungkin doa dan harapanmu belum terkabul. Namun esok hari, boleh jadi akan terkabul.&rdquo;</p>
                     </blockquote>
                 </div>
 
@@ -269,10 +259,7 @@
                         </div>
                         <p>
                         <div class="quote">&ldquo;</div>
-                        &ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the
-                        skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her
-                        own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her
-                        way.&rdquo;</p>
+                        &ldquo;Karena perjuangan adalah tanda perjalananmu menuju sukses&rdquo;</p>
 
                     </blockquote>
                 </div>

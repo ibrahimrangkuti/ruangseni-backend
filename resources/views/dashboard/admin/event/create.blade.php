@@ -16,7 +16,7 @@
                             <input type="text" class="form-control mb-3" id="title" aria-describedby="emailHelp" name="title">
                             <label for="description" class="form-label">Deskripsi</label>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="description" style="height: 100px" name="description"></textarea>
+                                <textarea class="form-control ckeditor" id="description" style="height: 100px" name="description"></textarea>
                               </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Thumbnail</label>

@@ -99,6 +99,14 @@
 
   <!-- Page Specific JS File -->
   <script src="{{ asset('dashboard/assets/js/page/index-0.js') }}"></script>
+  
+  <!-- Ckeditor -->
+  <script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('.ckedit').ckeditor()
+    })
+</script>
 </body>
 
 </html>

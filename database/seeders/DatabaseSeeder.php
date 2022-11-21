@@ -32,43 +32,43 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin'
         ]);
 
-        \App\Models\User::create([
-            'name' => 'Ibrahim',
-            'username' => 'Ibrahim',
-            'nis' => '123451',
-            'email' => 'ibrahim@gmail.com',
-            'password' => bcrypt('ibrahim'),
-            'class' => '11 RPL 1',
-            'role' => 'siswa'
-        ]);
+        // \App\Models\User::create([
+        //     'name' => 'Ibrahim',
+        //     'username' => 'Ibrahim',
+        //     'nis' => '123451',
+        //     'email' => 'ibrahim@gmail.com',
+        //     'password' => bcrypt('ibrahim'),
+        //     'class' => '11 RPL 1',
+        //     'role' => 'siswa'
+        // ]);
 
-        \App\Models\User::create([
-            'name' => 'luqman',
-            'username' => 'luqman',
-            'nis' => '123452',
-            'email' => 'luqman@gmail.com',
-            'password' => bcrypt('luqman'),
-            'class' => '11 RPL 1',
-            'role' => 'siswa'
-        ]);
+        // \App\Models\User::create([
+        //     'name' => 'luqman',
+        //     'username' => 'luqman',
+        //     'nis' => '123452',
+        //     'email' => 'luqman@gmail.com',
+        //     'password' => bcrypt('luqman'),
+        //     'class' => '11 RPL 1',
+        //     'role' => 'siswa'
+        // ]);
 
-        \App\Models\User::create([
-            'name' => 'Akrom',
-            'nis' => '123453',
-            'email' => 'akrom@gmail.com',
-            'password' => bcrypt('akrom'),
-            'class' => '11 RPL 1',
-            'role' => 'siswa'
-        ]);
+        // \App\Models\User::create([
+        //     'name' => 'Akrom',
+        //     'nis' => '123453',
+        //     'email' => 'akrom@gmail.com',
+        //     'password' => bcrypt('akrom'),
+        //     'class' => '11 RPL 1',
+        //     'role' => 'siswa'
+        // ]);
 
-        \App\Models\User::create([
-            'name' => 'Faril',
-            'nis' => '123454',
-            'email' => 'faril@gmail.com',
-            'password' => bcrypt('faril'),
-            'class' => '11 RPL 1',
-            'role' => 'siswa'
-        ]);
+        // \App\Models\User::create([
+        //     'name' => 'Faril',
+        //     'nis' => '123454',
+        //     'email' => 'faril@gmail.com',
+        //     'password' => bcrypt('faril'),
+        //     'class' => '11 RPL 1',
+        //     'role' => 'siswa'
+        // ]);
 
         \App\Models\Category::create([
             'slug' => 'puisi',
