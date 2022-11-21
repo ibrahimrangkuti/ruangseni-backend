@@ -11,7 +11,8 @@
                 <div class="col-lg-6 mx-auto text-center">
 
                     <h1 class="heading" data-aos="fade-up">Event</h1>
-                    <p class="mb-4" data-aos="fade-up">Yuk ikuti event ini, kembangkan kreatifitasmu dan jadilah yang terbaik.</p>
+                    <p class="mb-4" data-aos="fade-up">Yuk ikuti event ini, kembangkan kreatifitasmu dan jadilah yang
+                        terbaik.</p>
                 </div>
             </div>
         </div>
