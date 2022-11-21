@@ -38,10 +38,10 @@
 
             <div>
                 <a href="{{ route('karya') }}"
-                    class="btn-kategori me-3 {{ !request()->has('category') ? 'btn-active' : '' }}">ALL</a>
+                    class="btn-kategori me-1 {{ !request()->has('category') ? 'btn-active' : '' }}">ALL</a>
                 @foreach ($categories as $category)
                     <a href="karya?category={{ $category->slug }}"
-                        class="btn-kategori me-3 {{ request()->get('category') === $category->slug ? 'btn-active' : '' }}">{{ $category->name }}</a>
+                        class="btn-kategori me-1 {{ request()->get('category') === $category->slug ? 'btn-active' : '' }}">{{ $category->name }}</a>
                 @endforeach
             </div>
 

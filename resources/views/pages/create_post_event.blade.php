@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="body" class="form-label">Konten</label>
-                            <textarea name="body" id="body" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="body" id="body" cols="30" rows="10" class="ckeditor form-control"></textarea>
                         </div>
                         <div class="form-group mb-3">
                             <label for="category" class="form-label">Kategori</label>
