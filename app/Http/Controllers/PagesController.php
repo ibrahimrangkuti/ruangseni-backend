@@ -24,10 +24,10 @@ class PagesController extends Controller
     {
         $categories= Category::all();
         if(!$request->has('category')) {
-            $posts = Post::all();
+            $posts = Post::where('status', '1')->get();
         } else {
             $category = Category::where('slug', $request->category)->first();
-            $posts = Post::where('category_id', $category->id)->get();
+            $posts = Post::where(['category_id' => $category->id, 'status' => '1'])->get();
         }
 
         return view('pages.karya', ['title' => 'Karya'], compact('posts', 'categories'));
@@ -74,8 +74,8 @@ class PagesController extends Controller
     public function profile($username)
     {
         $user = User::where('username', $username)->first();
-        $posts = Post::where('user_id', Auth::user()->id)->get();
-        $totalPost = Post::where('user_id', Auth::user()->id)->count();
+        $posts = Post::where('user_id', $user->id)->get();
+        $totalPost = Post::where('user_id', $user->id)->count();
         $joinEvent = Post::where('is_join_event', 1)->where('user_id', $user->id)->get();
         $totalPostEvent = Post::where('is_join_event', 1)->where('user_id', $user->id)->count();
 

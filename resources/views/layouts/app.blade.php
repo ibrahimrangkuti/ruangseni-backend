@@ -48,8 +48,24 @@
             background: #f17945;
             color: #fff;
         }
-    </style>
 
+        .btn-active {
+            background: #f17945;
+            color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .pilih-kategori {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .btn-kategori {
+                display: none;
+            }
+        }
+    </style>
 
     <title>RuangSeni - {{ $title }}</title>
 </head>
@@ -130,6 +146,9 @@
             </div>
         </div>
 
+        <script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('assets/js/tiny-slider.js') }}"></script>
         <script src="{{ asset('assets/js/aos.js') }}"></script>
@@ -139,6 +158,12 @@
         <script src="{{ asset('assets/js/flatpickr.js') }}"></script>
         <script src="{{ asset('assets/js/glightbox.min.js') }}"></script>
         <script src="{{ asset('assets/js/custom.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $('.ckedit').ckeditor()
+            })
+        </script>
+        @stack('script')
 </body>
 
 </html>

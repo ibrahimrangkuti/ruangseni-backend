@@ -26,37 +26,50 @@
     <div class="section">
         <div class="container">
 
-            @foreach ($categories as $category)
-                <a href="karya?category={{ $category->slug }}" class="btn-kategori me-3">{{ $category->name }}</a>
-            @endforeach
+            <div class="pilih-kategori">
+                <select name="category" id="category" class="form-control">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->slug }}"
+                            {{ request()->get('category') === $category->slug ? 'selected' : '' }}>{{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div>
+                <a href="{{ route('karya') }}"
+                    class="btn-kategori me-3 {{ !request()->has('category') ? 'btn-active' : '' }}">ALL</a>
+                @foreach ($categories as $category)
+                    <a href="karya?category={{ $category->slug }}"
+                        class="btn-kategori me-3 {{ request()->get('category') === $category->slug ? 'btn-active' : '' }}">{{ $category->name }}</a>
+                @endforeach
+            </div>
 
 
             <div class="row align-items-stretch mt-5">
 
                 @foreach ($posts as $post)
-                    @if ($post->status == 1)
-                        <div class="col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
-                            <div class="media-entry">
-                                <div>
-                                    <a href="{{ route('karya.detail', $post->slug) }}">
-                                        <img src="{{ $post->img_url }}" alt="Image" class="img-fluid rounded">
-                                    </a>
-                                    @include('components.like_button')
-                                </div>
-                                <div class="bg-white mt-3">
-                                    <span class="date">{{ $post->created_at->format('M, d-Y') }}</span>
-                                    <h3><a href="{{ route('karya.detail', $post->slug) }}">{{ $post->title }}</a></h3>
-                                    <p>{{ Str::limit($post->body, 100) }}</p>
+                    <div class="col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="media-entry">
+                            <div>
+                                <a href="{{ route('karya.detail', $post->slug) }}">
+                                    <img src="{{ $post->img_url }}" alt="Image" class="img-fluid rounded">
+                                </a>
+                                @include('components.like_button')
+                            </div>
+                            <div class="bg-white mt-3">
+                                <span class="date">{{ $post->created_at->format('M, d-Y') }}</span>
+                                <h3><a href="{{ route('karya.detail', $post->slug) }}">{{ $post->title }}</a></h3>
+                                <p>{{ Str::limit($post->body, 100) }}</p>
 
-                                    <a href="{{ route('karya.detail', $post->slug) }}"
-                                        class="more d-flex align-items-center float-start">
-                                        <span class="label">Read More</span>
-                                        <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
-                                    </a>
-                                </div>
+                                <a href="{{ route('karya.detail', $post->slug) }}"
+                                    class="more d-flex align-items-center float-start">
+                                    <span class="label">Read More</span>
+                                    <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+                                </a>
                             </div>
                         </div>
-                    @endif
+                    </div>
                 @endforeach
 
                 {{-- <nav class="mt-5" aria-label="Page navigation example" data-aos="fade-up" data-aos-delay="100">
@@ -72,3 +85,15 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script>
+        $(document).ready(function() {
+            $('#category').on('change', function() {
+                let url = new URLSearchParams(window.location.search).get('category')
+                const value = $('#category').val()
+                window.location.href = 'karya?category=' + value
+            })
+        })
+    </script>
+@endpush
