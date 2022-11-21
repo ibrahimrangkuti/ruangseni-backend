@@ -74,12 +74,15 @@
             <div class="destination-slider">
                 @foreach ($posts as $post)
                     <div class="destination">
-                        <div class="thumb">
-                            <img src="{{ $post->img_url }}" alt="Image" class="img-fluid">
-                        </div>
+                        <a href="{{ route('karya.detail', $post->slug) }}">
+                            <div class="thumb">
+                                <img src="{{ $post->img_url }}" alt="Image" class="img-fluid">
+                            </div>
+                        </a>
                         @include('components.like_button')
                         <div class="mt-4">
-                            <h3><a href="#">{{ Str::limit($post->title, 15) }}</a></h3>
+                            <h3><a href="{{ route('karya.detail', $post->slug) }}">{{ Str::limit($post->title, 15) }}</a>
+                            </h3>
                             <a href="{{ route('profile', $post->user->username) }}">{{ $post->user->name }}</a>
                             <span class="text-muted">{{ $post->user->class }}</span>
                         </div>
@@ -101,23 +104,23 @@
             </div>
             <div class="row align-items-stretch">
                 @foreach ($events as $event)
-                <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="media-entry">
-                        <a href="#">
-                            <img src="{{ asset('thumbnail/'. $event->thumbnail) }}" alt="Image" class="img-fluid">
-                        </a>
-                        <div class="bg-white m-body">
-                            <span class="date">May 14, 2020</span>
-                            <h3><a href="#">{{ $event->title }}</a></h3>
-                            <p>{{ Str::limit($event->description, 100) }}</p>
-
-                            <a href="single.html" class="more d-flex align-items-center float-start">
-                                <span class="label">Read More</span>
-                                <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="media-entry">
+                            <a href="#">
+                                <img src="{{ asset('thumbnail/' . $event->thumbnail) }}" alt="Image" class="img-fluid">
                             </a>
+                            <div class="bg-white m-body">
+                                <span class="date">May 14, 2020</span>
+                                <h3><a href="#">{{ $event->title }}</a></h3>
+                                <p>{{ Str::limit($event->description, 100) }}</p>
+
+                                <a href="single.html" class="more d-flex align-items-center float-start">
+                                    <span class="label">Read More</span>
+                                    <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="media-entry">
@@ -203,7 +206,8 @@
                         </div>
                         <p>
                         <div class="quote">&ldquo;</div>
-                        &ldquo;Segala sesuatu memiliki kesudahan, yang sudah berakhir biarlah berlalu dan yakinlah semua akan baik-baik saja.&rdquo;</p>
+                        &ldquo;Segala sesuatu memiliki kesudahan, yang sudah berakhir biarlah berlalu dan yakinlah semua
+                        akan baik-baik saja.&rdquo;</p>
                     </blockquote>
                 </div>
 
@@ -216,7 +220,8 @@
                         </div>
                         <p>
                         <div class="quote">&ldquo;</div>
-                        &ldquo;Setiap detik sangatlah berharga karena waktu mengetahui banyak hal, termasuk rahasia hati.".&rdquo;</p>
+                        &ldquo;Setiap detik sangatlah berharga karena waktu mengetahui banyak hal, termasuk rahasia
+                        hati.".&rdquo;</p>
 
                     </blockquote>
                 </div>
@@ -230,7 +235,8 @@
                         </div>
                         <p>
                         <div class="quote">&ldquo;</div>
-                        &ldquo;Bukan bahagia yang menjadikan kita bersyukur, tetapi dengan bersyukurlah yang akan menjadikan hidup kita bahagia.&rdquo;</p>
+                        &ldquo;Bukan bahagia yang menjadikan kita bersyukur, tetapi dengan bersyukurlah yang akan menjadikan
+                        hidup kita bahagia.&rdquo;</p>
                     </blockquote>
                 </div>
 
@@ -243,7 +249,8 @@
                         </div>
                         <p>
                         <div class="quote">&ldquo;</div>
-                        &ldquo;Matahari akan tenggelam sore ini, namun esok pagi ia akan terbit lagi. Hari ini mungkin doa dan harapanmu belum terkabul. Namun esok hari, boleh jadi akan terkabul.&rdquo;</p>
+                        &ldquo;Matahari akan tenggelam sore ini, namun esok pagi ia akan terbit lagi. Hari ini mungkin doa
+                        dan harapanmu belum terkabul. Namun esok hari, boleh jadi akan terkabul.&rdquo;</p>
                     </blockquote>
                 </div>
 
