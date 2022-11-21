@@ -57,8 +57,10 @@
                             </div>
                             <div class="bg-white mt-3">
                                 <span class="date">{{ $post->created_at->format('M, d-Y') }}</span>
-                                <h3><a href="{{ route('karya.detail', $post->slug) }}">{{ $post->title }}</a></h3>
-                                <p>{{ Str::limit($post->body, 100) }}</p>
+                                <h3><a
+                                        href="{{ route('karya.detail', $post->slug) }}">{{ Str::limit($post->title, 30) }}</a>
+                                </h3>
+                                <p>{!! Str::limit($post->body, 40) !!}</p>
 
                                 <a href="{{ route('karya.detail', $post->slug) }}"
                                     class="more d-flex align-items-center float-start">

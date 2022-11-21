@@ -36,14 +36,27 @@
                 <div class="col-6 col-lg-3 text-lg-end">
                     <ul class="js-clone-nav d-none d-lg-inline-block text-end site-menu ">
                         @if (Auth::check())
-                            @if (Auth::user()->role == 'siswa')
-                                <li class="cta-button"><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
-                            @else
-                                <li class="cta-button"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                            @endif
+                            {{-- @if (Auth::user()->role == 'siswa')
+                                <li class="cta-button"><a
+                                        href="{{ Auth::user()->role == 'siswa' ? route('user.dashboard') : route('admin.dashboard') }}">Dashboard</a>
+                                </li>
+                            @endif --}}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item"
+                                            href="{{ Auth::user()->role == 'siswa' ? route('user.dashboard') : route('admin.dashboard') }}">Dashboard</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                                </ul>
+                            </li>
                         @else
                             <li class="cta-button"><a href="{{ route('login.index') }}">Login</a></li>
                         @endif
+
                     </ul>
 
                     <a href="#"

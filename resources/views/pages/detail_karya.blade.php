@@ -20,9 +20,9 @@
 
     <div class="section">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row">
                 <div class="col-lg-4">
-                    <img src="{{ asset($post->img_url) }}" alt="" width="100%" class="rounded">
+                    <img src="{{ asset($post->img_url) }}" alt="" width="100%" class="rounded shadow-lg">
                     <div class="text-center">
                         <button type="button" class="btn btn-sm btn-primary mt-3" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
@@ -30,12 +30,13 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-lg-8 mt-3">
+                <div class="col-lg-8 content-karya">
                     <h1 class="text-primary mb-3">{{ $post->title }}</h1>
                     <div class="mb-3">
-                        <a href="">{{ $post->user->name }}</a> | <span>{{ $post->user->class }}</span>
+                        <a href="{{ route('profile', $post->user->username) }}">{{ $post->user->name }}</a> |
+                        <span>{{ $post->user->class }}</span>
                     </div>
-                    <p>{{ $post->body }}</p>
+                    <p>{!! $post->body !!}</p>
                     <hr class="mt-5">
                     <div class="d-inline-block">
                         @include('components.like_button')
@@ -59,3 +60,25 @@
     </div>
     </div>
 @endsection
+
+@push('script')
+    {{-- <script>
+        $(document).ready(function() {
+            $('#btn-like').click(function() {
+                var id = $('#idpost').val()
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                })
+                $.ajax({
+                    url: `{{ route('post.like', 4) }}`
+                    type: 'POST',
+                    success: () => {
+                        console.log('hello')
+                    }
+                })
+            })
+        })
+    </script> --}}
+@endpush

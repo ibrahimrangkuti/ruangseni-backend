@@ -10,7 +10,7 @@
 <div class="mt-3">
     <form action="{{ route('post.like', $post->id) }}" method="POST">
         @csrf
-        <button type="submit" class="{{ $checkLike ? 'text-primary' : 'text-black' }}"
+        <button type="submit" id="btn-like" class="{{ $checkLike ? 'text-primary' : 'text-black' }}"
             style="border: none; background: transparent">
             <i class="{{ $checkLike ? 'fas' : 'far' }} fa-heart" style="font-size: 18px"></i>
             <span>{{ $post->like_post->count() }}</span>
