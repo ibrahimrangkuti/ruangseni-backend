@@ -25,10 +25,15 @@ class PagesController extends Controller
     {
         $categories= Category::all();
         if(!$request->has('category')) {
-            $posts = Post::where('status', '1')->get();
+            $posts = Post::where('status', '1')
+                ->where('is_join_event', '0')
+                ->get();
         } else {
             $category = Category::where('slug', $request->category)->first();
-            $posts = Post::where(['category_id' => $category->id, 'status' => '1'])->get();
+            $posts = Post::where([
+                'category_id' => $category->id, 
+                'status' => '1', 
+                'is_join_event' => '0'])->get();
         }
 
         return view('pages.karya', ['title' => 'Karya'], compact('posts', 'categories'));

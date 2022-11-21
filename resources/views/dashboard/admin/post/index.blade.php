@@ -53,7 +53,7 @@
                                             @else
                                             Tidak Disetujui
                                             @endif
-                                        </d>
+                                        </div>
                                     </td>
                                     <td>{{ $post->created_at }}</td>
                                     <td>

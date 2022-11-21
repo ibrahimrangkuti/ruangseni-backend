@@ -47,7 +47,6 @@
                                 <a href="{{ route('karya.detail', $post->slug) }}">
                                     <img src="{{ asset($post->img_url) }}" alt="Image" class="img-fluid rounded">
                                 </a>
-                                @include('components.like_button')
                             </div>
                             <div class="bg-white mt-3">
                                 <span class="date">{{ $post->created_at->format('M, d-Y') }}</span>

@@ -31,6 +31,7 @@
                                     <th>Judul</th>
                                     <th>Isi Konten</th>
                                     <th>Kategori</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -46,8 +47,25 @@
                                         </a>
                                     </td>
                                     <td><a href="{{ route('karya.detail', $post->slug) }}">{{ $post->title }}</a></td>
-                                    <td><a href="{{ route('karya.detail', $post->slug) }}">{{ Str::limit($post->body, 150) }}</a></td>
+                                    <td><a href="{{ route('karya.detail', $post->slug) }}">{!!Str::limit($post->body, 150) !!}</a></td>
                                     <td>{{ $post->category->name }}</td>
+                                    <td>
+                                        <div class="@if($post->status == 0)
+                                            text-warning
+                                        @elseif($post->status == 1)
+                                            text-success
+                                        @else
+                                            text-danger
+                                        @endif">
+                                            @if($post->status == 0)
+                                            Belum Disetujui
+                                            @elseif($post->status == 1)
+                                            Sudah Disetujui
+                                            @else
+                                            Tidak Disetujui
+                                            @endif
+                                        </div>
+                                    </td>
                                     <td>
                                         <a href="{{ route('karya.detail', $post->slug) }}" class="btn btn-primary btn-sm">Detail</a>
                                         <a href="{{ route('user.post.edit', $post->id) }}" class="btn btn-warning btn-sm">Edit</a>
