@@ -82,11 +82,8 @@
                     <div class="destination">
                         <div class="thumb">
                             <img src="{{ $post->img_url }}" alt="Image" class="img-fluid">
-                            <div class="price">
-                                <a href="" class="text-white"><i class="far fa-heart"></i>
-                                    {{ $post->like_post->count() }}</a>
-                            </div>
                         </div>
+                        @include('components.like_button')
                         <div class="mt-4">
                             <h3><a href="#">{{ Str::limit($post->title, 15) }}</a></h3>
                             <a href="{{ route('profile', $post->user->username) }}">{{ $post->user->name }}</a>
