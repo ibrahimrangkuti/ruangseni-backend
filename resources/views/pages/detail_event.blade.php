@@ -46,7 +46,7 @@
                 <span>Selesai: {{ $event->end_date }}</span>
             </div>
             <hr style="color: #c4c4c4">
-            <h6 class="mb-3">Semua Postingan Event {{ $event->title }}</h6>
+            <h6 class="mb-3">Semua Postingan Event <b>{{ $event->title }}</b></h6>
             <div class="row">
                 @foreach ($posts as $post)
                     <div class="col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">

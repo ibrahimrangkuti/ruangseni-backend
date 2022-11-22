@@ -62,7 +62,7 @@
                     title: 'Apa kamu yakin?',
                     icon: 'warning',
                     buttons: true,
-                    dangerMode: true,
+                    dangerMode: false,
                 })
                 .then((willDelete) => {
                     if (willDelete) {
