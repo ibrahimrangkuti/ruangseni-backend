@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-                    <img src="assets/images/karya-1.jpg" alt="" class="img-fluid float-end" width="420px">
+                    <img src="https://source.unsplash.com/800x800?art" alt="" class="img-fluid float-end" width="420px">
                 </div>
                 <div class="col-lg-4 order-lg-1">
 
@@ -122,6 +122,7 @@
                         </div>
                     </div>
                 @endforeach
+
             </div>
         </div>
     </div>
