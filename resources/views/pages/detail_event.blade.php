@@ -11,7 +11,8 @@
                 <div class="col-lg-6 mx-auto text-center">
 
                     <h1 class="heading" data-aos="fade-up">Event</h1>
-                    <p class="mb-4" data-aos="fade-up">Yuk ikuti event ini, kembangkan kreatifitasmu dan jadilah yang terbaik.</p>
+                    <p class="mb-4" data-aos="fade-up">Yuk ikuti event ini, kembangkan kreatifitasmu dan jadilah yang
+                        terbaik.</p>
                 </div>
             </div>
         </div>
@@ -22,13 +23,14 @@
     <div class="section">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-lg-6">
-                    <img src="{{ asset('thumbnail/' . $event->thumbnail) }}" alt="" class="img-fluid rounded">
+                <div class="col-lg-4">
+                    <img src="{{ asset('thumbnail/' . $event->thumbnail) }}" alt="" width="400"
+                        class="img-fluid rounded shadow-lg">
                 </div>
                 <div class="col-lg-6 mt-5">
                     <h1 class="text-primary">{{ $event->title }}</h1>
-                    <span>{{ $event->start_date }}</span> s.d <span>{{ $event->end_date }}</span>
-                    <p class="py-3">{!! $event->description !!}</p>
+                    <hr>
+                    <p>{!! $event->description !!}</p>
                     @if (Auth::check())
                         @if (Auth::user()->role == 'siswa')
                             <a href="{{ route('event.create', $event->slug) }}" class="btn btn-primary">Ikuti Event</a>
@@ -38,7 +40,13 @@
                     @endif
                 </div>
             </div>
-            <h2 class="mb-3">Semua Postingan Event {{ $event->title }}</h2>
+            <hr style="color: #c4c4c4">
+            <div class="d-flex justify-content-between text-muted">
+                <span>Mulai: {{ $event->start_date }}</span>
+                <span>Selesai: {{ $event->end_date }}</span>
+            </div>
+            <hr style="color: #c4c4c4">
+            <h6 class="mb-3">Semua Postingan Event {{ $event->title }}</h6>
             <div class="row">
                 @foreach ($posts as $post)
                     <div class="col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">

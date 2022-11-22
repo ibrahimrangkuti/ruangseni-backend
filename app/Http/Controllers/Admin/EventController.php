@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use App\Models\Event;
 use App\Models\Category;
 use Illuminate\Support\Str;
@@ -27,6 +28,16 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+        $today = date('Y-m-d');
+        if($request->start_date < $today) {
+            Alert::error('Gagal', 'Tidak bisa memilih tanggal tersebut');
+            return back();
+        }
+        if($request->end_date < $request->start_date) {
+            Alert::error('Gagal', 'Tidak bisa memilih tanggal tersebut');
+            return back();
+        }
+
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -35,6 +46,10 @@ class EventController extends Controller
             'end_date' => 'required|date',
             'category' => 'required'
         ]);
+
+        if($request->start_date < $today) {
+
+        }
 
         $file = $request->file('thumbnail');
         $nama_file = time()."_".$file->getClientOriginalName();
