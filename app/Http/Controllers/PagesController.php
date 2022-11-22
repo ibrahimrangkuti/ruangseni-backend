@@ -70,6 +70,7 @@ class PagesController extends Controller
         $event = Event::where('slug', $slug)->firstOrFail();
         $posts = Post::where('status', '1')
             ->where('is_join_event', '1')
+            ->where('event_id', $event->id)
             ->get();
         return view('pages.detail_event', ['title' => 'Detail Event | ' . $event->title ], compact('event', 'posts'));
     }
