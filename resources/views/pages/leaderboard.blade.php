@@ -43,6 +43,9 @@
                                         <h2>{{ $post->title }}</h2>
                                         <p>{!! Str::limit($post->body, 400) !!}</p>
                                     </div>
+                                    <div class="col-md-3 d-flex justify-content-center align-items-center">
+                                        <h5>{{ $post->like_count === null ? '0' : $post->like_count }} Likes</h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>

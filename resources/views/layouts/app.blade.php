@@ -76,7 +76,7 @@
 </head>
 
 <body>
-
+    @include('sweetalert::alert')
     @include('components.navbar')
 
     @yield('content')
@@ -113,7 +113,6 @@
                             <li><a href="{{ route('category', 'video-animasi') }}">Video Animasi</a></li>
                             <li><a href="{{ route('category', 'seni-lukis') }}">Seni Lukis</a></li>
                             <li><a href="{{ route('category', 'cerpen') }}">Cerpen</a></li>
-                            <li><a href="{{ route('category', 'pantun') }}">Pantun</a></li>
                         </ul>
                     </div> <!-- /.widget -->
                 </div> <!-- /.col-lg-3 -->

@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class EventController extends Controller
 {
@@ -49,6 +50,8 @@ class EventController extends Controller
             'end_date' => $request->end_date,
             'category_id' => $request->category
         ]);
+
+        Alert::toast('Berhasil menambahkan event', 'success');
 
         return redirect(route('admin.event.index'))->with('success', 'Event berhasil ditambah');
     }

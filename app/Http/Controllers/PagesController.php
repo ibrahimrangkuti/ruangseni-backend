@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\EventParticipant;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PagesController extends Controller
 {
@@ -140,6 +141,8 @@ class PagesController extends Controller
         ];
 
         Post::create($data);
+
+        Alert::toast('Berhasil membuat postingan!', 'success');
 
         return redirect()->action(
             [PagesController::class, 'profile'], ['username' => Auth::user()->username]

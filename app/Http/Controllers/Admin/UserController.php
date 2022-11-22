@@ -8,6 +8,7 @@ use App\Imports\UsersImport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -29,6 +30,8 @@ class UserController extends Controller
     public function import(Request $request)
     {
         Excel::import(new UsersImport, $request->file);
+
+        Alert::toast('Berhasil import data user!', 'success');
 
         return redirect(route('admin.user.index'))->with('success', 'Berhasil import data user!');
     }
