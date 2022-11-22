@@ -25,7 +25,8 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-                    <img src="assets/images/karya-1.jpg" alt="" class="img-fluid float-end" width="420px">
+                    <img src="https://source.unsplash.com/800x800?art" alt="" class="img-fluid float-end"
+                        width="420px">
                 </div>
                 <div class="col-lg-4 order-lg-1">
 
@@ -110,9 +111,9 @@
                                 <img src="{{ asset('thumbnail/' . $event->thumbnail) }}" alt="Image" class="img-fluid">
                             </a>
                             <div class="bg-white m-body">
-                                <span class="date">May 14, 2020</span>
+                                <span class="date">{{ $event->start_date }}</span>
                                 <h3><a href="#">{{ $event->title }}</a></h3>
-                                <p>{{ Str::limit($event->description, 100) }}</p>
+                                <p>{!! Str::limit($event->description, 100) !!}</p>
 
                                 <a href="single.html" class="more d-flex align-items-center float-start">
                                     <span class="label">Read More</span>

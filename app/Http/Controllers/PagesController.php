@@ -18,7 +18,9 @@ class PagesController extends Controller
     public function home()
     {
         $events = Event::all();
-        $posts = Post::where('status', '1')->get();
+        $posts = Post::where('status', '1')
+            ->where('is_join_event','0')
+            ->get();
         return view('pages.home', ['title' => 'Home'], compact('posts', 'events'));
     }
 
@@ -71,6 +73,7 @@ class PagesController extends Controller
         $event = Event::where('slug', $slug)->firstOrFail();
         $posts = Post::where('status', '1')
             ->where('is_join_event', '1')
+            ->where('event_id', $event->id)
             ->get();
         return view('pages.detail_event', ['title' => 'Detail Event | ' . $event->title ], compact('event', 'posts'));
     }
@@ -99,7 +102,9 @@ class PagesController extends Controller
     public function category($slug)
     {
         $category = Category::where('slug', $slug)->first();
-        $posts = Post::where('category_id', $category->id)->get();;
+        $posts = Post::where('category_id', $category->id)
+            ->where('is_join_event', '0')
+            ->get();;
 
         return view('pages.category', ['title' => 'Kategori' . ' ' . $category->name], compact('category', 'posts'));
     }

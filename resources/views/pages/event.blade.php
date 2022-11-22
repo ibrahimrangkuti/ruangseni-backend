@@ -34,7 +34,7 @@
                                 <img src="{{ asset('thumbnail/' . $event->thumbnail) }}" alt="Image" class="img-fluid">
                             </a>
                             <div class="bg-white m-body">
-                                <span class="date">17/09/22 - 24/09/22</span>
+                                <span class="date">{{ $event->start_date }}</span>
                                 <h3><a href="index.html">{{ $event->title }}</a></h3>
                                 <p>{!! Str::limit($event->description, 100) !!}</p>
 

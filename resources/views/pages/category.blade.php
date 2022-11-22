@@ -30,17 +30,14 @@
                 <div class="media-entry">
                     <div>
                         <a href="{{ route('karya.detail', $post->slug) }}">
-                            <img src="{{ asset($post->img_url) }}" alt="Image" class="img-fluid">
+                            <img src="{{ asset($post->img_url) }}" alt="Image" class="img-fluid rounded">
                         </a>
-                        <div class="mt-3">
-                            <i class="far fa-heart" style="font-size: 18px"></i>
-                            <span>1.234</span>
-                        </div>
+                            @include('components.like_button')
                     </div>
                     <div class="bg-white mt-3">
                         <span class="date">{{ $post->created_at->format('M, d-Y') }}</span>
                         <h3><a href="{{ route('karya.detail', $post->slug) }}">{{ $post->title }}</a></h3>
-                        <p>{{ Str::limit($post->body, 100) }}</p>
+                        <p>{!! Str::limit($post->body, 100) !!}</p>
 
                         <a href="{{ route('karya.detail', $post->slug) }}" class="more d-flex align-items-center float-start">
                             <span class="label">Read More</span>
