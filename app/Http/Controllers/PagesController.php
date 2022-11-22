@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\EventParticipant;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PagesController extends Controller
 {
@@ -31,8 +32,8 @@ class PagesController extends Controller
         } else {
             $category = Category::where('slug', $request->category)->first();
             $posts = Post::where([
-                'category_id' => $category->id, 
-                'status' => '1', 
+                'category_id' => $category->id,
+                'status' => '1',
                 'is_join_event' => '0'])->get();
         }
 
@@ -84,6 +85,9 @@ class PagesController extends Controller
     public function profile($username)
     {
         $user = User::where('username', $username)->first();
+        if(!$user) {
+            return back();
+        }
         $posts = Post::where('user_id', $user->id)->get();
         $totalPost = Post::where('user_id', $user->id)->count();
         $joinEvent = Post::where('is_join_event', 1)->where('user_id', $user->id)->get();
@@ -148,6 +152,8 @@ class PagesController extends Controller
         ];
 
         Post::create($data);
+
+        Alert::toast('Berhasil membuat postingan!', 'success');
 
         return redirect()->action(
             [PagesController::class, 'profile'], ['username' => Auth::user()->username]

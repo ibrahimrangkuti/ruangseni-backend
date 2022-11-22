@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PostController extends Controller
 {
@@ -15,7 +16,7 @@ class PostController extends Controller
                 -> orWhere('body', 'LIKE', '%'.$request->search.'%')
                 -> get();
         } else {
-            $posts = Post::all();   
+            $posts = Post::all();
 
         }
         return view('dashboard.admin.post.index', compact('posts'));
@@ -32,7 +33,9 @@ class PostController extends Controller
     {
         Post::where('slug', $slug)->update(['status' => '1']);
 
-        return redirect(route('admin.post.index'))->with('success', 'Postingan disetujui');
+        Alert::toast('Berhasil menyetujui postingan!', 'success');
+
+        return redirect(route('admin.post.index'));
     }
 
     public function disapprove($id)

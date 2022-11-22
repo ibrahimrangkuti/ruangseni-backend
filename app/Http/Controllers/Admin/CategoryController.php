@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
@@ -35,7 +36,9 @@ class CategoryController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect(route('admin.category.index'))->with('success', 'Kategori berhasil ditambah');
+        Alert::toast('Berhasil menambahkan kategori', 'success');
+
+        return redirect(route('admin.category.index'));
     }
 
     public function edit($id)

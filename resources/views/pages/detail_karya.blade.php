@@ -34,7 +34,7 @@
                     <h1 class="text-primary mb-3">{{ $post->title }}</h1>
                     <div class="mb-3">
                         <a href="{{ route('profile', $post->user->username) }}">{{ $post->user->name }}</a> |
-                        <span>{{ $post->user->class }}</span>
+                        <span>{{ $post->user->class }}</span> | <span>{{ $post->category->name }}</span>
                     </div>
                     <p>{!! $post->body !!}</p>
                     <hr class="mt-5">

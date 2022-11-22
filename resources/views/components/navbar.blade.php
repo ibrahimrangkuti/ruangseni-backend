@@ -27,8 +27,10 @@
                                 href="{{ route('leaderboard') }}">Leaderboard</a></li>
                         @if (Auth::check())
                             @if (Auth::user()->role == 'siswa')
-                                <li class="{{ request()->segment(1) == 'profile' ? 'active' : '' }}"><a
-                                        href="{{ route('profile', Auth::user()->username) }}">My Profile</a></li>
+                                @if (Auth::user()->username !== null)
+                                    <li class="{{ request()->segment(1) == 'profile' ? 'active' : '' }}"><a
+                                            href="{{ route('profile', Auth::user()->username) }}">My Profile</a></li>
+                                @endif
                             @endif
                         @endif
                     </ul>
