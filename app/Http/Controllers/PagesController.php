@@ -63,6 +63,8 @@ class PagesController extends Controller
 
     public function event()
     {
+        // $events = Event::all();
+        $events = Event::all();
 
         return view('pages.event', ['title' => 'Event'], compact('events'));
     }
