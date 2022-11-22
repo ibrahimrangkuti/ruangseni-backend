@@ -26,10 +26,15 @@ class PagesController extends Controller
     {
         $categories= Category::all();
         if(!$request->has('category')) {
-            $posts = Post::where('status', '1')->get();
+            $posts = Post::where('status', '1')
+                ->where('is_join_event', '0')
+                ->get();
         } else {
             $category = Category::where('slug', $request->category)->first();
-            $posts = Post::where(['category_id' => $category->id, 'status' => '1'])->get();
+            $posts = Post::where([
+                'category_id' => $category->id, 
+                'status' => '1', 
+                'is_join_event' => '0'])->get();
         }
 
         return view('pages.karya', ['title' => 'Karya'], compact('posts', 'categories'));
@@ -64,8 +69,10 @@ class PagesController extends Controller
     public function detail_event($slug)
     {
         $event = Event::where('slug', $slug)->firstOrFail();
-
-        return view('pages.detail_event', ['title' => 'Detail Event | ' . $event->title ], compact('event'));
+        $posts = Post::where('status', '1')
+            ->where('is_join_event', '1')
+            ->get();
+        return view('pages.detail_event', ['title' => 'Detail Event | ' . $event->title ], compact('event', 'posts'));
     }
 
     public function leaderboard()
@@ -161,19 +168,23 @@ class PagesController extends Controller
 
     public function store_post_event(Request $request, $slug)
     {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg',
-            'title' => 'required|min:6',
-            'body' => 'required|min:8',
-            'category' => 'required'
-        ]);
+
+        $event = Event::where('slug', $slug)->first();
+
+        // $request->validate([
+        //     'image' => 'required|image|mimes:jpeg,png,jpg',
+        //     'title' => 'required|min:6',
+        //     'body' => 'required|min:8',
+        //     'category' => 'required'
+        // ]);
 
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('images'), $imageName);
 
         $data = [
             'user_id' => Auth::user()->id,
-            'category_id' => $request->category,
+            'category_id' => $request->category_id,
+            'event_id' => $event->id,
             'slug' => Str::slug($request->title),
             'title' => $request->title,
             'body' => $request->body,
@@ -182,7 +193,6 @@ class PagesController extends Controller
         ];
 
         $post = Post::create($data);
-        $event = Event::where('slug', $slug)->first();
         EventParticipant::create([
             'event_id' => $event->id,
             'post_id' => $post->id

@@ -84,6 +84,64 @@
                                 </tbody>
                             </table>
                         </div>
+<<<<<<< HEAD
+=======
+                    </form>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Gambar</th>
+                                    <th>Judul</th>
+                                    <th>Isi Konten</th>
+                                    <th>Kategori</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php $no = 1; @endphp
+                                @foreach ($posts as $post)
+                                @if($post->user_id === Auth::user()->id)
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td>
+                                        <a href="{{ route('karya.detail', $post->slug) }}">
+                                            <img src="{{ asset($post->img_url) }}" alt="" class="img-fluid rounded" width="240">
+                                        </a>
+                                    </td>
+                                    <td><a href="{{ route('karya.detail', $post->slug) }}">{{ $post->title }}</a></td>
+                                    <td><a href="{{ route('karya.detail', $post->slug) }}">{!!Str::limit($post->body, 150) !!}</a></td>
+                                    <td>{{ $post->category->name }}</td>
+                                    <td>
+                                        <div class="@if($post->status == 0)
+                                            text-warning
+                                        @elseif($post->status == 1)
+                                            text-success
+                                        @else
+                                            text-danger
+                                        @endif">
+                                            @if($post->status == 0)
+                                            Belum Disetujui
+                                            @elseif($post->status == 1)
+                                            Sudah Disetujui
+                                            @else
+                                            Tidak Disetujui
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('karya.detail', $post->slug) }}" class="btn btn-primary btn-sm">Detail</a>
+                                        <a href="{{ route('user.post.edit', $post->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{ route('user.post.delete', $post->id) }}" class="btn btn-danger btn-sm">Hapus</a>
+                                    </td>
+                                </tr>
+                                @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+>>>>>>> f23525e2465a2cdcb7eada2f1553b6dd6034207c
                     </div>
                 </div>
             </div>
