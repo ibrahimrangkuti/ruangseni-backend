@@ -97,7 +97,6 @@
             var userId = $(this).attr('data-id')
             swal({
                     title: 'Apa kamu yakin?',
-                    text: 'User berhasil dihapus!',
                     icon: 'warning',
                     buttons: true,
                     dangerMode: true,
@@ -109,7 +108,10 @@
                             icon: 'success'
                         })
                     } else {
-                        swal('Hapus user dibatalkan!')
+                        swal({
+                            title: 'Hapus data dibatalkan!',
+                            icon: 'error'
+                        })
                     }
                 })
         })
