@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
 use Auth;
+use App\Models\User;
+use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
 {
@@ -22,6 +23,7 @@ class LoginController extends Controller
             $user = User::find(Auth::id());
             $user->logged_in = true;
             $user->update();
+            Alert::toast('Selamat datang di website kami!', 'success');
             if(Auth::user()->role == 'siswa') {
                 if(Auth::user()->username == null) {
                     return redirect(route('user.profile'));
@@ -35,6 +37,7 @@ class LoginController extends Controller
             $user = User::find(Auth::id());
             $user->logged_in = true;
             $user->update();
+            Alert::toast('Selamat datang di website kami!', 'success');
             if (Auth::user()->username == null) {
                 return redirect(route('user.profile'));
             } else {
