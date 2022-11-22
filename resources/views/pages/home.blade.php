@@ -110,9 +110,9 @@
                                 <img src="{{ asset('thumbnail/' . $event->thumbnail) }}" alt="Image" class="img-fluid">
                             </a>
                             <div class="bg-white m-body">
-                                <span class="date">May 14, 2020</span>
+                                <span class="date">{{ $event->start_date }}</span>
                                 <h3><a href="#">{{ $event->title }}</a></h3>
-                                <p>{{ Str::limit($event->description, 100) }}</p>
+                                <p>{!! Str::limit($event->description, 100) !!}</p>
 
                                 <a href="single.html" class="more d-flex align-items-center float-start">
                                     <span class="label">Read More</span>
