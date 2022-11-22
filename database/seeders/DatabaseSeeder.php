@@ -70,6 +70,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'siswa'
         ]);
 
+
         \App\Models\Category::create([
             'slug' => 'puisi',
             'name' => 'Puisi',
@@ -94,10 +95,9 @@ class DatabaseSeeder extends Seeder
             'description' => 'Kategori Cerpen'
         ]);
 
-        \App\Models\Category::create([
-            'slug' => 'Pantun',
-            'name' => 'Pantun',
-            'description' => 'Kategori Pantun'
-        ]);
+        // $this->call([
+        //     PostSeeder::class
+        // ]);
+
     }
 }

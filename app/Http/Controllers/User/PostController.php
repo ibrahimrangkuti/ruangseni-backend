@@ -20,7 +20,6 @@ class PostController extends Controller
             // $checkPosts = Post::where('title', 'LIKE', '%' . $request->search . '$')->orWhere('body', 'LIKE', '%' . $request->search . '%')->get();
         } else {
             $posts = Post::where('user_id', Auth::user()->id)->get();
-
         }
         return view('dashboard.user.post.index', compact('posts'));
     }

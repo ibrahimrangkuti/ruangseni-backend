@@ -46,7 +46,6 @@
                                         @elseif($post->status == 1)
                                             text-success
                                         @else
-<<<<<<< HEAD
                                             text-danger @endif">
                                                     @if ($post->status == 0)
                                                         Belum Disetujui
@@ -69,28 +68,6 @@
                                 </tbody>
                             </table>
                         </div>
-=======
-                                            text-danger
-                                        @endif">
-                                            @if($post->status == 0)
-                                            Belum Disetujui
-                                            @elseif($post->status == 1)
-                                            Sudah Disetujui
-                                            @else
-                                            Tidak Disetujui
-                                            @endif
-                                        </div>
-                                    </td>
-                                    <td>{{ $post->created_at }}</td>
-                                    <td>
-                                        <a href="{{ route('admin.post.show', $post->id) }}" class="btn btn-warning btn-sm">Detail</a>
-                                        <a href="{{ route('admin.post.delete', $post->id) }}" class="btn btn-danger btn-sm">Hapus</a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
->>>>>>> f23525e2465a2cdcb7eada2f1553b6dd6034207c
                     </div>
                 </div>
             </div>
