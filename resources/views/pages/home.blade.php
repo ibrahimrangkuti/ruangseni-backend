@@ -25,12 +25,12 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-                    <img src="https://source.unsplash.com/800x800?art" alt="" class="img-fluid float-end"
+                    <img src="https://source.unsplash.com/800x800?art" alt="" class="img-fluid float-end rounded me-5"
                         width="420px">
                 </div>
                 <div class="col-lg-4 order-lg-1">
 
-                    <div>
+                    <div class="ms-5">
                         <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">Eksplor Dunia Lebih Luas Lagi
                             Melalui Seni!</h2>
 
