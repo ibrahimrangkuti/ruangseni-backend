@@ -35,6 +35,7 @@ Route::get('event/{slug}', [PagesController::class, 'detail_event'])->name('even
 Route::get('event/{slug}/create-post', [PagesController::class, 'create_post_event'])->name('event.create');
 Route::post('event/{slug}/create-post', [PagesController::class, 'store_post_event'])->name('event.store');
 
+Route::get('event/leaderboard/{slug}', [PagesController::class, 'leaderboard_event'])->name('leaderboard.event');
 Route::get('leaderboard', [PagesController::class, 'leaderboard'])->name('leaderboard');
 
 Route::get('profile/{username}', [PagesController::class, 'profile'])->name('profile');

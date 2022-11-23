@@ -87,6 +87,18 @@ class PagesController extends Controller
         return view('pages.leaderboard', ['title' => 'Leaderboard'], compact('posts'));
     }
 
+    public function leaderboard_event($slug)
+    {
+        $event = Event::where('slug', $slug)->first();
+        $posts = Post::where('event_id', $event->id)
+            ->where('status', '1')
+            ->where('is_join_event', '1')
+            ->orderBy('vote_count', 'desc')
+            ->get();
+
+        return view('pages.leaderboard_event', compact('posts', 'event'), ['title' => $event->title]);
+    }
+
     public function profile($username)
     {
         $user = User::where('username', $username)->first();
@@ -260,9 +272,10 @@ class PagesController extends Controller
                 'post_id' => $post->id,
                 'user_id' => Auth::user()->id
             ]);
+            $post->vote_count += 1;
+            $post->update();
             return back();
         }
 
-        return back();
     }
 }

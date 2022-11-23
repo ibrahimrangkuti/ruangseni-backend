@@ -34,6 +34,7 @@
                     @if (Auth::check())
                         @if (Auth::user()->role == 'siswa')
                             <a href="{{ route('event.create', $event->slug) }}" class="btn btn-primary">Ikuti Event</a>
+                            <a href="{{ route('leaderboard.event', $event->slug) }}" class="float-end btn btn-primary">Leaderboard</a>
                         @endif
                     @else
                         <a href="{{ route('login.index') }}" class="btn btn-primary">Ikuti Event</a>
