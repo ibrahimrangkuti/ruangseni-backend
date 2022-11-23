@@ -41,12 +41,10 @@
                                             <td>{{ $post->category->name }}</td>
                                             <td>{{ $post->title }}</td>
                                             <td>
-                                                <div
-                                                    class="@if ($post->status == 0) text-warning
-                                        @elseif($post->status == 1)
+                                                <a href="#" class="permission @if ($post->status == 0) text-warning @elseif($post->status == 1)
                                             text-success
                                         @else
-                                            text-danger @endif">
+                                            text-danger @endif" data-id="{{ $post->slug }}">
                                                     @if ($post->status == 0)
                                                         Belum Disetujui
                                                     @elseif($post->status == 1)
@@ -54,7 +52,7 @@
                                                     @else
                                                         Tidak Disetujui
                                                     @endif
-                                                </div>
+                                                </a>
                                             </td>
                                             <td>{{ $post->created_at }}</td>
                                             <td>
@@ -94,6 +92,28 @@
                     } else {
                         swal({
                             title: 'Hapus data dibatalkan!',
+                            icon: 'error'
+                        })
+                    }
+                })
+        })
+        $('.permission').click(function() {
+            var postSlug = $(this).attr('data-id')
+            swal({
+                    title: 'Apa kamu yakin?',
+                    icon: 'warning',
+                    buttons: true,
+                    dangerMode: false,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location = 'post/' + postSlug + '/approve'
+                        swal('Postingan berhasil disetujui!', {
+                            icon: 'success'
+                        })
+                    } else {
+                        swal({
+                            title: 'Postingan batal disetujui! ',
                             icon: 'error'
                         })
                     }
