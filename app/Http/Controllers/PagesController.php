@@ -261,9 +261,6 @@ class PagesController extends Controller
                 'user_id' => Auth::user()->id
             ]);
             return back();
-        } else {
-            $check->delete();
-            return back();
         }
 
         return back();
