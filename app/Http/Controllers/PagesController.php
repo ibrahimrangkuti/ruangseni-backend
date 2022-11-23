@@ -47,6 +47,7 @@ class PagesController extends Controller
     {
         $post = Post::where('slug', $slug)->first();
         if(!$post->status) {
+            Alert::error('Gagal', 'Postingan belum disetujui admin!');
             return back();
         }
         $post->visitsCounter()->increment();
@@ -223,6 +224,11 @@ class PagesController extends Controller
 
         $check = LikePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->first();
         $post = Post::where('id', $id)->first();
+        if($post->status !== '1') {
+            Alert::error('Gagal', 'Postingan belum disetujui admin!');
+            return back();
+        }
+
         if(!$check) {
             LikePost::create([
                 'post_id' => $id,

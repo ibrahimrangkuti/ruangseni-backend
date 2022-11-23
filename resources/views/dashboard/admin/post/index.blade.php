@@ -60,8 +60,8 @@
                                             <td>
                                                 <a href="{{ route('admin.post.show', $post->id) }}"
                                                     class="btn btn-warning btn-sm">Detail</a>
-                                                <a href="{{ route('admin.post.delete', $post->id) }}"
-                                                    class="btn btn-danger btn-sm">Hapus</a>
+                                                <a href="#" class="btn btn-danger btn-sm delete"
+                                                    data-id="{{ $post->id }}">Hapus</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -74,3 +74,30 @@
         </div>
     </section>
 @endsection
+
+@push('script')
+    <script>
+        $('.delete').click(function() {
+            var postId = $(this).attr('data-id')
+            swal({
+                    title: 'Apa kamu yakin?',
+                    icon: 'warning',
+                    buttons: true,
+                    dangerMode: false,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location = 'post/' + postId + '/delete'
+                        swal('Postingan berhasil dihapus!', {
+                            icon: 'success'
+                        })
+                    } else {
+                        swal({
+                            title: 'Hapus data dibatalkan!',
+                            icon: 'error'
+                        })
+                    }
+                })
+        })
+    </script>
+@endpush

@@ -88,8 +88,9 @@
                 <div class="col-lg-4">
                     <div class="widget">
                         <h3>Tentang RuangSeni<span class="text-primary">.</span> </h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                            there live the blind texts.</p>
+                        {{-- <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                            there live the blind texts.</p> --}}
+                        <p>Aplikasi ini dibuat untuk menampung karya dan kreatifitas siswa</p>
                     </div> <!-- /.widget -->
                 </div> <!-- /.col-lg-3 -->
 
