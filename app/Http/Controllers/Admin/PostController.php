@@ -16,7 +16,7 @@ class PostController extends Controller
                 -> orWhere('body', 'LIKE', '%'.$request->search.'%')
                 -> get();
         } else {
-            $posts = Post::all();
+            $posts = Post::orderBy('id', 'desc')->get();
 
         }
         return view('dashboard.admin.post.index', compact('posts'));

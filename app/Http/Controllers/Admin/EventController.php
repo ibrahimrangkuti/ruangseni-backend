@@ -15,7 +15,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
+        $events = Event::orderBy('id', 'desc')->get();
 
         return view('dashboard.admin.event.index', compact('events'));
     }

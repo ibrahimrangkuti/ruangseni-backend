@@ -19,7 +19,7 @@ class PostController extends Controller
                 ->orWhere('body', 'LIKE', '%' .$request->search. '%')->get();
             // $checkPosts = Post::where('title', 'LIKE', '%' . $request->search . '$')->orWhere('body', 'LIKE', '%' . $request->search . '%')->get();
         } else {
-            $posts = Post::where('user_id', Auth::user()->id)->get();
+            $posts = Post::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         }
         return view('dashboard.user.post.index', compact('posts'));
     }
