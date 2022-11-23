@@ -25,8 +25,8 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
-                    <img src="https://source.unsplash.com/800x800?art" alt="" class="img-fluid float-end rounded me-5"
-                        width="420px">
+                    <img src="https://source.unsplash.com/800x800?art" alt=""
+                        class="img-fluid float-end rounded me-5" width="420px">
                 </div>
                 <div class="col-lg-4 order-lg-1">
 
@@ -34,13 +34,9 @@
                         <h2 class="heading mb-3" data-aos="fade-up" data-aos-delay="100">Eksplor Dunia Lebih Luas Lagi
                             Melalui Seni!</h2>
 
-                        <p data-aos="fade-up" data-aos-delay="200">Far far away, behind the word mountains, far from the
-                            countries Vokalia and Consonantia, there live the blind texts. Separated they live in
-                            Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-
-                        <p data-aos="fade-up" data-aos-delay="300">A small river named Duden flows by their place and
-                            supplies it with the necessary regelialia. It is a paradisematic country, in which roasted
-                            parts of sentences fly into your mouth.</p>
+                        <p data-aos="fade-up" data-aos-delay="200"> "Jika seni bertujuan untuk memelihara akar dari budaya
+                            kita, masyarakat harus membiarkan seniman bebas mengikuti visi mereka masing-masing kemanapun
+                            hal itu membawa mereka." - John F. Kennedy</p>
                     </div>
                 </div>
 
