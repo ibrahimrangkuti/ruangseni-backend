@@ -9,6 +9,7 @@ class VotePost extends Model
 {
     use HasFactory;
     
+    protected $table = 'vote_post';
     protected $guarded = [];
 
     public function post()

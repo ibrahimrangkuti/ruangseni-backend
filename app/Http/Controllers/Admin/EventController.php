@@ -57,9 +57,9 @@ class EventController extends Controller
         $file->move($tujuan_upload, $nama_file);
 
         Event::create([
-            'slug' => Str::slug($request->title),
             'title' => $request->title,
             'description' => $request->description,
+            'slug' => Str::slug($request->title),
             'thumbnail' => $nama_file,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,

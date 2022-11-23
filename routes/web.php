@@ -46,6 +46,7 @@ Route::get('category/{slug}', [PagesController::class, 'category'])->name('categ
 // Route::get('{id}/like', [PagesController::class, 'like'])->name('like');
 
 Route::post('post/{id}/like', [PagesController::class, 'likePost'])->name('post.like');
+Route::post('post/{id}/vote', [PagesController::class, 'votePost'])->name('post.vote');
 
 Route::prefix('user')->middleware('role:siswa')->name('user.')->group(function() {
     Route::get('/', [UserPagesController::class, 'dashboard'])->name('dashboard');

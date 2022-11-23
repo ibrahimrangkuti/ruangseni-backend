@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Event;
 use App\Models\Category;
 use App\Models\LikePost;
+use App\Models\VotePost;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\EventParticipant;
@@ -207,6 +208,8 @@ class PagesController extends Controller
             'post_id' => $post->id
         ]);
 
+        Alert::toast('Berhasil mengikuti event!', 'success');
+
         return redirect(route('event.detail', $event->slug));
     }
 
@@ -232,6 +235,28 @@ class PagesController extends Controller
             $check->delete();
             $post->like_count -= 1;
             $post->update();
+            return back();
+        }
+
+        return back();
+    }
+    public function votePost($id)
+    {
+        if(!Auth::check()) {
+            return redirect(route('login.index'));
+            die;
+        }
+
+        $check = VotePost::where(['post_id' => $id, 'user_id' => Auth::user()->id])->first();
+        $post = Post::where('id', $id)->first();
+        if(!$check) {
+            VotePost::create([
+                'post_id' => $post->id,
+                'user_id' => Auth::user()->id
+            ]);
+            return back();
+        } else {
+            $check->delete();
             return back();
         }
 

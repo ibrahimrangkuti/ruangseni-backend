@@ -32,6 +32,11 @@ class Post extends Model
         return $this->hasMany(LikePost::class);
     }
 
+    public function vote_post()
+    {
+        return $this->hasMany(VotePost::class);
+    }
+
     public function visitsCounter()
     {
         return visits($this);

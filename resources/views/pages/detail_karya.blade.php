@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <img src="{{ asset($post->img_url) }}" alt="" width="100%" class="rounded shadow-lg">
+                   <img src="{{ asset($post->img_url) }}" alt="" width="100%" class="rounded shadow-lg">
                     <div class="text-center">
                         <button type="button" class="btn btn-sm btn-primary mt-3" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
@@ -39,7 +39,11 @@
                     <p>{!! $post->body !!}</p>
                     <hr class="mt-5">
                     <div class="d-inline-block">
-                        @include('components.like_button')
+                        @if ($post->is_join_event)
+                            @include('components.vote_button')
+                        @else
+                            @include('components.like_button')
+                        @endif
                     </div>
                     <span class="float-end mt-3">{{ $visitsCount }} Views</span>
                 </div>
