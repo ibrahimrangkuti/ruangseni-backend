@@ -11,7 +11,7 @@
                 <div class="col-lg-6 mx-auto text-center">
 
                     <h1 class="heading" data-aos="fade-up">Karya</h1>
-                    <p class="mb-4" data-aos="fade-up">Tetaplah kreatif, teruslah aktif. Hidup indah dengan berkarya.</p>
+                    <p class="mb-4" data-aos="fade-up">"Karya seni adalah sebuah pernyataan dari jiwa seorang seniman yang tak ternilai harganya."</p>
                 </div>
             </div>
         </div>
