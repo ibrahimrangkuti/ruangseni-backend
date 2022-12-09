@@ -103,7 +103,7 @@
                 @foreach ($events as $event)
                     <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                         <div class="media-entry">
-                            <a href="#">
+                            <a href="{{ route('event.detail', $event->slug) }}">
                                 <img src="{{ asset('thumbnail/' . $event->thumbnail) }}" alt="Image" class="img-fluid">
                             </a>
                             <div class="bg-white m-body">
@@ -111,7 +111,8 @@
                                 <h3><a href="#">{{ $event->title }}</a></h3>
                                 <p>{!! Str::limit($event->description, 100) !!}</p>
 
-                                <a href="{{ route('event.detail', $event->slug) }}" class="more d-flex align-items-center float-start">
+                                <a href="{{ route('event.detail', $event->slug) }}"
+                                    class="more d-flex align-items-center float-start">
                                     <span class="label">Lihat Detail</span>
                                     <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
                                 </a>

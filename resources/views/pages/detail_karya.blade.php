@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                   <img src="{{ asset($post->img_url) }}" alt="" width="100%" class="rounded shadow-lg">
+                    <img src="{{ asset($post->img_url) }}" alt="" width="100%" class="rounded shadow-lg">
                     <div class="text-center">
                         <button type="button" class="btn btn-sm btn-primary mt-3" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
@@ -32,12 +32,19 @@
                 </div>
                 <div class="col-lg-8 content-karya">
                     <h1 class="text-primary mb-3">{{ $post->title }}</h1>
-                    <div class="mb-3">
-                        <a href="{{ route('profile', $post->user->username) }}">{{ $post->user->name }}</a> |
-                        <span>{{ $post->user->class }}</span> | <span>{{ $post->category->name }}</span>
+                    <div class="mb-3 d-flex justify-content-between">
+                        <div>
+                            <a href="{{ route('profile', $post->user->username) }}">{{ $post->user->name }}</a> |
+                            <span>{{ $post->user->class }}</span> | <span>{{ $post->category->name }}</span>
+                        </div>
+                        <div>
+                            <span class="text-muted">Mengikuti Event: <a
+                                    href="{{ route('event.detail', $post->event->slug) }}"
+                                    style="font-style: italic">{{ $post->event->title }}</a></span>
+                        </div>
                     </div>
                     <p>{!! $post->body !!}</p>
-                    <hr class="mt-5">
+                    <hr class="mt-3">
                     <div class="d-inline-block">
                         @if ($post->is_join_event)
                             @include('components.vote_button')
