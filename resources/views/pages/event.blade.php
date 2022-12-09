@@ -37,7 +37,7 @@
                                 </a>
                                 <div class="bg-white m-body">
                                     <span class="date">{{ $event->start_date }}</span>
-                                    <h3><a href="index.html">{{ $event->title }}</a></h3>
+                                    <h3><a href="{{ route('event.detail', $event->slug) }}">{{ $event->title }}</a></h3>
                                     <p>{!! Str::limit($event->description, 100) !!}</p>
 
                                     <a href="{{ route('event.detail', $event->slug) }}"

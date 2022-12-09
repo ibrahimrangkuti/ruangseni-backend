@@ -182,8 +182,11 @@ class PagesController extends Controller
     public function create_post_event($slug)
     {
         if(!Auth::check()) {
+            Alert::warning('Silakan login terlebih dahulu!');
             return back();
         }
+
+
         $category = Category::all();
         $event = Event::where('slug', $slug)->first();
         return view('pages.create_post_event', ['title' => 'Create Post ' . $event->title], compact('event', 'category'));

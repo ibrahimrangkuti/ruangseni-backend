@@ -22,22 +22,20 @@
 
     <div class="section">
         <div class="container">
-            <div class="row mb-5">
+            <div class="row align-items-center mb-5">
                 <div class="col-lg-4">
-                    <img src="{{ asset('thumbnail/' . $event->thumbnail) }}" alt="" width="400"
+                    <img src="{{ asset('thumbnail/' . $event->thumbnail) }}" alt="" width="600"
                         class="img-fluid rounded shadow-lg">
                 </div>
                 <div class="col-lg-6 mt-5">
-                    <h1 class="text-primary">{{ $event->title }}</h1>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 class="text-primary">{{ $event->title }}</h1>
+                        <a href="{{ route('leaderboard') }}">Lihat Leaderboard</a>
+                    </div>
                     <hr>
                     <p>{!! $event->description !!}</p>
                     @if (Auth::check())
-                        @if (Auth::user()->role == 'siswa')
-                            <a href="{{ route('event.create', $event->slug) }}" class="btn btn-primary">Ikuti Event</a>
-                            <a href="{{ route('leaderboard.event', $event->slug) }}" class="float-end btn btn-primary">Leaderboard</a>
-                        @endif
-                    @else
-                        <a href="{{ route('login.index') }}" class="btn btn-primary">Ikuti Event</a>
+                        <a href="{{ route('event.create', $event->slug) }}" class="btn btn-primary">Ikuti Event</a>
                     @endif
                 </div>
             </div>
