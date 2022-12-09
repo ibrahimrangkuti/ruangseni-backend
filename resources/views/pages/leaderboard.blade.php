@@ -11,8 +11,7 @@
                 <div class="col-lg-6 mx-auto text-center">
 
                     <h1 class="heading" data-aos="fade-up">Leaderboard</h1>
-                    <p class="mb-4" data-aos="fade-up">Yuk ikuti event ini, kembangkan kreatifitasmu dan jadilah yang
-                        terbaik.</p>
+                    <p class="mb-4" data-aos="fade-up">"Pemenang adalah mereka yang memiliki kemauan untuk terus bangkit kembali setelah jatuh."</p>
                 </div>
             </div>
         </div>
@@ -27,26 +26,25 @@
 
 
             @foreach ($posts as $post)
-                <div class="d-flex row justify-content-between mb-4">
+                <div class="d-flex row justify-content-between align-items-center mb-4">
+                    {{-- <span class="bg-primary"
+                        style="border-radius: 100%;  position: absolute; padding: 20px 26px; z-index: 100; color: white">{{ $loop->iteration }}</span> --}}
 
                     <div class="col-lg-12">
-                        <div class="card">
-                            <span class="bg-primary"
-                                style="border-radius: 100%;  position: absolute; padding: 20px 26px; z-index: 100; color: white">{{ $loop->iteration }}</span>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img src="{{ asset($post->img_url) }}" alt=""
-                                            class="shadow rounded img-fluid">
-                                    </div>
-                                    <div class="col-md-6 mt-5">
-                                        <h2>{{ $post->title }}</h2>
-                                        <p>{!! Str::limit($post->body, 400) !!}</p>
-                                    </div>
-                                    <div class="col-md-3 d-flex justify-content-center align-items-center">
-                                        <h5>{{ $post->like_count === null ? '0' : $post->like_count }} Likes</h4>
-                                    </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="{{ asset($post->img_url) }}" alt="" class="shadow rounded img-fluid">
+                            </div>
+                            <div class="col-md-6 mt-5">
+                                <h2>{{ $post->title }}</h2>
+                                <div>
+                                    <a href="{{ route('profile', $post->user->username) }}">{{ $post->user->name }}</a>
+                                    <span class="text-muted">{{ $post->created_at->diffForHumans() }}</span>
                                 </div>
+                                <p>{!! Str::limit($post->body, 400) !!}</p>
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-center align-items-center">
+                                <h5>{{ $post->like_count === null ? '0' : $post->like_count }} Likes</h4>
                             </div>
                         </div>
                     </div>
